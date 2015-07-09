@@ -6,7 +6,11 @@
 		<SCRIPT type="text/javascript" src="jquery.js"></SCRIPT>
 		<SCRIPT>
 			function show_table(){
-				$.submit();
+				$( "#target" ).submit(function( event ) {
+  					alert( "Handler for .submit() called." );
+  					event.preventDefault();
+				});
+				
          		$.ajax({
             	    url: "table.php",
                 	cache: false,
