@@ -20,5 +20,12 @@
 		<BODY>
 			<TABLE align='center'>
 				<TR>
-					<TD>No</TD>
+					<TD>№</TD>
 					<TD>Name</TD>
+					<TD>IP</TD>
+					<TD>HTTP</TD>
+					<TD>HTTPS</TD>
+					<TD>TEST</TD>
+					<TD>Mobile</TD>
+					<TD>M.test</TD>
+				</TR>
