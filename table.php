@@ -4,7 +4,7 @@
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
 
-	if !empty($_GET['name']) {
+	if (!empty($_GET['name'])) {
 		$name = $_GET['name'];
 		$ip = $_GET['ip'];
 		$http = $_GET['http'];
