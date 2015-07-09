@@ -41,11 +41,12 @@
 <?php
 	while ($row = mysql_fetch_assoc($result)) {
 		echo "<TR><TD>".$row['id']."</TD>";
-		echo "<TR><TD>".$row['name']."</TD>";
-		echo "<TR><TD>".$row['ip']."</TD>";
-		echo "<TR><TD><input type='checkbox' ";
+		echo "<TD>".$row['name']."</TD>";
+		echo "<TD>".$row['ip']."</TD>";
+		echo "<TD><input type='checkbox' ";
 		if ($row['id'] == 1) echo "checked";
 		echo "></TD>";
+		echo "</TR>";
 	}
 ?>
 		</TABLE>
