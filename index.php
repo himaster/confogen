@@ -15,11 +15,12 @@
 	if (!$db_selected) {
     	die ('Не удалось выбрать базу foo: ' . mysql_error());
 	}
-
+	include "header.html";
+	
 	$sql = "SELECT * FROM `domains`";
     $result = mysql_query($sql, $link)  or die(mysql_error());
 
-    include "header.html";
+    
 
 	while ($row = mysql_fetch_assoc($result)) {
 		echo "<TR><TD>".$row['id']."</TD>";
