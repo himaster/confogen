@@ -40,7 +40,7 @@
 					<?php
 						while ($row = mysql_fetch_assoc($result)) {
 							$id = $row['id'];
-            				echo "<TR><TD>$id</TD>";
+            				echo "<TR><TD>".$row['id']."</TD>";
             				
         				}
         			?>
