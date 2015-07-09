@@ -10,7 +10,7 @@
 	if (!$link) {
     	die('Ошибка соединения: ' . mysql_error());
 	}
-	$sql = "SELECT * FROM 'confogen'.'domens'";
+	$sql = "SELECT * FROM 'confogen'.'domains'";
     $result = mysql_query($sql)  or die(mysql_error());
 
 	#HTML
