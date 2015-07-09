@@ -42,7 +42,5 @@
 		echo "></TD>";
 		echo "</TR>";
 	}
+	include 'footer.html';
 ?>
-		</TABLE>
-	</BODY>
-</HTML>
