@@ -1,4 +1,5 @@
 <?php
+	echo $_POST['text'];
 	$dbuser = 'confogen';
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
@@ -13,7 +14,7 @@
 	if (!$db_selected) {
     	die ('Не удалось выбрать базу foo: ' . mysql_error());
 	}
-	
+
 	$sql = "SELECT * FROM `domains`";
     $result = mysql_query($sql, $link)  or die(mysql_error());
 
