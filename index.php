@@ -44,7 +44,19 @@
 		echo "<TD>".$row['name']."</TD>";
 		echo "<TD>".$row['ip']."</TD>";
 		echo "<TD><input type='checkbox' ";
-		if ($row['id'] == 1) echo "checked";
+		if ($row['http'] == 1) echo "checked";
+		echo "></TD>";
+		echo "<TD><input type='checkbox' ";
+		if ($row['https'] == 1) echo "checked";
+		echo "></TD>";
+		echo "<TD><input type='checkbox' ";
+		if ($row['test'] == 1) echo "checked";
+		echo "></TD>";
+		echo "<TD><input type='checkbox' ";
+		if ($row['m'] == 1) echo "checked";
+		echo "></TD>";
+		echo "<TD><input type='checkbox' ";
+		if ($row['mtest'] == 1) echo "checked";
 		echo "></TD>";
 		echo "</TR>";
 	}
