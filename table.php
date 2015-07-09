@@ -1,8 +1,20 @@
 <?php
-	echo $_GET['name'];
+	
 	$dbuser = 'confogen';
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
+
+	if !empty($_GET['name']) {
+		$name = $_GET['name'];
+		$ip = $_GET['ip'];
+		$http = $_GET['http'];
+		$https = $_GET['https'];
+		$test = $_GET['test'];
+		$m = $_GET['m'];
+		$mtest = $_GET['mtest'];
+
+		echo $name.$ip.$http.$https.$test.$m.$mtest;
+	}
 
 	#DB
 	$link = mysql_connect('localhost', $dbuser, $dbpassword);

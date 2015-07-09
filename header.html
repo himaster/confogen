@@ -5,8 +5,8 @@
 		<TITLE>ConfoGen</TITLE>
 		<SCRIPT type="text/javascript" src="jquery.js"></SCRIPT>
 		<SCRIPT>
-			function show_table(name){
-				var dataString = '&name=' + name; 
+			function show_table(name, ip){
+				var dataString = '?name=' + name + '&ip=' + ip; 
          		$.ajax({
             	    url: "table.php",
             	    data: dataString,
