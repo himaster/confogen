@@ -20,7 +20,7 @@
 		<BODY>
 			<TABLE align='center'>
 				<TR>
-					<TD>№</TD>
+					<TD>#</TD>
 					<TD>Name</TD>
 					<TD>IP</TD>
 					<TD>HTTP</TD>
