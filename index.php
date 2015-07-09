@@ -16,7 +16,7 @@
     	die ('Не удалось выбрать базу foo: ' . mysql_error());
 	}
 
-	$sql = "SELECT * FROM 'domains'";
+	$sql = "SELECT * FROM `domains`";
     $result = mysql_query($sql, $link)  or die(mysql_error());
 
 	#HTML
