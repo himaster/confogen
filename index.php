@@ -18,27 +18,9 @@
 
 	$sql = "SELECT * FROM `domains`";
     $result = mysql_query($sql, $link)  or die(mysql_error());
-?>
 
-<!-- HTML -->
+    include "header.html";
 
-<HTML>
-	<HEAD>
-		<TITLE>ConfoGen</TITLE>
-	</HEAD>
-	<BODY>
-		<TABLE align='center'>
-			<TR>
-				<TD>#</TD>
-				<TD>Name</TD>
-				<TD>IP</TD>
-				<TD>HTTP</TD>
-				<TD>HTTPS</TD>
-				<TD>TEST</TD>
-				<TD>Mobile</TD>
-				<TD>M.test</TD>
-			</TR>
-<?php
 	while ($row = mysql_fetch_assoc($result)) {
 		echo "<TR><TD>".$row['id']."</TD>";
 		echo "<TD>".$row['name']."</TD>";
