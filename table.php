@@ -1,5 +1,5 @@
 <?php
-	echo $_POST['text'];
+	echo $_GET['name'];
 	$dbuser = 'confogen';
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';

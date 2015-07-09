@@ -5,11 +5,11 @@
 		<TITLE>ConfoGen</TITLE>
 		<SCRIPT type="text/javascript" src="jquery.js"></SCRIPT>
 		<SCRIPT>
-			function show_table(){
-				$( "#target" ).submit();
-
+			function show_table(name){
+				var dataString = '&name=' + name; 
          		$.ajax({
             	    url: "table.php",
+            	    data: dataString,
                 	cache: false,
                 	success: function(html){
 						$('#table_div').html(html);
