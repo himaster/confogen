@@ -37,3 +37,17 @@
 					<TD>Mobile</TD>
 					<TD>M.test</TD>
 				</TR>
+				<TR>
+					<?php
+						while ($row = mysql_fetch_assoc($result)) {
+            				$id = $row['id'];
+            				echo "<TD>$id</TD>";
+            				$name = $row['name'];
+            				$ip = $row['ip'];
+            				$http = $row['http'];
+            				$https = $row['https'];
+            				$test = $row['test'];
+            				$m = $row['m'];
+            				$mtest = $row['mtest'];
+
+        				}
