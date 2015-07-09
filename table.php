@@ -2,7 +2,15 @@
 	$sql = "SELECT * FROM `domains`";
     $result = mysql_query($sql, $link)  or die(mysql_error());
 
-    
+    echo "<TABLE align='center'>";
+	echo "<TR><TD>#</TD>";
+	echo "<TD>Name</TD>";
+	echo "<TD>IP</TD>";
+	echo "<TD>HTTP</TD>";
+	echo "<TD>HTTPS</TD>";
+	echo "<TD>TEST</TD>";
+	echo "<TD>Mobile</TD>";
+	echo "<TD>M.test</TD></TR>";
 
 	while ($row = mysql_fetch_assoc($result)) {
 		echo "<TR><TD>".$row['id']."</TD>";

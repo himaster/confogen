@@ -15,9 +15,10 @@
 	if (!$db_selected) {
     	die ('Не удалось выбрать базу foo: ' . mysql_error());
 	}
+
 	include "header.html";
 	
-	include "table.php";
-	
+	#include "table.php";
+
 	include 'footer.html';
 ?>

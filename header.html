@@ -3,17 +3,21 @@
 <HTML>
 	<HEAD>
 		<TITLE>ConfoGen</TITLE>
+		<SCRIPT type="text/javascript" src="jquery.js"></SCRIPT>
+		<SCRIPT>
+			function show_table(){
+         	   $.ajax({
+            	    url: "table.php",
+                	cache: false,
+                	success: function(html){
+						$("table_div").html(html);
+                	},
+                	error: function(){
+            			$.ajax(this);
+            		}
+            	});
+        	}
+        </SCRIPT>
 	</HEAD>
 	<BODY>
-		<DIV>
-			<TABLE align='center'>
-				<TR>
-					<TD>#</TD>
-					<TD>Name</TD>
-					<TD>IP</TD>
-					<TD>HTTP</TD>
-					<TD>HTTPS</TD>
-					<TD>TEST</TD>
-					<TD>Mobile</TD>
-					<TD>M.test</TD>
-				</TR>
+		<DIV id="table_div">
