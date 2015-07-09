@@ -39,7 +39,8 @@
 				</TR>
 					<?php
 						while ($row = mysql_fetch_assoc($result)) {
-            				echo "<TR><TD>";
+            				echo "<TR><TD>$row['id']</TD>";
+            				
         				}
         			?>
         	</TABLE>
