@@ -18,31 +18,36 @@
 
 	$sql = "SELECT * FROM `domains`";
     $result = mysql_query($sql, $link)  or die(mysql_error());
+?>
 
-	#HTML
-	?>
-	<HTML>
-		<HEAD>
-			<TITLE>ConfoGen</TITLE>
-		</HEAD>
-		<BODY>
-			<TABLE align='center'>
-				<TR>
-					<TD>#</TD>
-					<TD>Name</TD>
-					<TD>IP</TD>
-					<TD>HTTP</TD>
-					<TD>HTTPS</TD>
-					<TD>TEST</TD>
-					<TD>Mobile</TD>
-					<TD>M.test</TD>
-				</TR>
-					<?php
-						while ($row = mysql_fetch_assoc($result)) {
-							$id = $row['id'];
-            				echo "<TR><TD>".$row['id']."</TD>";
-            				
-        				}
-        			?>
-        	</TABLE>
+<!-- HTML -->
 
+<HTML>
+	<HEAD>
+		<TITLE>ConfoGen</TITLE>
+	</HEAD>
+	<BODY>
+		<TABLE align='center'>
+			<TR>
+				<TD>#</TD>
+				<TD>Name</TD>
+				<TD>IP</TD>
+				<TD>HTTP</TD>
+				<TD>HTTPS</TD>
+				<TD>TEST</TD>
+				<TD>Mobile</TD>
+				<TD>M.test</TD>
+			</TR>
+<?php
+	while ($row = mysql_fetch_assoc($result)) {
+		echo "<TR><TD>".$row['id']."</TD>";
+		echo "<TR><TD>".$row['name']."</TD>";
+		echo "<TR><TD>".$row['ip']."</TD>";
+		echo "<TR><TD><input type='checkbox' ";
+		if ($row['id'] == 1) echo "checked";
+		echo "></TD>";
+	}
+?>
+		</TABLE>
+	</BODY>
+</HTML>
