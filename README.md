@@ -1,0 +1,2 @@
+# confogen
+Configuration management system
