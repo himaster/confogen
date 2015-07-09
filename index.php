@@ -39,14 +39,8 @@
 				</TR>
 					<?php
 						while ($row = mysql_fetch_assoc($result)) {
-            				echo "<TR><TD>$row['id']</TD>";
-            				echo "<TD>$row['name']</TD>";
-            				echo "<TD>$row['ip']</TD>";
-            				echo "<TD>$row['http']</TD>";
-            				echo "<TD>$row['https']</TD>";
-            				echo "<TD>$row['test']</TD>";
-            				echo "<TD>$row['m']</TD>";
-            				echo "<TD>$row['mtest']</TD></TR>";
+            				echo "<TR><TD>;
         				}
         			?>
         		</TABLE>
+        		
