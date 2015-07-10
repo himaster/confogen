@@ -20,6 +20,7 @@
             		}
             	});
         	}
+
             function rem_el(id){
                 var dataString = '&remove=1&id=' + id; 
                 $.ajax({
@@ -33,6 +34,8 @@
                         $('#status_div').html("ERROR!!!");
                     }
                 });
+            }
+
             function generate(){
                 $.ajax({
                     url: "generate.php",
@@ -45,6 +48,7 @@
                     }
                 });
             }
+            
         </SCRIPT>
 	</HEAD>
 	<BODY>
