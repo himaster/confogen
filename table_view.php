@@ -1,5 +1,4 @@
 <?php
-	include 'db.php';
 	$sql = "SELECT * FROM `domains`;";
     $result = mysql_query($sql, $link)  or die(mysql_error());
 ?>
@@ -16,9 +15,9 @@
 <TD width='60'><FONT size='2'>Remove</FONT></TD></TR>
 
 <?php while ($row = mysql_fetch_assoc($result)) { ?>
-		<TR><TD width='20'><?php $row['id'] ?></TD>
-		<TD width='140'><?php $row['name'] ?></TD>
-		<TD width='165'><?php $row['ip'] ?></TD>
+		<TR><TD width='20'><?php echo $row['id'] ?></TD>
+		<TD width='140'><?php echo $row['name'] ?></TD>
+		<TD width='165'><?php echo $row['ip'] ?></TD>
 		<TD width='40'><input type='checkbox' <?php if ($row['http'] == 1) echo "checked"; ?> ></TD>
 		<TD width='50'><input type='checkbox' <?php if ($row['https'] == 1) echo "checked"; ?> ></TD>
 		<TD width='45'><input type='checkbox' <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>
