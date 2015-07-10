@@ -7,7 +7,10 @@
 		<SCRIPT>
             function submit() {
                 if (document.getElementById('name').value != '' && document.getElementById('ip').value != '') {
-                        show_table(document.getElementById('name').value, document.getElementById('ip').value, document.getElementById('http').checked, document.getElementById('https').checked, document.getElementById('test').checked, document.getElementById('m').checked, document.getElementById('mtest').checked); 
+                        show_table(document.getElementById('name').value, 
+                            document.getElementById('ip').value, 
+                            document.getElementById('http').checked, 
+                            document.getElementById('https').checked, document.getElementById('test').checked, document.getElementById('m').checked, document.getElementById('mtest').checked); 
                         document.getElementById('name').value = ''; 
                         document.getElementById('ip').value = ''; 
                         document.getElementById('http').checked = false; 
