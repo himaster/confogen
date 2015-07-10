@@ -18,7 +18,6 @@
 		$test = $_GET['test'];
 		$m = $_GET['m'];
 		$mtest = $_GET['mtest'];
-		echo $cert;
 		$sql = "INSERT INTO `domains` (name, ip, http, https, test, m, mtest, cert) VALUES (\"$name\", \"$ip\", $http, $https, $test, $m, $mtest, \"$cert\");";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
