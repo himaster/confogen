@@ -12,7 +12,7 @@
     	$test = $row['test'];
     	$m = $row['m'];
     	$mtest = $row['mtest'];
-    	$file = $workdir$name'.conf';
+    	$file = $workdir.$name.'.conf';
     	echo($file);
     	#file_put_contents($file, $current);
     }
