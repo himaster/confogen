@@ -33,7 +33,7 @@
     echo "<TABLE align='center'>";
 	echo "<TR><TD width='20'>#</TD>";
 	echo "<TD width='140'>Name</TD>";
-	echo "<TD>IP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>";
+	echo "<TD>IP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>";
 	echo "<TD>HTTP</TD>";
 	echo "<TD>HTTPS</TD>";
 	echo "<TD>TEST</TD>";
