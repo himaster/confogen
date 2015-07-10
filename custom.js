@@ -1,0 +1,68 @@
+    <!--
+    function submit() {
+                if (document.getElementById('name').value != '' && document.getElementById('ip').value != '') {
+                        show_table(document.getElementById('name').value, 
+                            document.getElementById('ip').value, 
+                            document.getElementById('http').checked, 
+                            document.getElementById('https').checked, 
+                            document.getElementById('test').checked, 
+                            document.getElementById('m').checked, 
+                            document.getElementById('mtest').checked); 
+                        document.getElementById('name').value = ''; 
+                        document.getElementById('ip').value = ''; 
+                        document.getElementById('http').checked = false; 
+                        document.getElementById('https').checked = false; 
+                        document.getElementById('test').checked = false; 
+                        document.getElementById('m').checked = false; 
+                        document.getElementById('mtest').checked = false;
+                }
+            }
+
+			function show_table(name, ip, http, https, test, m, mtest){
+				var dataString = '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
+         		$.ajax({
+            	    url: "table.php",
+            	    data: dataString,
+                	cache: false,
+                	success: function(html){
+						$('#table_div').html(html);
+                        $('#status_div').html("Updated.");
+                        setTimeout("document.getElementById('status_div').innerHTML = ''", 5000);
+                	},
+                	error: function(){
+            			$('#status_div').html("ERROR!!!");
+            		}
+            	});
+        	}
+
+            function rem_el(id){
+                var dataString = '&remove=1&id=' + id; 
+                $.ajax({
+                    url: "table.php",
+                    data: dataString,
+                    cache: false,
+                    success: function(html){
+                        $('#table_div').html(html);
+                        $('#status_div').html("Deleted.");
+                        setTimeout("document.getElementById('status_div').innerHTML = ''", 5000);
+                    },
+                    error: function(){
+                        $('#status_div').html("ERROR!!!");
+                    }
+                });
+            }
+
+            function generate(){
+                $.ajax({
+                    url: "generate.php",
+                    cache: false,
+                    success: function(html){
+                        $('#status_div').html("Generated.");
+                        setTimeout("document.getElementById('status_div').innerHTML = ''", 5000);
+                    },
+                    error: function(){
+                        $('#status_div').html("ERROR!!!");
+                    }
+                });
+            }
+    -->

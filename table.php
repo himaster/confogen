@@ -24,5 +24,5 @@
 
 	$sql = "SELECT * FROM `domains`;";
     $result = mysql_query($sql, $link)  or die(mysql_error());
-    
-    include 'table_view.php';
+
+    include 'table_view.html';
