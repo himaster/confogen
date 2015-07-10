@@ -46,7 +46,7 @@
 	echo "<TD width='50'>HTTPS</TD>";
 	echo "<TD width='45'>TEST</TD>";
 	echo "<TD width='50'>Mobile</TD>";
-	echo "<TD width='40'>M.test</TD>";
+	echo "<TD width='60'>M.test</TD>";
 	echo "<TD width='60'>Remove</TD></TR>";
 
 	while ($row = mysql_fetch_assoc($result)) {
@@ -65,7 +65,7 @@
 		echo "<TD width='50'><input type='checkbox' ";
 		if ($row['m'] == 1) echo "checked";
 		echo "></TD>";
-		echo "<TD width='40'><input type='checkbox' ";
+		echo "<TD width='60'><input type='checkbox' ";
 		if ($row['mtest'] == 1) echo "checked";
 		echo "></TD>";
 		echo "<TD width='60'><A href='javascript:rem_el(".$row['id'].")'>x</A></TD></TR>";
