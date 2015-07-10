@@ -25,6 +25,7 @@
 		$mtest = $_GET['mtest'];
 
 		$sql = "INSERT INTO `domains` (name, ip, http, https, test, m, mtest) VALUES (" + $name + ", " + $ip + ", $http, $https, $test, $m, $mtest);";
+		echo $sql;
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 
