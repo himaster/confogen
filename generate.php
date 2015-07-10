@@ -15,8 +15,11 @@
     	$file = $workdir.$name.'.conf';
 
     	$handle = fopen($file, "w+");
-    	fwrite($handle, "## Add www \n");
-    	fwrite($handle, "server { \n");
+    	fwrite($handle, "## Add www\n");
+    	fwrite($handle, "server {\n");
+    	fwrite($handle, "    listen ".$ip.":80;\n");
+    	
+
     	fclose($handle);
 
     }
