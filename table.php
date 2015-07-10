@@ -47,7 +47,7 @@
 	echo "<TD width='45'>TEST</TD>";
 	echo "<TD width='50'>Mobile</TD>";
 	echo "<TD width='40'>M.test</TD>";
-	echo "<TD width='40'>Remove</TD></TR>";
+	echo "<TD width='50'>Remove</TD></TR>";
 
 	while ($row = mysql_fetch_assoc($result)) {
 		echo "<TR><TD>".$row['id']."</TD>";
