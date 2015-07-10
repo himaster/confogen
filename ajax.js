@@ -4,22 +4,24 @@ function submit() {
                     show_table(document.getElementById('name').value, 
                         document.getElementById('ip').value, 
                         document.getElementById('http').checked, 
-                        document.getElementById('https').checked, 
+                        document.getElementById('https').checked,
+                        document.getElementById('cert').checked,
                         document.getElementById('test').checked, 
                         document.getElementById('m').checked, 
                         document.getElementById('mtest').checked); 
                     document.getElementById('name').value = ''; 
                     document.getElementById('ip').value = ''; 
                     document.getElementById('http').checked = false; 
-                    document.getElementById('https').checked = false; 
+                    document.getElementById('https').checked = false;
+                    document.getElementById('cert').value = '';
                     document.getElementById('test').checked = false; 
                     document.getElementById('m').checked = false; 
                     document.getElementById('mtest').checked = false;
             }
         }
 
-function show_table(name, ip, http, https, test, m, mtest){
-	var dataString = '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
+function show_table(name, ip, http, https, cert, test, m, mtest){
+	var dataString = '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
 		$.ajax({
 	    url: "table.php",
 	    data: dataString,

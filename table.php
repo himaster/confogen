@@ -14,11 +14,12 @@
 		$ip = $_GET['ip'];
 		$http = $_GET['http'];
 		$https = $_GET['https'];
+		$cert = $_GET['cert'];
 		$test = $_GET['test'];
 		$m = $_GET['m'];
 		$mtest = $_GET['mtest'];
 
-		$sql = "INSERT INTO `domains` (name, ip, http, https, test, m, mtest) VALUES (\"$name\", \"$ip\", $http, $https, $test, $m, $mtest);";
+		$sql = "INSERT INTO `domains` (name, ip, http, https, cert, test, m, mtest) VALUES (\"$name\", \"$ip\", \"$cert\", $http, $https, $test, $m, $mtest);";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 
