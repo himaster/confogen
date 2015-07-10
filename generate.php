@@ -28,9 +28,7 @@
 	    	fwrite($handle, "	location / {\n");
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For			\$proxy_add_x_forwarded_for;\n\n	}\n}\n\n");
-	    	
-	    	
+	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For		\$proxy_add_x_forwarded_for;\n\n	}\n}\n\n");
     	}
 
     	fclose($handle);
