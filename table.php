@@ -13,9 +13,9 @@
 	if (!$db_selected) {
     	die ('Не удалось выбрать базу foo: ' . mysql_error());
 	}
-
+	echo $_GET['remove'];
 	#element delete
-	if ($_GET['remove']){
+	if (isset($_GET['remove'])) {
 		$id = $_GET['id'];
 		$sql = "DELETE FROM `domains` WHERE id=$id;";
 	}
