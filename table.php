@@ -33,12 +33,12 @@
     echo "<TABLE align='center'>";
 	echo "<TR><TD width='20'>#</TD>";
 	echo "<TD width='140'>Name</TD>";
-	echo "<TD width='140'>IP</TD>";
-	echo "<TD>HTTP</TD>";
-	echo "<TD>HTTPS</TD>";
-	echo "<TD>TEST</TD>";
-	echo "<TD>Mobile</TD>";
-	echo "<TD>M.test</TD></TR>";
+	echo "<TD width='165'>IP</TD>";
+	echo "<TD width='40'>HTTP</TD>";
+	echo "<TD width='50'>HTTPS</TD>";
+	echo "<TD width='45'>TEST</TD>";
+	echo "<TD width='50'>Mobile</TD>";
+	echo "<TD width='40'>M.test</TD></TR>";
 
 	while ($row = mysql_fetch_assoc($result)) {
 		echo "<TR><TD>".$row['id']."</TD>";
