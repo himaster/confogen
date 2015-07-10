@@ -21,7 +21,7 @@ function submit() {
         }
 
 function show_table(name, ip, http, https, cert, test, m, mtest){
-	var dataString = '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
+	var dataString = '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert=' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
 		$.ajax({
 	    url: "table.php",
 	    data: dataString,
