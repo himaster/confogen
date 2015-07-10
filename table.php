@@ -50,24 +50,23 @@
 	echo "<TD width='60'>Remove</TD></TR>";
 
 	while ($row = mysql_fetch_assoc($result)) {
-		echo "<TR><TD>".$row['id']."</TD>";
-		echo "<TD>".$row['name']."</TD>";
-		echo "<TD>".$row['ip']."</TD>";
-		echo "<TD><input type='checkbox' ";
+		echo "<TR><TD width='20'>".$row['id']."</TD>";
+		echo "<TD width='140'>".$row['name']."</TD>";
+		echo "<TD width='165'>".$row['ip']."</TD>";
+		echo "<TD width='40'><input type='checkbox' ";
 		if ($row['http'] == 1) echo "checked";
 		echo "></TD>";
-		echo "<TD><input type='checkbox' ";
+		echo "<TD width='50'><input type='checkbox' ";
 		if ($row['https'] == 1) echo "checked";
 		echo "></TD>";
-		echo "<TD><input type='checkbox' ";
+		echo "<TD width='45'><input type='checkbox' ";
 		if ($row['test'] == 1) echo "checked";
 		echo "></TD>";
-		echo "<TD><input type='checkbox' ";
+		echo "<TD width='50'><input type='checkbox' ";
 		if ($row['m'] == 1) echo "checked";
 		echo "></TD>";
-		echo "<TD><input type='checkbox' ";
+		echo "<TD width='40'><input type='checkbox' ";
 		if ($row['mtest'] == 1) echo "checked";
 		echo "></TD>";
-		echo "<TD><A href='javascript:rem_el(".$row['id'].")'>x</A></TD>";
-		echo "</TR>";
+		echo "<TD width='60'><A href='javascript:rem_el(".$row['id'].")'>x</A></TD></TR>";
 	}
