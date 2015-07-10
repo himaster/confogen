@@ -27,7 +27,7 @@
                 	success: function(html){
 						$('#table_div').html(html);
                         $('#status_div').html("Updated.");
-                        setTimeout("document.getElementById('status_div').innerHTML = ''", 5000);
+                        setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
                 	},
                 	error: function(){
             			$('#status_div').html("ERROR!!!");
@@ -44,7 +44,7 @@
                     success: function(html){
                         $('#table_div').html(html);
                         $('#status_div').html("Deleted.");
-                        setTimeout("document.getElementById('status_div').innerHTML = ''", 5000);
+                        setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
                     },
                     error: function(){
                         $('#status_div').html("ERROR!!!");
@@ -58,7 +58,7 @@
                     cache: false,
                     success: function(html){
                         $('#status_div').html("Generated.");
-                        setTimeout("document.getElementById('status_div').innerHTML = ''", 5000);
+                        setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
                     },
                     error: function(){
                         $('#status_div').html("ERROR!!!");

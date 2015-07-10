@@ -1,0 +1,11 @@
+.status {
+            color: gray; 
+            font-size: 12px;
+}
+
+.delete {
+    color: gray; 
+    font-size: 15px;
+    text-decoration: none;
+    text-align: center;
+}
