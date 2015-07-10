@@ -16,6 +16,7 @@
 
     	$handle = fopen($file, "w+");
     	fwrite($handle, "## Add www");
+    	fwrite($handle, "server {");
     	fclose($handle);
 
     }
