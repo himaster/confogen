@@ -18,10 +18,18 @@
     	if ($http) {
     		fwrite($handle, "## Add www\n");
     		fwrite($handle, "server {\n");
-    		fwrite($handle, "    listen ".$ip.":80;\n");
-    		fwrite($handle, "    server_name ".$name.";\n\n");
-	    	fwrite($handle, "    rewrite  ^/(.*)$  http://www.".$name."/$1  permanent;\n}\n");
-	    	fwrite($handle, "## HTTP");
+    		fwrite($handle, "	listen ".$ip.":80;\n");
+    		fwrite($handle, "	server_name ".$name.";\n\n");
+	    	fwrite($handle, "	rewrite  ^/(.*)$  http://www.".$name."/$1  permanent;\n}\n\n");
+	    	fwrite($handle, "## HTTP\n");
+	    	fwrite($handle, "server {\n");
+    		fwrite($handle, "	listen ".$ip.":80;\n");
+    		fwrite($handle, "	server_name www.".$name.";\n\n");
+	    	fwrite($handle, "	location / {\n");
+	    	fwrite($handle, "		proxy_set_header	Host			$http_host;\n");
+	    	fwrite($handle, "		proxy_set_header	X-Real-IP		$remote_addr;\n");
+	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	$proxy_add_x_forwarded_for;\n\n	}\n}\n\n");
+	    	
 	    	
     	}
 
