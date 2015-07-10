@@ -1,3 +1,8 @@
+<?php
+	$sql = "SELECT * FROM `domains`;";
+    $result = mysql_query($sql, $link)  or die(mysql_error());
+?>
+
 <TABLE align='center'>
 <TR><TD width='20'>#</TD>
 <TD width='140'>Name</TD>
