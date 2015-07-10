@@ -20,7 +20,7 @@
             	});
         	}
             function rem_el(id){
-                var dataString = '&id=' + id; 
+                var dataString = '&remove=true&id=' + id; 
                 $.ajax({
                     url: "table.php",
                     data: dataString,
