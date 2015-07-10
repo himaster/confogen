@@ -1,20 +1,7 @@
 <?php
-	
 	$dbuser = 'confogen';
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
-
-	if (!empty($_GET['name'])) {
-		$name = $_GET['name'];
-		$ip = $_GET['ip'];
-		$http = $_GET['http'];
-		$https = $_GET['https'];
-		$test = $_GET['test'];
-		$m = $_GET['m'];
-		$mtest = $_GET['mtest'];
-
-		echo $name.$ip.$http.$https.$test.$m.$mtest;
-	}
 
 	#DB
 	$link = mysql_connect('localhost', $dbuser, $dbpassword);
@@ -27,7 +14,21 @@
     	die ('Не удалось выбрать базу foo: ' . mysql_error());
 	}
 
-	$sql = "SELECT * FROM `domains`";
+	#Form submit
+	if (!empty($_GET['name']) && !empty($_GET['ip'])) {
+		$name = $_GET['name'];
+		$ip = $_GET['ip'];
+		$http = $_GET['http'];
+		$https = $_GET['https'];
+		$test = $_GET['test'];
+		$m = $_GET['m'];
+		$mtest = $_GET['mtest'];
+
+		$sql = "INSERT INTO `domains` (name, ip, http, https, test, m, mtest) VALUES ($name, $ip, $http, $https, $test, $m, $mtest);";
+		$result = mysql_query($sql, $link)  or die(mysql_error());
+	}
+
+	$sql = "SELECT * FROM `domains`;";
     $result = mysql_query($sql, $link)  or die(mysql_error());
 
     echo "<TABLE align='center'>";
