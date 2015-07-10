@@ -67,6 +67,6 @@
 		echo "<TD><input type='checkbox' ";
 		if ($row['mtest'] == 1) echo "checked";
 		echo "></TD>";
-		echo "<TD><A href=\"javascript:rem_el($row['id'])\">x</A></TD>";
+		echo "<TD><A href='javascript:rem_el(".$row['id'].")'>x</A></TD>";
 		echo "</TR>";
 	}
