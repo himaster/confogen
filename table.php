@@ -13,11 +13,12 @@
 	if (!$db_selected) {
     	die ('Не удалось выбрать базу foo: ' . mysql_error());
 	}
-	echo $_GET['remove'];
+	
 	#element delete
 	if (isset($_GET['remove'])) {
 		$id = $_GET['id'];
 		$sql = "DELETE FROM `domains` WHERE id=$id;";
+		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 
 	#Form submit
@@ -31,7 +32,6 @@
 		$mtest = $_GET['mtest'];
 
 		$sql = "INSERT INTO `domains` (name, ip, http, https, test, m, mtest) VALUES (\"$name\", \"$ip\", $http, $https, $test, $m, $mtest);";
-		echo $sql;
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 
