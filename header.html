@@ -19,6 +19,20 @@
             		}
             	});
         	}
+            function rem_el(id){
+                var dataString = '&name=' + id; 
+                $.ajax({
+                    url: "table.php",
+                    data: dataString,
+                    cache: false,
+                    success: function(html){
+                        $('#table_div').html(html);
+                    },
+                    error: function(){
+                        $('#table_div').html("ERROR!!!");
+                    }
+                });
+            }
         </SCRIPT>
 	</HEAD>
 	<BODY>
