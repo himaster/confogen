@@ -14,7 +14,7 @@
                 	success: function(html){
 						$('#table_div').html(html);
                         $('#status_div').html("Updated.");
-                        setTimeout("document.getElementById('status_div').value = 'xxx'", 5000);
+                        setTimeout("document.getElementById('status_div').innerHTML = 'xxx'", 5000);
                 	},
                 	error: function(){
             			$('#status_div').html("ERROR!!!");
@@ -31,7 +31,7 @@
                     success: function(html){
                         $('#table_div').html(html);
                         $('#status_div').html("Deleted.");
-                        setTimeout("document.getElementById('status_div').value = 'xxx'", 5000);
+                        setTimeout("document.getElementById('status_div').innerHTML = 'xxx'", 5000);
                     },
                     error: function(){
                         $('#status_div').html("ERROR!!!");
