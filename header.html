@@ -13,8 +13,7 @@
                 	cache: false,
                 	success: function(html){
 						$('#table_div').html(html);
-                        $('#status_div').html("Updated.");
-                        setTimeout("document.getElementById('status_div').value = ''", 5000);
+                        
                 	},
                 	error: function(){
             			$('#status_div').html("ERROR!!!");
