@@ -31,8 +31,8 @@
     $result = mysql_query($sql, $link)  or die(mysql_error());
 
     echo "<TABLE align='center'>";
-	echo "<TR><TD>#</TD>";
-	echo "<TD>Name</TD>";
+	echo "<TR><TD width='10'>#</TD>";
+	echo "<TD width='40'>Name</TD>";
 	echo "<TD>IP</TD>";
 	echo "<TD>HTTP</TD>";
 	echo "<TD>HTTPS</TD>";
