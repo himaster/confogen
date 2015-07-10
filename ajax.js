@@ -5,7 +5,7 @@ function submit() {
                         document.getElementById('ip').value, 
                         document.getElementById('http').checked, 
                         document.getElementById('https').checked,
-                        document.getElementById('cert').checked,
+                        document.getElementById('cert').value,
                         document.getElementById('test').checked, 
                         document.getElementById('m').checked, 
                         document.getElementById('mtest').checked); 
