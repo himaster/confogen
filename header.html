@@ -28,8 +28,6 @@
                     cache: false,
                     success: function(html){
                         $('#table_div').html(html);
-                        $('#status_div').html("Deleted.");
-                        setTimeout("document.getElementById('status_div').value = ''", 5000);
                     },
                     error: function(){
                         $('#status_div').html("ERROR!!!");
@@ -41,7 +39,6 @@
                     cache: false,
                     success: function(html){
                         $('#status_div').html("Generated.");
-                        setTimeout("document.getElementById('status_div').value = ''", 5000);
                     },
                     error: function(){
                         $('#status_div').html("ERROR!!!");
