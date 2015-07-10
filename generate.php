@@ -15,8 +15,8 @@
     	$file = $workdir.$name.'.conf';
 
     	$handle = fopen($file, "w+");
-    	fwrite($handle, "## Add www");
-    	fwrite($handle, "server {");
+    	fwrite($handle, "## Add www \n");
+    	fwrite($handle, "server { \n");
     	fclose($handle);
 
     }
