@@ -32,6 +32,17 @@
                         $('#table_div').html("ERROR!!!");
                     }
                 });
+            function generate(){
+                $.ajax({
+                    url: "generate.php",
+                    cache: false,
+                    success: function(html){
+                        $('#status_div').html("Success");
+                    },
+                    error: function(){
+                        $('#status_div').html("ERROR!!!");
+                    }
+                });
             }
         </SCRIPT>
 	</HEAD>
