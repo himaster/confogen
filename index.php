@@ -5,7 +5,7 @@
 
 	include "header.html";
 	
-	#include "table.php";
+	include "table.php";
 
 	include 'footer.html';
 ?>
