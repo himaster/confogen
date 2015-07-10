@@ -13,10 +13,10 @@
 		<TR><TD width='20'><?php $row['id'] ?></TD>
 		<TD width='140'><?php $row['name'] ?></TD>
 		<TD width='165'><?php $row['ip'] ?></TD>
-		<TD width='40'><input type='checkbox' <?php if ($row['http'] == 1) echo "checked"; ?> ></TD>;
-		<TD width='50'><input type='checkbox' <?php if ($row['https'] == 1) echo "checked"; ?> ></TD>;
-		<TD width='45'><input type='checkbox' <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>;
-		<TD width='50'><input type='checkbox' <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>;
-		<TD width='60'><input type='checkbox' <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>;
-		<TD width='60'><A href='javascript:rem_el(<?php $row['id'] ?>)'>x</A></TD></TR>;
+		<TD width='40'><input type='checkbox' <?php if ($row['http'] == 1) echo "checked"; ?> ></TD>
+		<TD width='50'><input type='checkbox' <?php if ($row['https'] == 1) echo "checked"; ?> ></TD>
+		<TD width='45'><input type='checkbox' <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>
+		<TD width='50'><input type='checkbox' <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
+		<TD width='60'><input type='checkbox' <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
+		<TD width='60'><A href='javascript:rem_el(<?php $row['id'] ?>)'>x</A></TD></TR>
 <?php } ?>
