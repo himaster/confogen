@@ -1,6 +1,7 @@
 <?php
 	include 'db.php';
 	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
+	$certdir = '/etc/nginx/certs/';
 	$sql = "SELECT * FROM `domains`;";
     $result = mysql_query($sql, $link)  or die(mysql_error());
     while ($row = mysql_fetch_assoc($result)) {
@@ -12,7 +13,10 @@
     	$test = $row['test'];
     	$m = $row['m'];
     	$mtest = $row['mtest'];
+    	$cert = $row['cert'];
+    	
     	$file = $workdir.$name.'.conf';
+    	$certfile = $certdir.$cert;
 
     	$handle = fopen($file, "w+");
     	if ($http) {
@@ -36,7 +40,10 @@
     		fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":443 ssl;\n");
     		fwrite($handle, "	server_name ".$name.";\n\n");
-	    	fwrite($handle, "	rewrite  ^/(.*)$  https://www.".$name."/$1  permanent;\n}\n\n");
+    		fwrite($handle, "	ssl				on;\n");
+			fwrite($handle, "	ssl_certificate	".$certfile.".crt;\n");
+			fwrite($handle, "	ssl_certificate_key	".$certfile.".key;\n\n");
+	    	fwrite($handle, "	rewrite			^/(.*)$  https://www.".$name."/$1  permanent;\n}\n\n");
 	    	fwrite($handle, "## HTTPS\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":443 ssl;\n");
