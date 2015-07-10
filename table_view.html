@@ -8,7 +8,7 @@
 <TD width='45'>TEST</TD>
 <TD width='50'>Mobile</TD>
 <TD width='60'>M.test</TD>
-<TD width='60'><FONT size='2'>Remove</FONT></TD></TR>
+<TD width='50'><FONT size='2'>Remove</FONT></TD></TR>
 
 <?php while ($row = mysql_fetch_assoc($result)) { ?>
 		<TR><TD width='20'><?php echo $row['id'] ?></TD>
@@ -19,5 +19,5 @@
 		<TD width='45'><input type='checkbox' <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>
 		<TD width='50'><input type='checkbox' <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
 		<TD width='60'><input type='checkbox' <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
-		<TD width='60' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>x</A></TD></TR>
+		<TD width='50' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>x</A></TD></TR>
 <?php } ?>
