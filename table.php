@@ -22,11 +22,11 @@
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 
-	$sql = "SELECT MAX(id) AS `max_id` FROM `domains`;";
-	$result = mysql_query($sql, $link)  or die(mysql_error());
-	$row = mysql_fetch_assoc($result);
-	$max_id = $row['max_id'];
-	echo $max_id;
+	$sql    = "SHOW TABLE STATUS LIKE `domains`";
+	$result = mysql_query($sql);
+	$array  = mysql_fetch_array($result);
+	$max_id = $array['Auto_increment'];
+
 	$sql = "SELECT * FROM `domains`;";
     $result = mysql_query($sql, $link)  or die(mysql_error());
 

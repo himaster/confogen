@@ -1,7 +1,8 @@
 <!--
 function submit() {
             if (document.getElementById('name').value != '' && document.getElementById('ip').value != '') {
-                    show_table(document.getElementById('name').value, 
+                    show_table(document.getElementById('id').value,
+                        document.getElementById('name').value, 
                         document.getElementById('ip').value, 
                         document.getElementById('http').checked, 
                         document.getElementById('https').checked,
@@ -20,7 +21,7 @@ function submit() {
             }
         }
 
-function show_table(name, ip, http, https, cert, test, m, mtest){
+function show_table(id, name, ip, http, https, cert, test, m, mtest){
 	var dataString = '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert=' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
 		$.ajax({
 	    url: "table.php",
