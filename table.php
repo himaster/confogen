@@ -23,7 +23,7 @@
 	}
 
 	$sql    = "SHOW TABLE STATUS LIKE `domains`";
-	$result = mysql_query($sql);
+	$result = mysql_query($sql, $link)  or die(mysql_error());
 	$array  = mysql_fetch_array($result);
 	$max_id = $array['Auto_increment'];
 	echo $max_id;
