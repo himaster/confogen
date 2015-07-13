@@ -72,12 +72,12 @@ function generate(){
 $(document).ready(function() { 
     $("INPUT#https").toggle(function() { 
         // Отображаем скрытый блок 
-        $("DIV#cert").fadeIn(); // fadeIn - плавное появление
+        $("INPUT#cert").fadeIn(); // fadeIn - плавное появление
         return false; // не производить переход по ссылке
     },  
     function() { 
         // Скрываем блок 
-        $("DIV#cert").fadeOut(); // fadeOut - плавное исчезновение 
+        $("INPUT#cert").fadeOut(); // fadeOut - плавное исчезновение 
         return false; // не производить переход по ссылке
     }); // end of toggle() 
 }); // end of ready() 
