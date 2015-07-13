@@ -73,7 +73,7 @@ $(document).ready(function() {
     $("INPUT#https").toggle(function() { 
         // Отображаем скрытый блок 
         $("INPUT#cert").fadeIn(); // fadeIn - плавное появление
-        document.getElementById('cert').prop('checked', true);
+        $("INPUT#cert").prop('checked', true);
         //return false; // не производить переход по ссылке
     },  
     function() { 
