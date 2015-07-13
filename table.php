@@ -25,8 +25,8 @@
 	$sql = "SELECT MAX(id) AS `max_id` FROM `domains`;";
 	$result = mysql_query($sql, $link)  or die(mysql_error());
 	$row = mysql_fetch_assoc($result);
-	print_r($row);
-	print_r($result);
+	$max_id = $row['max_id'];
+	echo $max_id;
 	$sql = "SELECT * FROM `domains`;";
     $result = mysql_query($sql, $link)  or die(mysql_error());
 
