@@ -22,7 +22,7 @@
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 
-	$sql    = "SHOW TABLE STATUS LIKE `domains`";
+	$sql    = "SHOW TABLE STATUS LIKE 'domains'";
 	$result = mysql_query($sql, $link)  or die(mysql_error());
 	$array  = mysql_fetch_array($result);
 	$max_id = $array['Auto_increment'];
