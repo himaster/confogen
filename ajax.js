@@ -71,10 +71,10 @@ function generate(){
 
 $(document).ready(function() { 
     $("INPUT#https").change(function() { 
-        if ($("INPUT#https").checked) {
-            $("INPUT#cert").fadeOut(); // fadeIn - плавное появление
+        if (document.getElementById('https').checked) {
+            $("INPUT#cert").fadeIn(); // fadeIn - плавное появление
         else {
-            $("INPUT#cert").fadeIn();
+            $("INPUT#cert").fadeOut();
         }
     }); // end of toggle() 
 }); // end of ready() 
