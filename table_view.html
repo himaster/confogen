@@ -1,25 +1,49 @@
-
-<TABLE align='center'>
-<TR><TD width='20'>#</TD>
-<TD width='140'>Name</TD>
-<TD width='165'>IP</TD>
-<TD width='40'>HTTP</TD>
-<TD width='50'>HTTPS</TD>
-<TD width='140'>Cert</TD>
-<TD width='45'>TEST</TD>
-<TD width='50'>Mobile</TD>
-<TD width='60'>M.test</TD>
-<TD width='50'><FONT size='2'>Remove</FONT></TD></TR>
+<DIV id="table_div">
+	<TABLE align='center'>
+		<TR><TD width='20'>#</TD>
+		<TD width='140'>Name</TD>
+		<TD width='165'>IP</TD>
+		<TD width='40'>HTTP</TD>
+		<TD width='50'>HTTPS</TD>
+		<TD width='140'>Cert</TD>
+		<TD width='45'>TEST</TD>
+		<TD width='50'>Mobile</TD>
+		<TD width='60'>M.test</TD>
+		<TD width='50'><FONT size='2'>Remove</FONT></TD></TR>
 
 <?php while ($row = mysql_fetch_assoc($result)) { ?>
-		<TR><TD width='20'><?php echo $row['id'] ?></TD>
-		<TD width='140'><?php echo $row['name'] ?></TD>
-		<TD width='165'><?php echo $row['ip'] ?></TD>
-		<TD width='40'><input type='checkbox' <?php if ($row['http'] == 1) echo "checked"; ?> ></TD>
-		<TD width='50'><input type='checkbox' <?php if ($row['https'] == 1) echo "checked"; ?> ></TD>
-		<TD width='140'><?php echo $row['cert'] ?></TD>
-		<TD width='45'><input type='checkbox' <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>
-		<TD width='50'><input type='checkbox' <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
-		<TD width='60'><input type='checkbox' <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
-		<TD width='50' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>x</A></TD></TR>
+		<TR>
+			<TD width='20'><?php echo $row['id'] ?></TD>
+			<TD width='140'><?php echo $row['name'] ?></TD>
+			<TD width='165'><?php echo $row['ip'] ?></TD>
+			<TD width='40'><input type='checkbox' <?php if ($row['http'] == 1) echo "checked"; ?> ></TD>
+			<TD width='50'><input type='checkbox' <?php if ($row['https'] == 1) echo "checked"; ?> ></TD>
+			<TD width='140'><?php echo $row['cert'] ?></TD>
+			<TD width='45'><input type='checkbox' <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>
+			<TD width='50'><input type='checkbox' <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
+			<TD width='60'><input type='checkbox' <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
+			<TD width='50' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>x</A></TD>
+		</TR>
 <?php } ?>
+	</TABLE>
+</DIV>
+<P>
+<DIV>
+	<TABLE align="center">
+		<TR>
+			<TD width="20"><DIV id="id_div"><?php echo $max_id; ?></DIV></TD>
+			<TD width="140"><INPUT type="text" id="name" value=""></TD>
+			<TD width="165"><INPUT type="text" id="ip" Value=""></TD>
+			<TD width="40"><INPUT type="checkbox" id="http"></TD>
+			<TD width="50"><INPUT type="checkbox" id="https" ></TD>
+			<TD width="140"><INPUT type="text" id="cert" value="" style="display: none; "></TD>
+			<TD width="45"><INPUT type="checkbox" id="test"></TD>
+			<TD width="50"><INPUT type="checkbox" id="m"></TD>
+			<TD width="60"><INPUT type="checkbox" id="mtest"></TD>
+			<TD width="50"></TD>
+		</TR>
+	</TABLE>
+	<DIV align="center"><INPUT type="button" onclick="submit(); " value="Submit">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<INPUT type="button" value="generate" onclick="generate(); " value="Submit"></DIV>
+</DIV>
+<P>
+<DIV class="status" id="status_div" align="center"></DIV>
