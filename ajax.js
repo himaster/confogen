@@ -73,12 +73,12 @@ $(document).ready(function() {
     $("INPUT#https").toggle(function() { 
         // Отображаем скрытый блок 
         $("INPUT#cert").fadeIn(); // fadeIn - плавное появление
-        return false; // не производить переход по ссылке
+        //return false; // не производить переход по ссылке
     },  
     function() { 
         // Скрываем блок 
         $("INPUT#cert").fadeOut(); // fadeOut - плавное исчезновение 
-        return false; // не производить переход по ссылке
+        //return false; // не производить переход по ссылке
     }); // end of toggle() 
 }); // end of ready() 
 
