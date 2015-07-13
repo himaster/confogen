@@ -70,7 +70,7 @@ function generate(){
 
 
 $(document).ready(function() { 
-    $("INPUT#cert").toggle(function() { 
+    $("INPUT#https").toggle(function() { 
         // Отображаем скрытый блок 
         $("INPUT#cert").fadeIn(); // fadeIn - плавное появление
         return false; // не производить переход по ссылке
