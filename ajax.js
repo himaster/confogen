@@ -73,7 +73,7 @@ $(document).ready(function() {
     $("INPUT#https").change(function() { 
         if (document.getElementById('https').checked) {
             $("INPUT#cert").fadeIn(); // fadeIn - плавное появление
-        else {
+        } else {
             $("INPUT#cert").fadeOut();
         }
     }); // end of toggle() 
