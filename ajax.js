@@ -70,16 +70,9 @@ function generate(){
 
 
 $(document).ready(function() { 
-    $("INPUT#https").toggle(function() { 
+    $("INPUT#https").change(function() { 
         // Отображаем скрытый блок 
         $("INPUT#cert").fadeIn(); // fadeIn - плавное появление
-        $("INPUT#cert").prop('checked', true);
-        //return false; // не производить переход по ссылке
-    },  
-    function() { 
-        // Скрываем блок 
-        $("INPUT#cert").fadeOut(); // fadeOut - плавное исчезновение
-        //return false; // не производить переход по ссылке
     }); // end of toggle() 
 }); // end of ready() 
 
