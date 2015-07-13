@@ -56,6 +56,11 @@
     		fwrite($handle, "	ssl				on;\n");
 			fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
 			fwrite($handle, "	ssl_certificate_key		".$certfile.".key;\n\n");
+			fwrite($handle, "	sl_session_timeout		5m;\n");
+    		fwrite($handle, "	ssl_protocols			TLSv1 TLSv1.1 TLSv1.2;\n");
+    		fwrite($handle, "	ssl_ciphers				ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:-SSLv2:+SSLv3::+EXP;\n");
+    		fwrite($handle, "	ssl_session_cache		shared:SSL:1m;\n");
+    		fwrite($handle, "	ssl_prefer_server_ciphers	on;\n");
 	    	fwrite($handle, "	location / {\n");
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
