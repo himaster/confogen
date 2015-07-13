@@ -70,11 +70,11 @@ function generate(){
 
 
 $(document).ready(function() { 
-    $("INPUT#https").change(function() { 
+    $('#https').change(function() { 
         if (document.getElementById('https').checked) {
-            $("INPUT#cert").fadeIn(); // fadeIn - плавное появление
+            $('#cert').fadeIn(); // fadeIn - плавное появление
         } else {
-            $("INPUT#cert").fadeOut();
+            $('#cert').fadeOut();
         }
     }); // end of toggle() 
 }); // end of ready() 
