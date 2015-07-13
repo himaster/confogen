@@ -71,8 +71,11 @@ function generate(){
 
 $(document).ready(function() { 
     $("INPUT#https").change(function() { 
-        // Отображаем скрытый блок 
-        $("INPUT#cert").fadeOut(); // fadeIn - плавное появление
+        if ($("INPUT#https").checked) {
+            $("INPUT#cert").fadeOut(); // fadeIn - плавное появление
+        else {
+            $("INPUT#cert").fadeIn();
+        }
     }); // end of toggle() 
 }); // end of ready() 
 
