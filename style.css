@@ -11,6 +11,8 @@
 }
 
 .tablepress {
+	background-color:black;
+	overflow:hidden;
 	font-family: Tahoma;
 	font-size: 14px;
 	color: white;
