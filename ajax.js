@@ -71,11 +71,7 @@ function generate(){
 
 $(document).ready(function() { 
     $('#https').change(function() { 
-        if (document.getElementById('https').checked) {
-            $('#cert').fadeIn(); // fadeIn - плавное появление
-        } else {
-            $('#cert').fadeOut();
-        }
+        if (document.getElementById('https').checked) $('#cert').fadeIn(); else $('#cert').fadeOut();
     }); // end of toggle() 
 }); // end of ready() 
 
