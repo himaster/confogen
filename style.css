@@ -12,14 +12,16 @@
 
 .DIVpress {
 
-	background-color:black;
-	overflow:hidden;
+	
+	
 	font-family: Tahoma;
 	font-size: 14px;
 	color: white;
 }
 
 .tablestyle {
+	background-color:black;
+	overflow:hidden;
 	width: 50%;
 	margin: 0 auto;
 	font-family: Tahoma;
