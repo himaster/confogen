@@ -10,9 +10,16 @@
     text-align: center;
 }
 
-.tablepress {
+.DIVpress {
+	align: center;
 	background-color:black;
 	overflow:hidden;
+	font-family: Tahoma;
+	font-size: 14px;
+	color: white;
+}
+
+.tablestylr {
 	font-family: Tahoma;
 	font-size: 14px;
 	color: white;
