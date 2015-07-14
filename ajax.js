@@ -69,12 +69,10 @@ function generate(){
 }
 
 function fade(){
-    if (document.getElementById('https').checked) $('#cert').fadeIn(); else $('#cert').fadeOut();
+    if (document.getElementById('https').checked) 
+        $('#cert').fadeIn(); 
+    else 
+        $('#cert').fadeOut();
 }
 
-//$(document).ready(function() { 
-//    $('#https').change(function() { 
-//        if (document.getElementById('https').checked) $('#cert').fadeIn(); else $('#cert').fadeOut();
-//    });
-//});
 -->
