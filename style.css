@@ -11,7 +11,7 @@
 }
 
 .tablestyle {
-	border:2px;
+	border: 4px double black;
 	background-color:lightgray;
 	overflow:hidden;
 	width: 50%;
