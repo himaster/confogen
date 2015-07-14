@@ -68,11 +68,13 @@ function generate(){
     });
 }
 
+function fade(){
+    if (document.getElementById('https').checked) $('#cert').fadeIn(); else $('#cert').fadeOut();
+}
 
-$(document).ready(function() { 
-    $('#https').change(function() { 
-        if (document.getElementById('https').checked) $('#cert').fadeIn(); else $('#cert').fadeOut();
-    }); // end of toggle() 
-}); // end of ready() 
-
+//$(document).ready(function() { 
+//    $('#https').change(function() { 
+//        if (document.getElementById('https').checked) $('#cert').fadeIn(); else $('#cert').fadeOut();
+//    });
+//});
 -->
