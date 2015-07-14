@@ -10,7 +10,7 @@
     text-align: center;
 }
 
-.tablepress tbody td {
+.tablepress {
 	font-family: Tahoma;
 	font-size: 14px;
 	color: white;
