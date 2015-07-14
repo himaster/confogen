@@ -19,7 +19,8 @@
 	color: white;
 }
 
-.tablestylr {
+.tablestyle {
+	width: 50%;
 	margin: 0 auto;
 	font-family: Tahoma;
 	font-size: 14px;
