@@ -11,7 +11,7 @@
 }
 
 .DIVpress {
-	align: center;
+
 	background-color:black;
 	overflow:hidden;
 	font-family: Tahoma;
@@ -20,6 +20,7 @@
 }
 
 .tablestylr {
+	align: center;
 	font-family: Tahoma;
 	font-size: 14px;
 	color: white;
