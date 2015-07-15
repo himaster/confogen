@@ -63,6 +63,8 @@ function edit(id){
     document.getElementById('test_'+id).disabled=false;
     document.getElementById('m_'+id).disabled=false;
     document.getElementById('mtest_'+id).disabled=false;
+    document.getElementById('edit_'+id).style.display="none";
+    document.getElementById('save_'+id).style.display="block";
 }
 
 function edit_el(id){
