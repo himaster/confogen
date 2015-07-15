@@ -57,11 +57,12 @@ function rem_el(id){
 function edit(id){
     document.getElementById('name_'+id).readOnly=false;
     document.getElementById('ip_'+id).readOnly=false;
-    document.getElementById('http_'+id).readOnly=false;
-    document.getElementById('https_'+id).readOnly=false;
-    document.getElementById('test_'+id).readOnly=false;
-    document.getElementById('m_'+id).readOnly=false;
-    document.getElementById('mtest_'+id).readOnly=false;
+    document.getElementById('http_'+id).disabled=false;
+    document.getElementById('https_'+id).disabled=false;
+    document.getElementById('cert_'+id).readOnly=false;
+    document.getElementById('test_'+id).disabled=false;
+    document.getElementById('m_'+id).disabled=false;
+    document.getElementById('mtest_'+id).disabled=false;
 }
 
 function edit_el(id){
