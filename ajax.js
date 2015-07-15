@@ -54,15 +54,19 @@ function rem_el(id){
     });
 }
 
-function edit_el(id, name, ip, http, https, cert, test, m, mtest){
-    var dataString = '&act=edit' + '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert=' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
+function edit(id){
+    document.getElementById('name_'+id).readonly = false;
+}
+
+function edit_el(id){
+    var dataString = '&act=edit' + '&id=' + id + '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert=' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
     $.ajax({
         url: "table.php",
         data: dataString,
         cache: false,
         success: function(html){
             $('#table_div').html(html);
-            $('#status_div').html("Deleted.");
+            $('#status_div').html("Edited.");
             setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
         },
         error: function(){
