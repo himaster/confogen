@@ -55,8 +55,13 @@ function rem_el(id){
 }
 
 function edit(id){
-    alert('name_'+id);
     document.getElementById('name_'+id).readOnly=false;
+    document.getElementById('ip_'+id).readOnly=false;
+    document.getElementById('http_'+id).readOnly=false;
+    document.getElementById('https_'+id).readOnly=false;
+    document.getElementById('test_'+id).readOnly=false;
+    document.getElementById('m_'+id).readOnly=false;
+    document.getElementById('mtest_'+id).readOnly=false;
 }
 
 function edit_el(id){
