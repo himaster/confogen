@@ -2,7 +2,7 @@
 	include 'db.php';
 
 	#element delete
-	if (isset($_GET['act'] == "remove")) {
+	if (isset($_GET['act'] = "remove")) {
 		$id = $_GET['id'];
 		$sql = "DELETE FROM `domains` WHERE id=$id;";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
