@@ -67,7 +67,7 @@ function edit(id){
     document.getElementById('save_'+id).style.display="block";
 }
 
-function edit_el(id){
+function save(id){
     var dataString = '&act=edit' + '&id=' + id + '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert=' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
     $.ajax({
         url: "table.php",
