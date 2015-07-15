@@ -16,14 +16,14 @@
 <?php while ($row = mysql_fetch_assoc($result)) { ?>
 		<TR>
 			<TD width='20'><?php echo $row['id'] ?></TD>
-			<TD width='140'><INPUT type='text ' readonly><?php echo $row['name'] ?></INPUT></TD>
-			<TD width='165'><INPUT type='text ' readonly><?php echo $row['ip'] ?></INPUT></TD>
-			<TD width='40'><input type='checkbox' <?php if ($row['http'] == 1) echo "checked"; ?> ></TD>
-			<TD width='50'><input type='checkbox' <?php if ($row['https'] == 1) echo "checked"; ?> ></TD>
-			<TD width='140'><INPUT type='text ' readonly><?php echo $row['cert'] ?></INPUT></TD>
-			<TD width='45'><input type='checkbox' <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>
-			<TD width='50'><input type='checkbox' <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
-			<TD width='60'><input type='checkbox' <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
+			<TD width='140'><INPUT type='text ' readonly value="<?php echo $row['name']; ?>"></TD>
+			<TD width='165'><INPUT type='text ' readonly value="<?php echo $row['ip']; ?>"></TD>
+			<TD width='40'><INPUT type='checkbox' <?php if ($row['http'] == 1) echo "checked"; ?> ></TD>
+			<TD width='50'><INPUT type='checkbox' <?php if ($row['https'] == 1) echo "checked"; ?> ></TD>
+			<TD width='140'><INPUT type='text ' readonly value="<?php echo $row['cert']; ?>"></TD>
+			<TD width='45'><INPUT type='checkbox' <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>
+			<TD width='50'><INPUT type='checkbox' <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
+			<TD width='60'><INPUT type='checkbox' <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
 			<TD width='50' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>x</A></TD>
 		</TR>
 <?php } ?>
