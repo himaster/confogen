@@ -18,7 +18,7 @@
 			<TD width='20'><?php echo $row['id'] ?></TD>
 			<TD width='140'><INPUT id="name_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['name']; ?>"></TD>
 			<TD width='165'><INPUT id="ip_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['ip']; ?>"></TD>
-			<TD width='40'><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' readonly <?php if ($row['http'] == 1) echo "checked";?> ></TD>
+			<TD width='40'><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
 			<TD width='50'><INPUT id="https_<?php echo $row['id']; ?>" type='checkbox' readonly <?php if ($row['https'] == 1) echo "checked";?> ></TD>
 			<TD width='140'><INPUT id="cert_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['cert']; ?>"></TD>
 			<TD width='45'><INPUT id="test_<?php echo $row['id']; ?>" type='checkbox' readonly <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>
