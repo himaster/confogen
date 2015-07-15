@@ -37,39 +37,7 @@ function show_table(name, ip, http, https, cert, test, m, mtest){
 	});
 }
 
-function rem_el(id){
-    var dataString = '&act=remove&id=' + id; 
-    $.ajax({
-        url: "table.php",
-        data: dataString,
-        cache: false,
-        success: function(html){
-            $('#table_div').html(html);
-            $('#status_div').html("Deleted.");
-            setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
-        },
-        error: function(){
-            $('#status_div').html("ERROR!!!");
-        }
-    });
-}
 
-function edit_el(id, name, ip, http, https, cert, test, m, mtest){
-    var dataString = '&act=edit' + '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert=' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
-    $.ajax({
-        url: "table.php",
-        data: dataString,
-        cache: false,
-        success: function(html){
-            $('#table_div').html(html);
-            $('#status_div').html("Deleted.");
-            setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
-        },
-        error: function(){
-            $('#status_div').html("ERROR!!!");
-        }
-    });
-}
 
 function generate(){
     $.ajax({
