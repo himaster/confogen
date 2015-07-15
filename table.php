@@ -14,13 +14,23 @@
 			$http = 1;
 		else
 			$http = 0;
-
-		$https = (int)$_GET['https'];
+		if ($_GET['https'] == "true")
+			$https = 1;
+		else
+			$https = 0;
 		$cert = $_GET['cert'];
-		$test = (int)$_GET['test'];
-		$m = (int)$_GET['m'];
-		$mtest = (int)$_GET['mtest'];
-		echo $id.$name.$ip.$http.$https.$cert.$test.$m.$mtest;
+		if ($_GET['test'] == "true")
+			$test = 1;
+		else
+			$test = 0;
+		if ($_GET['m'] == "true")
+			$m = 1;
+		else
+			$m = 0;
+		if ($_GET['mtest'] == "true")
+			$mtest = 1;
+		else
+			$mtest = 0;
 		$sql = "UPDATE `domains` SET name = '$name', ip = '$ip', http = '$http', https = '$https', cert = '$cert', test = '$test', m = '$m', mtest = '$mtest' WHERE id = '$id'";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
