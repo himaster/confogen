@@ -10,7 +10,11 @@
 		$id = $_GET['id'];
 		$name = $_GET['name'];
 		$ip = $_GET['ip'];
-		$http = (int)$_GET['http'];
+		if ($_GET['http'] == "true")
+			$http = 1;
+		else
+			$http = 0;
+
 		$https = (int)$_GET['https'];
 		$cert = $_GET['cert'];
 		$test = (int)$_GET['test'];
