@@ -55,7 +55,7 @@ function rem_el(id){
 }
 
 function edit(id){
-    alert(id);
+    alert('name_'+id);
     document.getElementById('name_'+id).readonly = false;
 }
 
