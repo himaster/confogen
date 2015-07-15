@@ -25,7 +25,7 @@
 			<TD width='50'><INPUT id="m_<?php echo $row['id']; ?>" type='checkbox' <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
 			<TD width='60'><INPUT id="mtest_<?php echo $row['id']; ?>" type='checkbox' <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
 			<TD width='50' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>x</A>&nbsp;
-				<A class='delete' href="javascript:document.getElementById('name_'+<?php echo $row['id']; ?>).readonly = 'false'">I</A>&nbsp;
+				<A class='delete' href="javascript:document.getElementById('http_'+<?php echo $row['id']; ?>).readonly = true">I</A>&nbsp;
 				<A class='delete' href="javascript:edit_el(<?php echo $row['id']; ?>)">S</A>&nbsp;
 			</TD>
 		</TR>
