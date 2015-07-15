@@ -56,7 +56,7 @@ function rem_el(id){
 
 function edit(id){
     alert('name_'+id);
-    document.getElementById('name_'+id).readonly = false;
+    document.getElementById('name_'+id).readOnly=false;
 }
 
 function edit_el(id){
