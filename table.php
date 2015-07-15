@@ -10,12 +10,12 @@
 		$id = $_GET['id'];
 		$name = $_GET['name'];
 		$ip = $_GET['ip'];
-		$http = $_GET['http'];
-		$https = $_GET['https'];
+		$http = (int)$_GET['http'];
+		$https = (int)$_GET['https'];
 		$cert = $_GET['cert'];
-		$test = $_GET['test'];
-		$m = $_GET['m'];
-		$mtest = $_GET['mtest'];
+		$test = (int)$_GET['test'];
+		$m = (int)$_GET['m'];
+		$mtest = (int)$_GET['mtest'];
 		echo $id.$name.$ip.$http;
 		$sql = "UPDATE `domains` SET name = '$name', ip = '$ip', http = '$http', https = '$https', cert = '$cert', test = '$test', m = '$m', mtest = '$mtest' WHERE id = '$id'";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
