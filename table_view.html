@@ -16,7 +16,7 @@
 <?php while ($row = mysql_fetch_assoc($result)) { ?>
 		<TR>
 			<TD width='20'><?php echo $row['id'] ?></TD>
-			<TD width='140'><INPUT type='text ' readonly value="<?php echo $row['name']; ?>"></TD>
+			<TD width='140'><INPUT id="name_<?php echo $row['id']; ?>" type='text ' readonly value="<?php echo $row['name']; ?>"></TD>
 			<TD width='165'><INPUT type='text ' readonly value="<?php echo $row['ip']; ?>"></TD>
 			<TD width='40'><INPUT type='checkbox' <?php if ($row['http'] == 1) echo "checked"; ?> ></TD>
 			<TD width='50'><INPUT type='checkbox' <?php if ($row['https'] == 1) echo "checked"; ?> ></TD>
