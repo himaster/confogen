@@ -16,6 +16,7 @@
 		$test = $_GET['test'];
 		$m = $_GET['m'];
 		$mtest = $_GET['mtest'];
+		echo $id $name;
 		$sql = "UPDATE `domains` SET name = '$name', ip = '$ip', http = '$http', https = '$https', cert = '$cert', test = '$test', m = '$m', mtest = '$mtest' WHERE id = '$id'";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
