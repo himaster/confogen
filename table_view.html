@@ -11,6 +11,7 @@
 			<TD width='45'>TEST</TD>
 			<TD width='50'>Mobile</TD>
 			<TD width='60'>M.test</TD>
+			<TD width='50'><FONT size='2'>Edit</FONT></TD>
 			<TD width='50'><FONT size='2'>Remove</FONT></TD>
 		</TR>
 <?php while ($row = mysql_fetch_assoc($result)) { ?>
@@ -25,10 +26,10 @@
 			<TD width='50'><INPUT id="m_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
 			<TD width='60'><INPUT id="mtest_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
 			<TD width='50' style='text-align: center;'>
-				<A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>x</A>&nbsp;
 				<DIV id="edit_<?php echo $row['id']; ?>"><A id="edit_<?php echo $row['id']; ?>" class='delete' href="javascript:edit(<?php echo $row['id']; ?>)">I</A>&nbsp;</DIV>
 				<DIV id="save_<?php echo $row['id']; ?>" style="display:none"><A class='delete' href="javascript:edit_el(<?php echo $row['id']; ?>)">S</A>&nbsp;</DIV>
 			</TD>
+			<TD width='50' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>x</A></TD>
 		</TR>
 <?php } ?>
 		<P>
@@ -42,6 +43,7 @@
 			<TD width="45"><INPUT type="checkbox" id="test"></TD>
 			<TD width="50"><INPUT type="checkbox" id="m"></TD>
 			<TD width="60"><INPUT type="checkbox" id="mtest"></TD>
+			<TD width="50"></TD>
 			<TD width="50"></TD>
 		</TR>
 		<TR><TD></TD>
