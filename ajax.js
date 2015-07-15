@@ -69,6 +69,7 @@ function edit(id){
 
 function save(id){
     var dataString = '&act=edit' + '&id=' + id + '&name=' + document.getElementById('name_'+id).value + '&ip=' + document.getElementById('ip_'+id).value + '&http=' + document.getElementById('http_'+id).checked + '&https=' + document.getElementById('https_'+id).checked + '&cert=' + document.getElementById('cert_'+id).value + '&test=' + document.getElementById('test_'+id).checked + '&m=' + document.getElementById('m_'+id).checked + '&mtest=' + document.getElementById('mtest_'+id).checked;
+    alert(document.getElementById('http_'+id).checked);
     $.ajax({
         url: "table.php",
         data: dataString,
