@@ -28,7 +28,7 @@
 .status { 
     width: 200px; 
     background: #ffffff;
-   
+    height: 10px;
     border: solid 1px black;
     position: absolute;
     left: 40%;
