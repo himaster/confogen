@@ -22,7 +22,6 @@
 
 .copyright {
     font-size: 14px;
-    position: absolute;
 }
 
 .status { 
@@ -30,6 +29,5 @@
     background: #ffffff;
     height: 10px;
     border: solid 1px black;
-    position: absolute;
     left: 40%;
 }
