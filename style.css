@@ -22,6 +22,8 @@
 
 .copyright {
     font-size: 14px;
+    position: absolute;
+    width: 200px; 
 }
 
 .status { 
