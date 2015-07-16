@@ -2,12 +2,38 @@
 	include 'db.php';
 
 	#element delete
-	if (isset($_GET['remove'])) {
+	if ($_GET['act'] == "remove") {
 		$id = $_GET['id'];
 		$sql = "DELETE FROM `domains` WHERE id=$id;";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
+	} elseif ($_GET['act'] == "edit") {
+		$id = $_GET['id'];
+		$name = $_GET['name'];
+		$ip = $_GET['ip'];
+		if ($_GET['http'] == "true")
+			$http = 1;
+		else
+			$http = 0;
+		if ($_GET['https'] == "true")
+			$https = 1;
+		else
+			$https = 0;
+		$cert = $_GET['cert'];
+		if ($_GET['test'] == "true")
+			$test = 1;
+		else
+			$test = 0;
+		if ($_GET['m'] == "true")
+			$m = 1;
+		else
+			$m = 0;
+		if ($_GET['mtest'] == "true")
+			$mtest = 1;
+		else
+			$mtest = 0;
+		$sql = "UPDATE `domains` SET name = '$name', ip = '$ip', http = '$http', https = '$https', cert = '$cert', test = '$test', m = '$m', mtest = '$mtest' WHERE id = '$id'";
+		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
-
 	#Form submit
 	else if (!empty($_GET['name']) && !empty($_GET['ip'])) {
 		$name = $_GET['name'];

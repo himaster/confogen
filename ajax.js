@@ -21,7 +21,7 @@ function submit() {
         }
 
 function show_table(name, ip, http, https, cert, test, m, mtest){
-	var dataString = '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert=' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest; 
+	var dataString = '&act=add' + '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert=' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest;
 		$.ajax({
 	    url: "table.php",
 	    data: dataString,
@@ -38,7 +38,7 @@ function show_table(name, ip, http, https, cert, test, m, mtest){
 }
 
 function rem_el(id){
-    var dataString = '&remove=1&id=' + id; 
+    var dataString = '&act=remove&id=' + id; 
     $.ajax({
         url: "table.php",
         data: dataString,
@@ -46,6 +46,36 @@ function rem_el(id){
         success: function(html){
             $('#table_div').html(html);
             $('#status_div').html("Deleted.");
+            setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
+        },
+        error: function(){
+            $('#status_div').html("ERROR!!!");
+        }
+    });
+}
+
+function edit(id){
+    document.getElementById('name_'+id).readOnly=false;
+    document.getElementById('ip_'+id).readOnly=false;
+    document.getElementById('http_'+id).disabled=false;
+    document.getElementById('https_'+id).disabled=false;
+    document.getElementById('cert_'+id).readOnly=false;
+    document.getElementById('test_'+id).disabled=false;
+    document.getElementById('m_'+id).disabled=false;
+    document.getElementById('mtest_'+id).disabled=false;
+    document.getElementById('edit_'+id).style.display="none";
+    document.getElementById('save_'+id).style.display="block";
+}
+
+function save(id){
+    var dataString = '&act=edit' + '&id=' + id + '&name=' + document.getElementById('name_'+id).value + '&ip=' + document.getElementById('ip_'+id).value + '&http=' + document.getElementById('http_'+id).checked + '&https=' + document.getElementById('https_'+id).checked + '&cert=' + document.getElementById('cert_'+id).value + '&test=' + document.getElementById('test_'+id).checked + '&m=' + document.getElementById('m_'+id).checked + '&mtest=' + document.getElementById('mtest_'+id).checked;
+    $.ajax({
+        url: "table.php",
+        data: dataString,
+        cache: false,
+        success: function(html){
+            $('#table_div').html(html);
+            $('#status_div').html("Saved.");
             setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
         },
         error: function(){
