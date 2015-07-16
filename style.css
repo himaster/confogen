@@ -27,7 +27,5 @@
 .status { 
     width: 200px; 
     background: #ffffff; 
-    padding: 5px; 
-    border: solid 1px black; 
-    
-   }
+    border: solid 1px black;    
+}
