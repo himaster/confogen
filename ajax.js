@@ -29,7 +29,7 @@ function show_table(name, ip, http, https, cert, test, m, mtest){
     	success: function(html){
 			$('#table_div').html(html);
             $('#status_div').html("Updated.");
-            setTimeout("document.getElementById('status_div').innerHTML = '&nbsp;'", 3000);
+            setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
     	},
     	error: function(){
 			$('#status_div').html("ERROR!!!");
@@ -46,7 +46,7 @@ function rem_el(id){
         success: function(html){
             $('#table_div').html(html);
             $('#status_div').html("Deleted.");
-            setTimeout("document.getElementById('status_div').innerHTML = '&nbsp;'", 3000);
+            setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
         },
         error: function(){
             $('#status_div').html("ERROR!!!");
@@ -76,7 +76,7 @@ function save(id){
         success: function(html){
             $('#table_div').html(html);
             $('#status_div').html("Saved.");
-            setTimeout("document.getElementById('status_div').innerHTML = '&nbsp;'", 3000);
+            setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
         },
         error: function(){
             $('#status_div').html("ERROR!!!");
@@ -90,7 +90,7 @@ function generate(){
         cache: false,
         success: function(html){
             $('#status_div').html("Generated.");
-            setTimeout("document.getElementById('status_div').innerHTML = '&nbsp;'", 3000);
+            setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
         },
         error: function(){
             $('#status_div').html("ERROR!!!");
