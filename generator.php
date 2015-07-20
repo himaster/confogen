@@ -61,7 +61,7 @@
     		fwrite($handle, "	ssl				on;\n");
 			fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
 			fwrite($handle, "	ssl_certificate_key		".$certfile.".key;\n\n");
-			fwrite($handle, "	sl_session_timeout		5m;\n");
+			fwrite($handle, "	ssl_session_timeout		5m;\n");
     		fwrite($handle, "	ssl_protocols			TLSv1 TLSv1.1 TLSv1.2;\n");
     		fwrite($handle, "	ssl_ciphers				ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:-SSLv2:+SSLv3::+EXP;\n");
     		fwrite($handle, "	ssl_session_cache		shared:SSL:1m;\n");
@@ -70,7 +70,7 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					backend_ssl;\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					backend_ssl;\n	}\n}\n\n");
     	}
     	if ($test) {
 	    	fwrite($handle, "## Test\n");
