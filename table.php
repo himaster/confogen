@@ -1,8 +1,6 @@
 <?php
 	include 'db.php';
 	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
-	$certdir = '/etc/nginx/certs/';
-	$files = glob($workdir.'*');
 
 	#element delete
 	if ($_GET['act'] == "remove") {

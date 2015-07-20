@@ -82,6 +82,19 @@ function save(id){
             $('#status_div').html("ERROR!!!");
         }
     });
+    var dataString1 = '&id=' + id;
+    $.ajax({
+        url: "generator.php",
+        data: dataString1,
+        cache: false,
+        success: function(html){
+            $('#status_div').html("Saved & Generated.");
+            setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
+        },
+        error: function(){
+            $('#status_div').html("Generation ERROR!!!");
+        }
+    });
 }
 
 function generate(){
