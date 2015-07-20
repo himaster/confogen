@@ -42,8 +42,7 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					backend;\n");
-	    	fwrite($handle, "	}\n\n");
+	    	fwrite($handle, "		proxy_pass					backend;\n	}\n}\n\n");
 	    }
 	    if ($https) {
 	    	fwrite($handle, "## Add www to HTTPS\n");
