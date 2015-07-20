@@ -75,7 +75,7 @@ function save(id){
         cache: false,
         success: function(html){
             $('#table_div').html(html);
-            $('#status_div').html("Saved.");
+            $('#status_div').html("Saved (id=" + id + ").");
             setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
         },
         error: function(){
