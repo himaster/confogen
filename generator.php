@@ -3,7 +3,7 @@
 	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
 	$certdir = '/etc/nginx/certs/';
 	
-	if ($_GET['id'] != "") {
+	if ($_GET['id'] != "undefined") {
 		$sql = "SELECT * FROM `domains` WHERE id=".$_GET['id'].";";
 	} else {
 		$files = glob($workdir.'*'); // get all file names
