@@ -27,7 +27,7 @@
 			<TD width='60'><INPUT id="mtest_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
 			<TD width='50' style='text-align: center;'>
 				<DIV id="edit_<?php echo $row['id']; ?>"><A id="edit_<?php echo $row['id']; ?>" class='delete' href="javascript:edit(<?php echo $row['id']; ?>); ">E</A>&nbsp;</DIV>
-				<DIV id="save_<?php echo $row['id']; ?>" style="display:none"><A class='delete' href="javascript:save(<?php echo $row['id']; ?>); generate(<?php echo $row['id']; ?>); ">S</A>&nbsp;</DIV>
+				<DIV id="save_<?php echo $row['id']; ?>" style="display:none"><A class='delete' href="javascript:save(<?php echo $row['id']; ?>); setTimeout(generate(<?php echo $row['id']; ?>), 1000) ">S</A>&nbsp;</DIV>
 			</TD>
 			<TD width='50' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>X</A></TD>
 		</TR>
