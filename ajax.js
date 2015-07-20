@@ -84,7 +84,21 @@ function save(id){
     });
 }
 
-
+function generate(id){
+    var dataString = '&id=' + id;
+    $.ajax({
+        url: "generator.php",
+        data: dataString,
+        cache: false,
+        success: function(html){
+            $('#status_div').html("Generated.");
+            setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
+        },
+        error: function(){
+            $('#status_div').html("ERROR!!!");
+        }
+    });
+}
 
 function fade(){
     if (document.getElementById('https').checked) 
