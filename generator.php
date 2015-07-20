@@ -81,7 +81,7 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					backend;\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					backend;\n	}\n}\n\n");
 	    }
 	    if ($m) {
 	    	fwrite($handle, "## M\n");
@@ -92,7 +92,7 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					backend;\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					backend;\n	}\n}\n\n");
 	    }
 	    if ($mtest) {
 	    	fwrite($handle, "## Mtest\n");
@@ -103,7 +103,7 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					backend;\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					backend;\n	}\n}\n\n");
 	    }
 
     	fclose($handle);
