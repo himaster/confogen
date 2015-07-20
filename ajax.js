@@ -91,7 +91,7 @@ function generate(id){
         data: dataString,
         cache: false,
         success: function(html){
-            $('#status_div').html("Generated.(id=".id.")");
+            $('#status_div').html("Generated.(id=" + id + ")");
             setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
         },
         error: function(){
