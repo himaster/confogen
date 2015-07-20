@@ -2,17 +2,16 @@
 	include 'db.php';
 	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
 	$certdir = '/etc/nginx/certs/';
-
+	echo $_GET['id'];
 	#$files = glob($workdir.'*'); // get all file names
 	#foreach($files as $file){ // iterate files
   	#	if(is_file($file)) unlink($file); // delete file
 	#}
-	#if ($_GET['id'] != "") {
+	if ($_GET['id'] != "") {
 	#	$sql = "SELECT * FROM `domains` WHERE id=$_GET['id'];";
-	#} else {
-	echo $_GET['id'];
+	} else {
 		$sql = "SELECT * FROM `domains`;";
-	#}
+	}
     $result = mysql_query($sql, $link)  or die(mysql_error());
     while ($row = mysql_fetch_assoc($result)) {
     	$id = $row['id'];
