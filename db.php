@@ -2,9 +2,7 @@
 	$dbuser = 'confogen';
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
-	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
-	$certdir = '/etc/nginx/certs/';
-	
+
 	#DB
 	$link = mysql_connect('localhost', $dbuser, $dbpassword);
 	if (!$link) {

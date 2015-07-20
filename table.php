@@ -1,6 +1,6 @@
 <?php
 	include 'db.php';
-	//$workdir = '/etc/nginx/fpm-conf.d/balancer/';
+	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
 
 	#element deleting
 	if ($_GET['act'] == "remove") {

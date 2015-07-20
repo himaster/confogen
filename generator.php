@@ -1,7 +1,7 @@
 <?php
 	include 'db.php';
-	//$workdir = '/etc/nginx/fpm-conf.d/balancer/';
-	//$certdir = '/etc/nginx/certs/';
+	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
+	$certdir = '/etc/nginx/certs/';
 	
 	if ($_GET['id'] == "undefined") {
 		$files = glob($workdir.'*'); // get all file names
