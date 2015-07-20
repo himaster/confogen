@@ -1,5 +1,8 @@
 <?php
 	include 'db.php';
+	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
+	$certdir = '/etc/nginx/certs/';
+	$files = glob($workdir.'*');
 
 	#element delete
 	if ($_GET['act'] == "remove") {
@@ -9,7 +12,7 @@
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 		$array  = mysql_fetch_array($result);
 		$name   = $array['name'];
-		echo $name;
+		unlink($workdir . $name);
 
 		$sql = "DELETE FROM `domains` WHERE id=$id;";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
