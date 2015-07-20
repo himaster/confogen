@@ -2,7 +2,6 @@
 	include 'db.php';
 	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
 	$certdir = '/etc/nginx/certs/';
-	echo $_GET['id'];
 	#$files = glob($workdir.'*'); // get all file names
 	#foreach($files as $file){ // iterate files
   	#	if(is_file($file)) unlink($file); // delete file
@@ -12,8 +11,6 @@
 	} else {
 		$sql = "SELECT * FROM `domains`;";
 	}
-	echo $sql;
-    die();
     $result = mysql_query($sql, $link)  or die(mysql_error());
     while ($row = mysql_fetch_assoc($result)) {
     	$id = $row['id'];
