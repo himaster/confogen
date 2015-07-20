@@ -12,7 +12,7 @@
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 		$array  = mysql_fetch_array($result);
 		$name   = $array['name'];
-		unlink($workdir . $name);
+		unlink($workdir.$name.".conf");
 
 		$sql = "DELETE FROM `domains` WHERE id=$id;";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
