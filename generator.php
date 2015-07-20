@@ -8,10 +8,12 @@
   	#	if(is_file($file)) unlink($file); // delete file
 	#}
 	if ($_GET['id'] != "") {
-	#	$sql = "SELECT * FROM `domains` WHERE id=$_GET['id'];";
+		$sql = "SELECT * FROM `domains` WHERE id=$_GET['id'];";
 	} else {
 		$sql = "SELECT * FROM `domains`;";
 	}
+	echo $sql;
+    die();
     $result = mysql_query($sql, $link)  or die(mysql_error());
     while ($row = mysql_fetch_assoc($result)) {
     	$id = $row['id'];
