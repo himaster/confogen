@@ -10,6 +10,7 @@
 	#if ($_GET['id'] != "") {
 	#	$sql = "SELECT * FROM `domains` WHERE id=$_GET['id'];";
 	#} else {
+	echo $_GET['id'];
 		$sql = "SELECT * FROM `domains`;";
 	#}
     $result = mysql_query($sql, $link)  or die(mysql_error());
