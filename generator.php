@@ -8,6 +8,7 @@
 	#}
 	if ($_GET['id'] != "") {
 		$sql = "SELECT * FROM `domains` WHERE id=$_GET['id'];";
+		echo "ID= ".$_GET['id'];
 	} else {
 		$sql = "SELECT * FROM `domains`;";
 	}
