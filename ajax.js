@@ -22,7 +22,7 @@ function submit() {
 
 function show_table(name, ip, http, https, cert, test, m, mtest){
 	var dataString = '&act=add' + '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert=' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest;
-		$.ajax({
+	$.ajax({
 	    url: "table.php",
 	    data: dataString,
     	cache: false,
@@ -84,21 +84,7 @@ function save(id){
     });
 }
 
-function generate(id){
-    var dataString = '&id=' + id;
-    $.ajax({
-        url: "generator.php",
-        data: dataString;
-        cache: false,
-        success: function(html){
-            $('#status_div').html("Generated.");
-            setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
-        },
-        error: function(){
-            $('#status_div').html("ERROR!!!");
-        }
-    });
-}
+
 
 function fade(){
     if (document.getElementById('https').checked) 
