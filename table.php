@@ -2,7 +2,7 @@
 	include 'db.php';
 	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
 
-	#element delete
+	#element deleting
 	if ($_GET['act'] == "remove") {
 		$id = $_GET['id'];
 		
@@ -15,8 +15,15 @@
 		$sql = "DELETE FROM `domains` WHERE id=$id;";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 
-	} elseif ($_GET['act'] == "edit") {
+	} elseif ($_GET['act'] == "edit") { #Editing
 		$id = $_GET['id'];
+
+		$sql    = "SELECT `name` FROM `domains` WHERE `id`=$id";
+		$result = mysql_query($sql, $link)  or die(mysql_error());
+		$array  = mysql_fetch_array($result);
+		$name   = $array['name'];
+		unlink($workdir.$name.".conf");
+
 		$name = $_GET['name'];
 		$ip = $_GET['ip'];
 		if ($_GET['http'] == "true")
@@ -43,7 +50,7 @@
 		$sql = "UPDATE `domains` SET name = '$name', ip = '$ip', http = '$http', https = '$https', cert = '$cert', test = '$test', m = '$m', mtest = '$mtest' WHERE id = '$id'";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
-	#Form submit
+	#Adding
 	else if (!empty($_GET['name']) && !empty($_GET['ip'])) {
 		$name = $_GET['name'];
 		$ip = $_GET['ip'];
