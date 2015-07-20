@@ -3,5 +3,5 @@
 	
 	include "table.php";
 
-	include 'footer.html';
+	include "footer.html";
 ?>
