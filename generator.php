@@ -6,7 +6,7 @@
 	#foreach($files as $file){ // iterate files
   	#	if(is_file($file)) unlink($file); // delete file
 	#}
-	if (isset($_GET['id'])) {
+	if ($_GET['id'] != "") {
 		$sql = "SELECT * FROM `domains` WHERE id=$_GET['id'];";
 	} else {
 		$sql = "SELECT * FROM `domains`;";
