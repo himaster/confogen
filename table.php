@@ -4,8 +4,16 @@
 	#element delete
 	if ($_GET['act'] == "remove") {
 		$id = $_GET['id'];
+		
+		$sql    = "SHOW `name` FROM `domains` WHERE `id`=$id";
+		$result = mysql_query($sql, $link)  or die(mysql_error());
+		$array  = mysql_fetch_array($result);
+		$name   = $array['name'];
+		echo $name;
+
 		$sql = "DELETE FROM `domains` WHERE id=$id;";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
+		
 	} elseif ($_GET['act'] == "edit") {
 		$id = $_GET['id'];
 		$name = $_GET['name'];
