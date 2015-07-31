@@ -1,6 +1,7 @@
 <?php
 	include 'db.php';
-	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
+	#$workdir = '/etc/nginx/fpm-conf.d/balancer/';
+	$workdir = '/var/www/balancer/';
 	$certdir = '/etc/nginx/certs/';
 	
 	if ($_GET['id'] == "undefined") {
