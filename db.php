@@ -2,9 +2,10 @@
 	$dbuser = 'confogen';
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
-
+	$dbhost = 'backend1';
+	
 	#DB
-	$link = mysql_connect('localhost', $dbuser, $dbpassword);
+	$link = mysql_connect($dbhost, $dbuser, $dbpassword);
 	if (!$link) {
     	die('Ошибка соединения: ' . mysql_error());
 	}
