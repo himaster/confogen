@@ -48,7 +48,7 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					backend;\n	}\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n}\n\n");
 	    }
 	    if ($https) {
 	    	fwrite($handle, "## Add www to HTTPS\n");
@@ -75,7 +75,7 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					backend_ssl;\n	}\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					http://backend_ssl;\n	}\n}\n\n");
     	}
     	if ($test) {
 	    	fwrite($handle, "## Test\n");
@@ -86,7 +86,7 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					backend;\n	}\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n}\n\n");
 	    }
 	    if ($m) {
 	    	fwrite($handle, "## M\n");
@@ -97,7 +97,7 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					backend;\n	}\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n}\n\n");
 	    }
 	    if ($mtest) {
 	    	fwrite($handle, "## Mtest\n");
@@ -108,7 +108,7 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					backend;\n	}\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n}\n\n");
 	    }
 
     	fclose($handle);
