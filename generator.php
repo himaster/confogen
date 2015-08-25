@@ -3,19 +3,20 @@
 	#$workdir = '/etc/nginx/fpm-conf.d/balancer/';
 	$workdir = '/var/www/balancer/';
 	$certdir = '/etc/nginx/certs/';
-	
-	if ($_GET['id'] == "undefined") {
+	$id = $_GET['id'];
+	if ($id == "undefined") {
 		$files = glob($workdir.'*'); // get all file names
 		foreach($files as $file){ // iterate files
   			if(is_file($file)) unlink($file); // delete file
 		}
 		$sql = "SELECT * FROM `domains`;";
 	} 
-	elseif ($_GET['id'] == "") {
+	elseif ($id == "") {
 		exit("You can't call this script directly.");
 	} 
 	else {
-		$sql = "SELECT * FROM `domains` WHERE id=".$_GET['id'].";";
+		$sql = "SELECT * FROM `domains` WHERE id=".$id.";";
+		echo("id= ".$id)
 	}
     $result = mysql_query($sql, $link) or die(mysql_error());
     while ($row = mysql_fetch_assoc($result)) {
