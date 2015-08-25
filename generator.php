@@ -17,7 +17,7 @@
 	else {
 		$sql = "SELECT * FROM `domains` WHERE id=".$_GET['id'].";";
 	}
-	printf($sql);
+	echo($sql);
     $result = mysql_query($sql, $link) or die(mysql_error());
     while ($row = mysql_fetch_assoc($result)) {
     	$id = $row['id'];
