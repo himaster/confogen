@@ -16,7 +16,7 @@
 	} 
 	else {
 		$sql = "SELECT * FROM `domains` WHERE id=".$id.";";
-		echo("id= ".$id)
+		echo("id= ".$id);
 	}
     $result = mysql_query($sql, $link) or die(mysql_error());
     while ($row = mysql_fetch_assoc($result)) {
