@@ -85,7 +85,7 @@ function save(id){
 }
 
 function generate(id){
-    var dataString = '?id=' + id;
+    var dataString = '&id=' + id;
     $.ajax({
         url: "generator.php",
         data: dataString,
