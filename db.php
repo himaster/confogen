@@ -2,7 +2,7 @@
 	$dbuser = 'confogen';
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
-	$dbhost = '88.198.182.130';
+	$dbhost = '127.0.0.1';
 
 	#DB
 	$link = mysql_connect($dbhost, $dbuser, $dbpassword);
