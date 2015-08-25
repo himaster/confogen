@@ -1,4 +1,5 @@
 <?php
+	sleep(3);
 	include 'db.php';
 	#$workdir = '/etc/nginx/fpm-conf.d/balancer/';
 	$workdir = '/var/www/balancer/';
