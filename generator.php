@@ -85,10 +85,12 @@
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		fwrite($handle, "	server_name test.".$name.";\n\n");
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n}\n\n");
+	    	fwrite($handle, "		auth_basic				\"Restricted Area\";\n");
+        	fwrite($handle, "		auth_basic_user_file	/etc/nginx/passwd;");
+	    	fwrite($handle, "		proxy_set_header		Host			\$http_host;\n");
+	    	fwrite($handle, "		proxy_set_header		X-Real-IP		\$remote_addr;\n");
+	    	fwrite($handle, "		proxy_set_header		X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
+	    	fwrite($handle, "		proxy_pass				http://backend;\n	}\n}\n\n");
 	    }
 	    if ($m) {
 	    	fwrite($handle, "## M\n");
@@ -107,10 +109,12 @@
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		fwrite($handle, "	server_name mtest.".$name.";\n\n");
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n}\n\n");
+	    	fwrite($handle, "		auth_basic				\"Restricted Area\";\n");
+        	fwrite($handle, "		auth_basic_user_file	/etc/nginx/passwd;");
+	    	fwrite($handle, "		proxy_set_header		Host			\$http_host;\n");
+	    	fwrite($handle, "		proxy_set_header		X-Real-IP		\$remote_addr;\n");
+	    	fwrite($handle, "		proxy_set_header		X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
+	    	fwrite($handle, "		proxy_pass				http://backend;\n	}\n}\n\n");
 	    }
 
     	fclose($handle);
