@@ -18,7 +18,7 @@
 		while ($row = mysql_fetch_assoc($result)) { ?>
 			<TR>
 				<TD width='20'><?php echo $i++ ?></TD>
-				<TD width='140'><A href="<?php echo $row['id']; ?>"><INPUT id="name_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['name']; ?>"></A></TD>
+				<TD width='140'><A href="<?php echo $row['name']; ?>"><INPUT id="name_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['name']; ?>"></A></TD>
 				<TD width='140'><INPUT id="ip_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['ip']; ?>"></TD>
 				<TD width='40'><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
 				<TD width='50'><INPUT id="https_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['https'] == 1) echo "checked";?> ></TD>
