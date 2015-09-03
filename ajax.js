@@ -21,7 +21,15 @@ function submit() {
         }
 
 function show_table(name, ip, http, https, cert, test, m, mtest){
-	var dataString = '&act=add' + '&name=' + name + '&ip=' + ip + '&http=' + http + '&https=' + https + '&cert=' + cert + '&test=' + test + '&m=' + m + '&mtest=' + mtest;
+	var dataString = '&act=add' + 
+                    '&name=' + name + 
+                    '&ip=' + ip + 
+                    '&http=' + http + 
+                    '&https=' + https + 
+                    '&cert=' + cert + 
+                    '&test=' + test + 
+                    '&m=' + m + 
+                    '&mtest=' + mtest;
 	$.ajax({
 	    url: "table.php",
 	    data: dataString,
@@ -68,7 +76,16 @@ function edit(id){
 }
 
 function save(id){
-    var dataString = '&act=edit' + '&id=' + id + '&name=' + document.getElementById('name_'+id).value + '&ip=' + document.getElementById('ip_'+id).value + '&http=' + document.getElementById('http_'+id).checked + '&https=' + document.getElementById('https_'+id).checked + '&cert=' + document.getElementById('cert_'+id).value + '&test=' + document.getElementById('test_'+id).checked + '&m=' + document.getElementById('m_'+id).checked + '&mtest=' + document.getElementById('mtest_'+id).checked;
+    var dataString = '&act=edit' + 
+                    '&id=' + id + 
+                    '&name=' + document.getElementById('name_'+id).value + 
+                    '&ip=' + document.getElementById('ip_'+id).value + 
+                    '&http=' + document.getElementById('http_'+id).checked + 
+                    '&https=' + document.getElementById('https_'+id).checked + 
+                    '&cert=' + document.getElementById('cert_'+id).value + 
+                    '&test=' + document.getElementById('test_'+id).checked + 
+                    '&m=' + document.getElementById('m_'+id).checked + 
+                    '&mtest=' + document.getElementById('mtest_'+id).checked;
     $.ajax({
         url: "table.php",
         data: dataString,
