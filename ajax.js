@@ -139,4 +139,5 @@ function fadeblog(){
         $('#blogname').fadeIn(); 
     else 
         $('#blogname').fadeOut();
+}
 -->
