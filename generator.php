@@ -53,8 +53,8 @@
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
 	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n\n");
 	    	if ($blog) {
-	    		fwrite($handle, "	location /wissen/ {\n");
-            	fwrite($handle, "		rewrite ^/?wissen$ /wissen/ redirect;\n");
+	    		fwrite($handle, "	location /".$blogname."/ {\n");
+            	fwrite($handle, "		rewrite ^/?".$blogname."$ /".$blogname."/ redirect;\n");
             	fwrite($handle, "		proxy_pass http://78.47.178.8;\n");
             	fwrite($handle, "		proxy_set_header Host $host;\n");
             	fwrite($handle, "		proxy_set_header X-Real-IP $remote_addr;\n");
