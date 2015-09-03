@@ -39,6 +39,11 @@
 			$test = 1;
 		else
 			$test = 0;
+		if ($_GET['blog'] == "true")
+			$blog = 1;
+		else
+			$blog = 0;
+		$blogname = $_GET['blogname'];
 		if ($_GET['m'] == "true")
 			$m = 1;
 		else
@@ -47,7 +52,7 @@
 			$mtest = 1;
 		else
 			$mtest = 0;
-		$sql = "UPDATE `domains` SET name = '$name', ip = '$ip', http = '$http', https = '$https', cert = '$cert', test = '$test', m = '$m', mtest = '$mtest' WHERE id = '$id'";
+		$sql = "UPDATE `domains` SET name = '$name', ip = '$ip', http = '$http', https = '$https', cert = '$cert', test = '$test', blog = '$blog', blogname = '$blogname', m = '$m', mtest = '$mtest' WHERE id = '$id'";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 	#Adding
@@ -58,9 +63,11 @@
 		$https = $_GET['https'];
 		$cert = $_GET['cert'];
 		$test = $_GET['test'];
+		$blog = $_GET['blog'];
+		$blogname = $_GET['blogname'];
 		$m = $_GET['m'];
 		$mtest = $_GET['mtest'];
-		$sql = "INSERT INTO `domains` (name, ip, http, https, test, m, mtest, cert) VALUES (\"$name\", \"$ip\", $http, $https, $test, $m, $mtest, \"$cert\");";
+		$sql = "INSERT INTO `domains` (name, ip, http, https, test, m, mtest, cert, blog, blogname) VALUES (\"$name\", \"$ip\", $http, $https, $test, $m, $mtest, \"$cert\", $blog, \"$blogname\");";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 

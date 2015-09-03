@@ -1,7 +1,6 @@
 <?php
 	sleep(3);
 	include 'db.php';
-	#$workdir = '/etc/nginx/fpm-conf.d/balancer/';
 	$workdir = '/var/www/balancer/';
 	$certdir = '/etc/nginx/certs/';
 	$id = $_GET['id'];
@@ -26,10 +25,12 @@
     	$ip = $row['ip'];
     	$http = $row['http'];
     	$https = $row['https'];
+    	$blog = $row['blog'];
     	$test = $row['test'];
     	$m = $row['m'];
     	$mtest = $row['mtest'];
     	$cert = $row['cert'];
+    	$blogname = $row['blogname'];
     	
     	$file = $workdir.$name.'.conf';
     	$certfile = $certdir.$cert;
@@ -50,7 +51,20 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n\n");
+	    	if ($blog) {
+	    		fwrite($handle, "	location /wissen/ {\n");
+            	fwrite($handle, "		rewrite ^/?wissen$ /wissen/ redirect;\n");
+            	fwrite($handle, "		proxy_pass http://78.47.178.8;\n");
+            	fwrite($handle, "		proxy_set_header Host $host;\n");
+            	fwrite($handle, "		proxy_set_header X-Real-IP $remote_addr;\n");
+            	fwrite($handle, "		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n");
+            	fwrite($handle, "		location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|txt|php)$ {\n");
+            	fwrite($handle, "			expires 7d;\n");
+            	fwrite($handle, "			proxy_pass http://78.47.178.8;\n");
+            	fwrite($handle, "			add_header Cache-Control public;\n		}\n	}\n");
+            }
+	    	fwrite($handle, "}\n\n");
 	    }
 	    if ($https) {
 	    	fwrite($handle, "## Add www to HTTPS\n");

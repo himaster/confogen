@@ -6,7 +6,9 @@ function submit() {
                         document.getElementById('http').checked, 
                         document.getElementById('https').checked,
                         document.getElementById('cert').value,
-                        document.getElementById('test').checked, 
+                        document.getElementById('test').checked,
+                        document.getElementById('blog').checked,
+                        document.getElementById('blogname').value,
                         document.getElementById('m').checked, 
                         document.getElementById('mtest').checked); 
                     document.getElementById('name').value = ''; 
@@ -14,13 +16,15 @@ function submit() {
                     document.getElementById('http').checked = false; 
                     document.getElementById('https').checked = false;
                     document.getElementById('cert').value = '';
-                    document.getElementById('test').checked = false; 
-                    document.getElementById('m').checked = false; 
+                    document.getElementById('test').checked = false;
+                    document.getElementById('blog').checked = false;
+                    document.getElementById('blogname').value = '';
+                    document.getElementById('m').checked = false;
                     document.getElementById('mtest').checked = false;
             }
         }
 
-function show_table(name, ip, http, https, cert, test, m, mtest){
+function show_table(name, ip, http, https, cert, test, blog, blogname, m, mtest){
 	var dataString = '&act=add' + 
                     '&name=' + name + 
                     '&ip=' + ip + 
@@ -28,6 +32,8 @@ function show_table(name, ip, http, https, cert, test, m, mtest){
                     '&https=' + https + 
                     '&cert=' + cert + 
                     '&test=' + test + 
+                    '&blog=' + blog +
+                    '&blogname=' + blogname +
                     '&m=' + m + 
                     '&mtest=' + mtest;
 	$.ajax({
@@ -69,6 +75,8 @@ function edit(id){
     document.getElementById('https_'+id).disabled=false;
     document.getElementById('cert_'+id).readOnly=false;
     document.getElementById('test_'+id).disabled=false;
+    document.getElementById('blog_'+id).disabled=false;
+    document.getElementById('blogname_'+id).readOnly=false;
     document.getElementById('m_'+id).disabled=false;
     document.getElementById('mtest_'+id).disabled=false;
     document.getElementById('edit_'+id).style.display="none";
@@ -83,6 +91,8 @@ function save(id){
                     '&http=' + document.getElementById('http_'+id).checked + 
                     '&https=' + document.getElementById('https_'+id).checked + 
                     '&cert=' + document.getElementById('cert_'+id).value + 
+                    '&blog=' + document.getElementById('blog_'+id).checked + 
+                    '&blogname=' + document.getElementById('blogname_'+id).value + 
                     '&test=' + document.getElementById('test_'+id).checked + 
                     '&m=' + document.getElementById('m_'+id).checked + 
                     '&mtest=' + document.getElementById('mtest_'+id).checked;
@@ -124,4 +134,9 @@ function fade(){
         $('#cert').fadeOut();
 }
 
+function fadeblog(){
+    if (document.getElementById('blog').checked) 
+        $('#blogname').fadeIn(); 
+    else 
+        $('#blogname').fadeOut();
 -->
