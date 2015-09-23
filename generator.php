@@ -100,6 +100,9 @@
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		fwrite($handle, "	server_name test.".$name.";\n\n");
 	    	fwrite($handle, "	location / {\n");
+	    	fwrite($handle, "		satisfy					any;\n");
+			fwrite($handle, "		allow					188.138.234.131;\n");
+			fwrite($handle, "		allow					217.89.150.114;\n");
 	    	fwrite($handle, "		auth_basic				\"Restricted Area\";\n");
         	fwrite($handle, "		auth_basic_user_file	/etc/nginx/passwd;\n");
 	    	fwrite($handle, "		proxy_set_header		Host			\$http_host;\n");
