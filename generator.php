@@ -31,6 +31,7 @@
     	$mtest = $row['mtest'];
     	$cert = $row['cert'];
     	$blogname = $row['blogname'];
+    	$comment = $row['comment'];
     	
     	$file = $workdir.$name.'.conf';
     	$certfile = $certdir.$cert;

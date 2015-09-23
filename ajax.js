@@ -1,16 +1,17 @@
 <!--
 function submit() {
             if (document.getElementById('name').value != '' && document.getElementById('ip').value != '') {
-                    show_table(document.getElementById('name').value, 
-                        document.getElementById('ip').value, 
-                        document.getElementById('http').checked, 
-                        document.getElementById('https').checked,
-                        document.getElementById('cert').value,
-                        document.getElementById('test').checked,
-                        document.getElementById('blog').checked,
-                        document.getElementById('blogname').value,
-                        document.getElementById('m').checked, 
-                        document.getElementById('mtest').checked); 
+                    show_table( document.getElementById('name').value, 
+                                document.getElementById('ip').value, 
+                                document.getElementById('http').checked, 
+                                document.getElementById('https').checked,
+                                document.getElementById('cert').value,
+                                document.getElementById('test').checked,
+                                document.getElementById('blog').checked,
+                                document.getElementById('blogname').value,
+                                document.getElementById('m').checked, 
+                                document.getElementById('mtest').checked,
+                                document.getElementById('comment').value);
                     document.getElementById('name').value = ''; 
                     document.getElementById('ip').value = ''; 
                     document.getElementById('http').checked = false; 
@@ -21,21 +22,23 @@ function submit() {
                     document.getElementById('blogname').value = '';
                     document.getElementById('m').checked = false;
                     document.getElementById('mtest').checked = false;
+                    document.getElementById('comment').value = '';
             }
         }
 
-function show_table(name, ip, http, https, cert, test, blog, blogname, m, mtest){
+function show_table(name, ip, http, https, cert, test, blog, blogname, m, mtest, comment){
 	var dataString = '&act=add' + 
-                    '&name=' + name + 
-                    '&ip=' + ip + 
-                    '&http=' + http + 
-                    '&https=' + https + 
-                    '&cert=' + cert + 
-                    '&test=' + test + 
-                    '&blog=' + blog +
-                    '&blogname=' + blogname +
-                    '&m=' + m + 
-                    '&mtest=' + mtest;
+                     '&name=' + name + 
+                     '&ip=' + ip + 
+                     '&http=' + http + 
+                     '&https=' + https + 
+                     '&cert=' + cert + 
+                     '&test=' + test + 
+                     '&blog=' + blog +
+                     '&blogname=' + blogname +
+                     '&m=' + m + 
+                     '&mtest=' + mtest +
+                     '&comment=' + comment;
 	$.ajax({
 	    url: "table.php",
 	    data: dataString,
@@ -79,23 +82,25 @@ function edit(id){
     document.getElementById('blogname_'+id).readOnly=false;
     document.getElementById('m_'+id).disabled=false;
     document.getElementById('mtest_'+id).disabled=false;
+    document.getElementById('comment_'+id).readOnly=false;
     document.getElementById('edit_'+id).style.display="none";
     document.getElementById('save_'+id).style.display="block";
 }
 
 function save(id){
     var dataString = '&act=edit' + 
-                    '&id=' + id + 
-                    '&name=' + document.getElementById('name_'+id).value + 
-                    '&ip=' + document.getElementById('ip_'+id).value + 
-                    '&http=' + document.getElementById('http_'+id).checked + 
-                    '&https=' + document.getElementById('https_'+id).checked + 
-                    '&cert=' + document.getElementById('cert_'+id).value + 
-                    '&blog=' + document.getElementById('blog_'+id).checked + 
-                    '&blogname=' + document.getElementById('blogname_'+id).value + 
-                    '&test=' + document.getElementById('test_'+id).checked + 
-                    '&m=' + document.getElementById('m_'+id).checked + 
-                    '&mtest=' + document.getElementById('mtest_'+id).checked;
+                     '&id=' + id + 
+                     '&name=' + document.getElementById('name_'+id).value + 
+                     '&ip=' + document.getElementById('ip_'+id).value + 
+                     '&http=' + document.getElementById('http_'+id).checked + 
+                     '&https=' + document.getElementById('https_'+id).checked + 
+                     '&cert=' + document.getElementById('cert_'+id).value + 
+                     '&blog=' + document.getElementById('blog_'+id).checked + 
+                     '&blogname=' + document.getElementById('blogname_'+id).value + 
+                     '&test=' + document.getElementById('test_'+id).checked + 
+                     '&m=' + document.getElementById('m_'+id).checked + 
+                     '&mtest=' + document.getElementById('mtest_'+id).checked +
+                     '&comment=' + document.getElementById('comment_'+id).value;
     $.ajax({
         url: "table.php",
         data: dataString,
