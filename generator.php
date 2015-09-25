@@ -108,7 +108,14 @@
 	    	fwrite($handle, "		proxy_set_header		Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header		X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header		X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass				http://backend;\n	}\n}\n\n");
+	    	fwrite($handle, "		proxy_pass				http://backend;\n	}\n\n");
+	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur)$ {\n");
+	    	fwrite($handle, "		access_log              off;\n");
+	    	fwrite($handle, "		log_not_found           off;\n");
+	    	fwrite($handle, "		expires                 360d;\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n");
+	    	fwrite($handle, "		proxy_pass              http://backend;\n");	
+	    	fwrite($handle, "	}\n}\n\n");
 	    }
 	    if ($m) {
 	    	fwrite($handle, "## M\n");
