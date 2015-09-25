@@ -52,7 +52,7 @@
 			$mtest = 1;
 		else
 			$mtest = 0;
-		$comment = escape($_GET['comment']);
+		$comment = htmlspecialchars($_GET['comment']);
 		$sql = "UPDATE `domains` SET name = '$name', ip = '$ip', http = '$http', https = '$https', cert = '$cert', test = '$test', blog = '$blog', blogname = '$blogname', m = '$m', mtest = '$mtest', comment = '$comment' WHERE id = '$id'";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
@@ -68,7 +68,7 @@
 		$blogname = $_GET['blogname'];
 		$m = $_GET['m'];
 		$mtest = $_GET['mtest'];
-		$comment = escape($_GET['comment']);
+		$comment = htmlspecialchars($_GET['comment']);
 		$sql = "INSERT INTO `domains` (name, ip, http, https, test, m, mtest, cert, blog, blogname, comment) VALUES (\"$name\", \"$ip\", $http, $https, $test, $m, $mtest, \"$cert\", $blog, \"$blogname\", '$comment');";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
