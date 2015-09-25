@@ -63,8 +63,13 @@
             	fwrite($handle, "		location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|txt|php)$ {\n");
             	fwrite($handle, "			expires 7d;\n");
             	fwrite($handle, "			proxy_pass http://78.47.178.8;\n");
-            	fwrite($handle, "			add_header Cache-Control public;\n		}\n	}\n");
+            	fwrite($handle, "			add_header Cache-Control public;\n		}\n}\n");
             }
+            fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur)$ {\n");
+	    	fwrite($handle, "		access_log              off;\n");
+	    	fwrite($handle, "		expires                 360d;\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
+	    	fwrite($handle, "		proxy_pass              http://backend;\n	}\n");
 	    	fwrite($handle, "}\n\n");
 	    }
 	    if ($https) {
@@ -80,19 +85,25 @@
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":443 ssl;\n");
     		fwrite($handle, "	server_name www.".$name.";\n\n");
-    		fwrite($handle, "	ssl				on;\n");
-			fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
-			fwrite($handle, "	ssl_certificate_key		".$certfile.".key;\n\n");
-			fwrite($handle, "	ssl_session_timeout		5m;\n");
-    		fwrite($handle, "	ssl_protocols			TLSv1 TLSv1.1 TLSv1.2;\n");
-    		fwrite($handle, "	ssl_ciphers				ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:-SSLv2:+SSLv3::+EXP;\n");
-    		fwrite($handle, "	ssl_session_cache		shared:SSL:1m;\n");
+    		fwrite($handle, "	ssl							on;\n");
+			fwrite($handle, "	ssl_certificate				".$certfile.".crt;\n");
+			fwrite($handle, "	ssl_certificate_key			".$certfile.".key;\n\n");
+			fwrite($handle, "	ssl_session_timeout			5m;\n");
+    		fwrite($handle, "	ssl_protocols				TLSv1 TLSv1.1 TLSv1.2;\n");
+    		fwrite($handle, "	ssl_ciphers					ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:-SSLv2:+SSLv3::+EXP;\n");
+    		fwrite($handle, "	ssl_session_cache			shared:SSL:1m;\n");
     		fwrite($handle, "	ssl_prefer_server_ciphers	on;\n");
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					http://backend_ssl;\n	}\n}\n\n");
+	    	fwrite($handle, "		proxy_set_header		Host			\$http_host;\n");
+	    	fwrite($handle, "		proxy_set_header		X-Real-IP		\$remote_addr;\n");
+	    	fwrite($handle, "		proxy_set_header		X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
+	    	fwrite($handle, "		proxy_pass				http://backend_ssl;\n	}\n");
+	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur)$ {\n");
+	    	fwrite($handle, "		access_log              off;\n");
+	    	fwrite($handle, "		expires                 360d;\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
+	    	fwrite($handle, "		proxy_pass              http://backend_ssl;\n	}\n");
+	    	fwrite($handle, "}\n\n");
     	}
     	if ($test) {
 	    	fwrite($handle, "## Test\n");
@@ -111,11 +122,10 @@
 	    	fwrite($handle, "		proxy_pass				http://backend;\n	}\n\n");
 	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
-	    	fwrite($handle, "		log_not_found           off;\n");
 	    	fwrite($handle, "		expires                 360d;\n");
-	    	fwrite($handle, "		add_header              Cache-Control public;\n");
-	    	fwrite($handle, "		proxy_pass              http://backend;\n");	
-	    	fwrite($handle, "	}\n}\n\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
+	    	fwrite($handle, "		proxy_pass              http://backend;\n	}\n");	
+	    	fwrite($handle, "}\n\n");
 	    }
 	    if ($m) {
 	    	fwrite($handle, "## M\n");
@@ -126,7 +136,13 @@
 	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n}\n\n");
+	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n");
+	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur)$ {\n");
+	    	fwrite($handle, "		access_log              off;\n");
+	    	fwrite($handle, "		expires                 360d;\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
+	    	fwrite($handle, "		proxy_pass              http://backend;\n	}\n");
+	    	fwrite($handle, "}\n\n");
 	    }
 	    if ($mtest) {
 	    	fwrite($handle, "## Mtest\n");
@@ -139,7 +155,13 @@
 	    	fwrite($handle, "		proxy_set_header		Host			\$http_host;\n");
 	    	fwrite($handle, "		proxy_set_header		X-Real-IP		\$remote_addr;\n");
 	    	fwrite($handle, "		proxy_set_header		X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass				http://backend;\n	}\n}\n\n");
+	    	fwrite($handle, "		proxy_pass				http://backend;\n	}\n");
+	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur)$ {\n");
+	    	fwrite($handle, "		access_log              off;\n");
+	    	fwrite($handle, "		expires                 360d;\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
+	    	fwrite($handle, "		proxy_pass              http://backend;\n	}\n");
+	    	fwrite($handle, "}\n\n");
 	    }
 
     	fclose($handle);
