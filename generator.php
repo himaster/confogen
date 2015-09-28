@@ -63,7 +63,7 @@
             	fwrite($handle, "		location ~* \.(jpg|jpeg|gif|png|bmp|swf|cur|gz|pdf|txt|php)$ {\n");
             	fwrite($handle, "			expires 7d;\n");
             	fwrite($handle, "			proxy_pass http://78.47.178.8;\n");
-            	fwrite($handle, "			add_header Cache-Control public;\n		}\n	}\n");
+            	fwrite($handle, "			add_header Cache-Control public;\n		}\n	}\n\n");
             }
             fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|cur)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
