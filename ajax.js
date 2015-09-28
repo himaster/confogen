@@ -155,9 +155,9 @@ $(function() {
         });
     })
 
-    $(document).on('click', 'tr', function() {
+    $(document).on('click', '#tablespace.tr', function() {
         var hc = $(this).hasClass('active');
-        $('tr.active').removeClass('active');
+        $('#tablespace.tr.active').removeClass('active');
         if (!hc) {
             $(this).addClass('active');   
         }
