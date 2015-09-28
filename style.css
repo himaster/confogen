@@ -23,7 +23,7 @@
 
 .toptable {
     position: fixed;
-    left: 200px;
+    left: 20%;
     border: 4px solid gray;
     border-collapse: collapse;
     background-color:lightgray;
