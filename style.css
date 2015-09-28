@@ -21,6 +21,10 @@
 	font-size: 14px;
 }
 
+.tablestyle1 {
+    border-collapse: collapse;
+}
+
 .copyright {
     font-size: 14px;
 }
