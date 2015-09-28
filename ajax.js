@@ -141,9 +141,9 @@ function fade(){
 
 function fadeblog(){
     if (document.getElementById('blog').checked) 
-        $('#blogname').removeattr('readonly'); 
+        $('#blogname').prop('readonly', false);
     else 
-        $('#blogname').attr('readonly','true');
+        $('#blogname').prop('readonly', true);
 }
 
 $(function() {
