@@ -134,16 +134,16 @@ function generate(id){
 
 function fade(){
     if (document.getElementById('https').checked) 
-        $('#cert').attr('readonly','true'); 
+        $('#cert').removeattr('readonly'); 
     else 
-        $('#cert').attr('readonly','false');
+        $('#cert').attr('readonly','true');
 }
 
 function fadeblog(){
     if (document.getElementById('blog').checked) 
-        $('#blogname').attr('readonly','true'); 
+        $('#blogname').attr('readonly','false'); 
     else 
-        $('#blogname').attr('readonly','false');
+        $('#blogname').attr('readonly','true');
 }
 
 $(function() {
