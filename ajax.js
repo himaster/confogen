@@ -154,5 +154,11 @@ $(function() {
                         cursor: e.pageY > a && e.pageX > b ? 'se-resize' : ''
                     });
                 })
-            });
+});
+
+$(function() {
+                $(document).on('click', 'tr', function() {
+                    $(this).style.outline= 'solid thin';
+                })
+})
 -->
