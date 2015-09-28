@@ -158,7 +158,7 @@ $(function() {
 
 $(function() {
                 $(document).on('click', 'tr', function() {
-                    $('#tr').css({
+                    $('tr').css({
                         outline: ''
                     });
                     $(this).css({
