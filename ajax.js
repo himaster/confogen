@@ -134,9 +134,9 @@ function generate(id){
 
 function fade(){
     if (document.getElementById('https').checked) 
-        $('#cert').removeattr('readonly'); 
+        $('#cert').prop('readonly', false); 
     else 
-        $('#cert').attr('readonly','true');
+        $('#cert').prop('readonly', true);;
 }
 
 function fadeblog(){
