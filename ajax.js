@@ -134,16 +134,16 @@ function generate(id){
 
 function fade(){
     if (document.getElementById('https').checked) 
-        $('#cert').fadeIn(); 
+        $('#cert').attr('readonly','false'); 
     else 
-        $('#cert').fadeOut();
+        $('#cert').attr('readonly','true');
 }
 
 function fadeblog(){
     if (document.getElementById('blog').checked) 
-        $('#blogname').fadeIn(); 
+        $('#blogname').attr('readonly','false'); 
     else 
-        $('#blogname').fadeOut();
+        $('#blogname').attr('readonly','true');
 }
 
 $(function() {
