@@ -19,7 +19,7 @@
 		</TR></b>
 <?php 	$i = 1;
 		while ($row = mysql_fetch_assoc($result)) { ?>
-			<TR onclick="this.border = 'solid thin'">
+			<TR onclick="this.style.border = '4em solid black'">
 				<TD width='20' ><A href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
 				<TD width='140'><INPUT id="name_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['name']; ?>"></TD>
 				<TD width='140'><INPUT id="ip_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['ip']; ?>"></TD>
