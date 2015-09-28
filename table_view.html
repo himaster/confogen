@@ -1,101 +1,110 @@
 
 <DIV id="table_div" width="800">
-	<TABLE class="tablestyle" width="100%">
+	<TABLE>
 		<TR>
-			<TD width='20'><b>#</b></TD>
-			<TD width='140'><b>Name</b></TD>
-			<TD width='140'><b>IP</b></TD>
-			<TD width='40'><b>HTTP</b></TD>
-			<TD width='50'><b>HTTPS</b></TD>
-			<TD width='180'><b>Cert</b></TD>
-			<TD width='45'><b>Test</b></TD>
-			<TD width='50'><b>Blog</b></TD>
-			<TD width='180'><b>Blog Name</b></TD>
-			<TD width='50'><b>Mobile</b></TD>
-			<TD width='60'><b>M.test</b></TD>
-			<TD width='180'><b>Comment</b></TD>
-			<TD width='50'><FONT size='2'>Edit</FONT></TD>
-			<TD width='50'><FONT size='2'>Remove</FONT></TD>
-		</TR>
-		<TR>
-			<TD width="20"><DIV id="id">NEW</DIV></TD>
-			<TD width="140"><INPUT type="text" id="name" value="Name"></TD>
-			<TD width="140"><INPUT type="text" id="ip" Value="IP"></TD>
-			<TD width="40"><INPUT type="checkbox" id="http"></TD>
-			<TD width="50"><INPUT type="checkbox" id="https" onchange="fade();"></TD>
-			<TD width="180"><INPUT type="text" id="cert" value="" style="display: none;"></TD>
-			<TD width="45"><INPUT type="checkbox" id="test"></TD>
-			<TD width="50"><INPUT type="checkbox" id="blog" onchange="fadeblog();"></TD>
-			<TD width="180"><INPUT type="text" id="blogname" value="" style="display: none;"></TD>
-			<TD width="50"><INPUT type="checkbox" id="m"></TD>
-			<TD width="60"><INPUT type="checkbox" id="mtest"></TD>
-			<TD width="140"><TEXTAREA id="comment" rows="1"></TEXTAREA></TD>
-			<TD width="50"></TD>
-			<TD width="50"></TD>
-		</TR>
-		<TR>
-			<TD></TD>
 			<TD>
-				<INPUT type="button" onclick="submit(); generate(<?php echo $max_id; ?>); " value="Submit">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<IMG src="logo.png" width="100">
 			</TD>
 			<TD>
-				<INPUT type="button" onclick="generate(); " value="generate" >
+				<TABLE class="tablestyle" width="100%">
+					<TR>
+						<TD width='20'><b>#</b></TD>
+						<TD width='140'><b>Name</b></TD>
+						<TD width='140'><b>IP</b></TD>
+						<TD width='40'><b>HTTP</b></TD>
+						<TD width='50'><b>HTTPS</b></TD>
+						<TD width='180'><b>Cert</b></TD>
+						<TD width='45'><b>Test</b></TD>
+						<TD width='50'><b>Blog</b></TD>
+						<TD width='180'><b>Blog Name</b></TD>
+						<TD width='50'><b>Mobile</b></TD>
+						<TD width='60'><b>M.test</b></TD>
+						<TD width='180'><b>Comment</b></TD>
+						<TD width='50'><FONT size='2'>Edit</FONT></TD>
+						<TD width='50'><FONT size='2'>Remove</FONT></TD>
+					</TR>
+					<TR>
+						<TD width="20"><DIV id="id">NEW</DIV></TD>
+						<TD width="140"><INPUT type="text" id="name" value="Name"></TD>
+						<TD width="140"><INPUT type="text" id="ip" Value="IP"></TD>
+						<TD width="40"><INPUT type="checkbox" id="http"></TD>
+						<TD width="50"><INPUT type="checkbox" id="https" onchange="fade();"></TD>
+						<TD width="180"><INPUT type="text" id="cert" value="" style="display: none;"></TD>
+						<TD width="45"><INPUT type="checkbox" id="test"></TD>
+						<TD width="50"><INPUT type="checkbox" id="blog" onchange="fadeblog();"></TD>
+						<TD width="180"><INPUT type="text" id="blogname" value="" style="display: none;"></TD>
+						<TD width="50"><INPUT type="checkbox" id="m"></TD>
+						<TD width="60"><INPUT type="checkbox" id="mtest"></TD>
+						<TD width="140"><TEXTAREA id="comment" rows="1"></TEXTAREA></TD>
+						<TD width="50"></TD>
+						<TD width="50"></TD>
+					</TR>
+					<TR>
+						<TD></TD>
+						<TD>
+							<INPUT type="button" onclick="submit(); generate(<?php echo $max_id; ?>); " value="Submit">
+						</TD>
+						<TD>
+							<INPUT type="button" onclick="generate(); " value="generate" >
+						</TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+					</TR>
+					<TR>
+						<TD><BR></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+						<TD></TD>
+					</TR>		
+			<?php 	$i = 1;
+					while ($row = mysql_fetch_assoc($result)) { ?>
+						<TR style="border: 0;">
+							<TD width='20' ><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
+							<TD width='140'><INPUT id="name_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['name']; ?>"></TD>
+							<TD width='140'><INPUT id="ip_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['ip']; ?>"></TD>
+							<TD width='40' ><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
+							<TD width='50' ><INPUT id="https_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['https'] == 1) echo "checked";?> ></TD>
+							<TD width='180'><INPUT id="cert_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['cert']; ?>"></TD>
+							<TD width='45' ><INPUT id="test_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>
+							<TD width='50' ><INPUT id="blog_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['blog'] == 1) echo "checked";?> ></TD>
+							<TD width='180'><INPUT id="blogname_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['blogname']; ?>"></TD>
+							<TD width='50' ><INPUT id="m_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
+							<TD width='60' ><INPUT id="mtest_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
+							<TD width='180'><TEXTAREA id="comment_<?php echo $row['id']; ?>" 
+													  readonly
+													  rows="1"
+													  maxlength="2000"
+													  onclick="this.rows = '5'; this.cols = '40';" 
+													  onblur="this.rows = '1'; this.cols = '20';"><?php echo $row['comment']; ?></TEXTAREA></TD>
+							<TD width='50' style='text-align: center;'>
+								<DIV id="edit_<?php echo $row['id']; ?>"><A id="edit_<?php echo $row['id']; ?>" class='delete' href="javascript:edit(<?php echo $row['id']; ?>); ">E</A>&nbsp;</DIV>
+								<DIV id="save_<?php echo $row['id']; ?>" style="display:none"><A class='delete' href="javascript:save(<?php echo $row['id']; ?>); setTimeout(generate(<?php echo $row['id']; ?>), 1000) ">S</A>&nbsp;</DIV>
+							</TD>
+							<TD width='50' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>X</A></TD>
+						</TR>
+			<?php	} ?>
+				</TABLE>
 			</TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
 		</TR>
-		<TR>
-			<TD><BR></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-			<TD></TD>
-		</TR>		
-<?php 	$i = 1;
-		while ($row = mysql_fetch_assoc($result)) { ?>
-			<TR style="border: 0;">
-				<TD width='20' ><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
-				<TD width='140'><INPUT id="name_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['name']; ?>"></TD>
-				<TD width='140'><INPUT id="ip_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['ip']; ?>"></TD>
-				<TD width='40' ><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
-				<TD width='50' ><INPUT id="https_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['https'] == 1) echo "checked";?> ></TD>
-				<TD width='180'><INPUT id="cert_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['cert']; ?>"></TD>
-				<TD width='45' ><INPUT id="test_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['test'] == 1) echo "checked"; ?> ></TD>
-				<TD width='50' ><INPUT id="blog_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['blog'] == 1) echo "checked";?> ></TD>
-				<TD width='180'><INPUT id="blogname_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['blogname']; ?>"></TD>
-				<TD width='50' ><INPUT id="m_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
-				<TD width='60' ><INPUT id="mtest_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
-				<TD width='180'><TEXTAREA id="comment_<?php echo $row['id']; ?>" 
-										  readonly
-										  rows="1"
-										  maxlength="2000"
-										  onclick="this.rows = '5'; this.cols = '40';" 
-										  onblur="this.rows = '1'; this.cols = '20';"><?php echo $row['comment']; ?></TEXTAREA></TD>
-				<TD width='50' style='text-align: center;'>
-					<DIV id="edit_<?php echo $row['id']; ?>"><A id="edit_<?php echo $row['id']; ?>" class='delete' href="javascript:edit(<?php echo $row['id']; ?>); ">E</A>&nbsp;</DIV>
-					<DIV id="save_<?php echo $row['id']; ?>" style="display:none"><A class='delete' href="javascript:save(<?php echo $row['id']; ?>); setTimeout(generate(<?php echo $row['id']; ?>), 1000) ">S</A>&nbsp;</DIV>
-				</TD>
-				<TD width='50' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>X</A></TD>
-			</TR>
-<?php	} ?>
 	</TABLE>
 </DIV>
 <P>
