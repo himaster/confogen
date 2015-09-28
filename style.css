@@ -13,19 +13,20 @@
 .tablestyle {
 	border: 4px solid gray;
     border-collapse: collapse;
-	background-color:lightgray;
-	overflow:hidden;
+	background-color: lightgray;
+	overflow: hidden;
 	font-family: Tahoma;
 	font-size: 14px;
 }
 
 .toptable {
+    width: 1087px;
     position: fixed;
-    top:2px;
+    top: 2px;
     border: 4px solid gray;
     border-collapse: collapse;
-    background-color:lightgray;
-    overflow:hidden;
+    background-color: lightgray;
+    overflow: hidden;
     font-family: Tahoma;
     font-size: 14px;
 }
@@ -33,9 +34,9 @@
 #table_div{
  width: 1087px;
  margin: 0px auto;
- text-align:left;
+ text-align: left;
  padding-top: 70px;
- position:relative;/*stacking context*/
+ position: relative;/*stacking context*/
 }
 
 .copyright {
