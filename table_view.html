@@ -1,7 +1,7 @@
 <DIV id="table_div">
 		<TABLE class="toptable">
 			<TR>
-				<TD width='20'><B>#</B></TD>
+				<TD width='32'><B>#</B></TD>
 				<TD width='140'><b>Name</b></TD>
 				<TD width='140'><b>IP</b></TD>
 				<TD width='40'><b>HTTP</b></TD>
@@ -17,7 +17,7 @@
 				<TD width='50'><FONT size='2'>Remove</FONT></TD>
 			</TR>
 			<TR>
-				<TD width="20"><DIV id="id">New</DIV></TD>
+				<TD width="32"><DIV id="id">New</DIV></TD>
 				<TD width="140"><INPUT type="text" id="name" value=""></TD>
 				<TD width="140"><INPUT type="text" id="ip" Value=""></TD>
 				<TD width="40"><INPUT type="checkbox" id="http"></TD>
@@ -55,7 +55,7 @@
 		</TABLE>
 		<TABLE class="tablestyle">
 			<TR>
-				<TD width='20'><b>#</b></TD>
+				<TD width='32'><b>#</b></TD>
 				<TD width='140'><b>Name</b></TD>
 				<TD width='140'><b>IP</b></TD>
 				<TD width='40'><b>HTTP</b></TD>
@@ -74,7 +74,7 @@
 	<?php 	$i = 1;
 			while ($row = mysql_fetch_assoc($result)) { ?>
 				<TR style="border: 0;">
-					<TD width='20' ><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
+					<TD width='32' ><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
 					<TD width='140'><INPUT id="name_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['name']; ?>"></TD>
 					<TD width='140'><INPUT id="ip_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['ip']; ?>"></TD>
 					<TD width='40' ><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
