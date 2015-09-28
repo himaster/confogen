@@ -158,7 +158,7 @@ $(function() {
 
 function trclick() {
     var hc = $(this).hasClass('active');
-    $('#tablespace.tr.active').removeClass('active');
+    $('tr.active').removeClass('active');
     if (!hc) {
         $(this).addClass('active');   
     }
