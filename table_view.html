@@ -2,9 +2,25 @@
 <DIV id="table_div" width="800">
 	<TABLE class="tablestyle" width="100%">
 		<TR>
+			<TD width='20'><b>#</b></TD>
+			<TD width='140'><b>Name</b></TD>
+			<TD width='140'><b>IP</b></TD>
+			<TD width='40'><b>HTTP</b></TD>
+			<TD width='50'><b>HTTPS</b></TD>
+			<TD width='180'><b>Cert</b></TD>
+			<TD width='45'><b>Test</b></TD>
+			<TD width='50'><b>Blog</b></TD>
+			<TD width='180'><b>Blog Name</b></TD>
+			<TD width='50'><b>Mobile</b></TD>
+			<TD width='60'><b>M.test</b></TD>
+			<TD width='180'><b>Comment</b></TD>
+			<TD width='50'><FONT size='2'>Edit</FONT></TD>
+			<TD width='50'><FONT size='2'>Remove</FONT></TD>
+		</TR>
+		<TR>
 			<TD width="20"><DIV id="id">NEW</DIV></TD>
-			<TD width="140"><INPUT type="text" id="name" value=""></TD>
-			<TD width="140"><INPUT type="text" id="ip" Value=""></TD>
+			<TD width="140"><INPUT type="text" id="name" value="Name"></TD>
+			<TD width="140"><INPUT type="text" id="ip" Value="IP"></TD>
 			<TD width="40"><INPUT type="checkbox" id="http"></TD>
 			<TD width="50"><INPUT type="checkbox" id="https" onchange="fade();"></TD>
 			<TD width="180"><INPUT type="text" id="cert" value="" style="display: none;"></TD>
@@ -25,22 +41,6 @@
 				<INPUT type="button" onclick="generate(); " value="generate" ></DIV>
 			</TD>
 		</TR>		
-		<TR>
-			<TD width='20'><b>#</b></TD>
-			<TD width='140'><b>Name</b></TD>
-			<TD width='140'><b>IP</b></TD>
-			<TD width='40'><b>HTTP</b></TD>
-			<TD width='50'><b>HTTPS</b></TD>
-			<TD width='180'><b>Cert</b></TD>
-			<TD width='45'><b>Test</b></TD>
-			<TD width='50'><b>Blog</b></TD>
-			<TD width='180'><b>Blog Name</b></TD>
-			<TD width='50'><b>Mobile</b></TD>
-			<TD width='60'><b>M.test</b></TD>
-			<TD width='180'><b>Comment</b></TD>
-			<TD width='50'><FONT size='2'>Edit</FONT></TD>
-			<TD width='50'><FONT size='2'>Remove</FONT></TD>
-		</TR></b>
 <?php 	$i = 1;
 		while ($row = mysql_fetch_assoc($result)) { ?>
 			<TR style="border: 0;">
