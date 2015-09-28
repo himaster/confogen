@@ -155,7 +155,7 @@ $(function() {
         });
     })
 
-    $(document).on('click', 'table', function() {
+    $(document).on('click', 'tr', function() {
         var hc = $(this).hasClass('active');
         $('tr.active').removeClass('active');
         if (!hc) {
