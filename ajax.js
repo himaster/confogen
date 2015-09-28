@@ -159,7 +159,7 @@ $(function() {
 $(function() {
                 $(document).on('click', 'tr', function() {
                     $(this).css({
-                        outline: 'solid thin';
+                        outline: 'solid thin'
                     });
                 })
 })
