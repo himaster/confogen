@@ -154,16 +154,13 @@ $(function() {
                         cursor: e.pageY > a && e.pageX > b ? 'se-resize' : ''
                     });
                 })
-});
 
-$(function() {
                 $(document).on('click', 'tr', function() {
-                    $('tr').css({
-                        outline: ''
-                    });
-                    $(this).css({
-                        outline: 'solid thin'
-                    });
+                    var hc = $(this).hasClass('active');
+                    $('tr.active').removeClass('active');
+                    if (!hc) {
+                        $(this).addClass('active');   
+                    }
                 })
 })
 -->

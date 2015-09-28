@@ -32,3 +32,8 @@
     margin-left: auto ;
 	margin-right: auto ;
 }
+
+tr.active {
+    outline: solid thin;
+    background: #eee;
+}
