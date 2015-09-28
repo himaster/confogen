@@ -21,22 +21,6 @@
 				<TD width="50"></TD>
 			</TR>
 			<TR>
-				<TD width='20'><b>#</b></TD>
-				<TD width='140'><b>Name</b></TD>
-				<TD width='140'><b>IP</b></TD>
-				<TD width='40'><b>HTTP</b></TD>
-				<TD width='50'><b>HTTPS</b></TD>
-				<TD width='180'><b>Cert</b></TD>
-				<TD width='45'><b>Test</b></TD>
-				<TD width='50'><b>Blog</b></TD>
-				<TD width='180'><b>Blog Name</b></TD>
-				<TD width='50'><b>Mobile</b></TD>
-				<TD width='60'><b>M.test</b></TD>
-				<TD width='180'><b>Comment</b></TD>
-				<TD width='50'><FONT size='2'>Edit</FONT></TD>
-				<TD width='50'><FONT size='2'>Remove</FONT></TD>
-			</TR>
-			<TR>
 				<TD></TD>
 				<TD>
 					<INPUT type="button" onclick="submit(); generate(<?php echo $max_id; ?>); " value="Submit">
@@ -72,6 +56,23 @@
 				<TD></TD>
 				<TD></TD>
 			</TR>		
+			<TR>
+				<TD width='20'><b>#</b></TD>
+				<TD width='140'><b>Name</b></TD>
+				<TD width='140'><b>IP</b></TD>
+				<TD width='40'><b>HTTP</b></TD>
+				<TD width='50'><b>HTTPS</b></TD>
+				<TD width='180'><b>Cert</b></TD>
+				<TD width='45'><b>Test</b></TD>
+				<TD width='50'><b>Blog</b></TD>
+				<TD width='180'><b>Blog Name</b></TD>
+				<TD width='50'><b>Mobile</b></TD>
+				<TD width='60'><b>M.test</b></TD>
+				<TD width='180'><b>Comment</b></TD>
+				<TD width='50'><FONT size='2'>Edit</FONT></TD>
+				<TD width='50'><FONT size='2'>Remove</FONT></TD>
+			</TR>
+			
 	<?php 	$i = 1;
 			while ($row = mysql_fetch_assoc($result)) { ?>
 				<TR style="border: 0;">
