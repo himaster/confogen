@@ -12,6 +12,7 @@
 
 .tablestyle {
 	/*border: 4px solid black;*/
+    border: 0;
 	background-color:lightgray;
 	overflow:hidden;
 	width: 50%;
@@ -34,6 +35,6 @@
 }
 
 tr.active {
-    outline: solid thin;
+    /*outline: solid thin;*/
     background: #eee;
 }
