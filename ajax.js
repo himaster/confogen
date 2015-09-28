@@ -147,20 +147,20 @@ function fadeblog(){
 }
 
 $(function() {
-                $(document).on('mousemove', 'textarea', function(e) {
-                    var a = $(this).offset().top + $(this).outerHeight() - 16,  //  top border of bottom-right-corner-box area
-                        b = $(this).offset().left + $(this).outerWidth() - 16;  //  left border of bottom-right-corner-box area
-                    $(this).css({
-                        cursor: e.pageY > a && e.pageX > b ? 'se-resize' : ''
-                    });
-                })
+    $(document).on('mousemove', 'textarea', function(e) {
+        var a = $(this).offset().top + $(this).outerHeight() - 16,  //  top border of bottom-right-corner-box area
+            b = $(this).offset().left + $(this).outerWidth() - 16;  //  left border of bottom-right-corner-box area
+        $(this).css({
+            cursor: e.pageY > a && e.pageX > b ? 'se-resize' : ''
+        });
+    })
 
-                $(document).on('click', 'tr', function() {
-                    var hc = $(this).hasClass('active');
-                    $('tr.active').removeClass('active');
-                    if (!hc) {
-                        $(this).addClass('active');   
-                    }
-                })
+    $(document).on('click', 'tr', function() {
+        var hc = $(this).hasClass('active');
+        $('tr.active').removeClass('active');
+        if (!hc) {
+            $(this).addClass('active');   
+        }
+    })
 })
 -->
