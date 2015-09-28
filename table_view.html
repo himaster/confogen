@@ -3,7 +3,7 @@
 		<IMG src="logo.png" width="100">
 	</DIV>
 	<DIV>
-		<TABLE class="tablestyle" id="header">
+		<TABLE class="tablestyle">
 			<TR>
 				<TD width='20'><b>#</b></TD>
 				<TD width='140'><b>Name</b></TD>
@@ -58,7 +58,7 @@
 			</TR>
 		</TABLE>
 		<P><P><P>
-		<TABLE class="tablestyle" id="tablespace">
+		<TABLE class="tablestyle">
 			<TR>
 				<TD width='20'><b>#</b></TD>
 				<TD width='140'><b>Name</b></TD>
@@ -78,7 +78,7 @@
 			
 	<?php 	$i = 1;
 			while ($row = mysql_fetch_assoc($result)) { ?>
-				<TR style="border: 0;" onclick="javascript: trclick();">
+				<TR style="border: 0;">
 					<TD width='20' ><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
 					<TD width='140'><INPUT id="name_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['name']; ?>"></TD>
 					<TD width='140'><INPUT id="ip_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['ip']; ?>"></TD>
