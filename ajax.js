@@ -154,13 +154,14 @@ $(function() {
             cursor: e.pageY > a && e.pageX > b ? 'se-resize' : ''
         });
     })
-
-    $(document).on('click', '#tablespace.tr', function() {
-        var hc = $(this).hasClass('active');
-        $('#tablespace.tr.active').removeClass('active');
-        if (!hc) {
-            $(this).addClass('active');   
-        }
-    })
 })
+
+function trclick() {
+    var hc = $(this).hasClass('active');
+    $('#tablespace.tr.active').removeClass('active');
+    if (!hc) {
+        $(this).addClass('active');   
+    }
+}
+
 -->
