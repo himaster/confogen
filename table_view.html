@@ -56,7 +56,7 @@
 <?php 	$i = 1;
 		while ($row = mysql_fetch_assoc($result)) { ?>
 			<TR style="border: 0;">
-				<TD width='20' ><A href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
+				<TD width='20' ><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
 				<TD width='140'><INPUT id="name_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['name']; ?>"></TD>
 				<TD width='140'><INPUT id="ip_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['ip']; ?>"></TD>
 				<TD width='40' ><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
