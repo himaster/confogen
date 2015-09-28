@@ -21,8 +21,16 @@
 	font-size: 14px;
 }
 
-.topdiv {
+.toptable {
     position: fixed;
+    border: 4px solid gray;
+    border-collapse: collapse;
+    background-color:lightgray;
+    overflow:hidden;
+    width: 50%;
+    margin: 0 auto;
+    font-family: Tahoma;
+    font-size: 14px;
 }
 
 .copyright {
