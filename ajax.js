@@ -145,4 +145,14 @@ function fadeblog(){
     else 
         $('#blogname').fadeOut();
 }
+
+$(function() {
+                $(document).on('mousemove', 'textarea', function(e) {
+                    var a = $(this).offset().top + $(this).outerHeight() - 16,  //  top border of bottom-right-corner-box area
+                        b = $(this).offset().left + $(this).outerWidth() - 16;  //  left border of bottom-right-corner-box area
+                    $(this).css({
+                        cursor: e.pageY > a && e.pageX > b ? 'se-resize' : ''
+                    });
+                })
+            });
 -->
