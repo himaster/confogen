@@ -23,10 +23,6 @@
 
 .toptable {
     position: fixed;
-    left: 50%;
-    top: 50%;
-    margin-left: -500px;
-    margin-top: -50px;
     border: 4px solid gray;
     border-collapse: collapse;
     background-color:lightgray;
@@ -35,6 +31,14 @@
     margin: 0 auto;
     font-family: Tahoma;
     font-size: 14px;
+}
+
+#table_div{
+ width:775px;
+ margin-left:auto;
+ margin-right:auto;
+ text-align:left;
+ position:relative;/*stacking context*/
 }
 
 .copyright {
