@@ -2,6 +2,30 @@
 <DIV id="table_div" width="800">
 	<TABLE class="tablestyle" width="100%">
 		<TR>
+			<TD width="20"><DIV id="id">NEW</DIV></TD>
+			<TD width="140"><INPUT type="text" id="name" value=""></TD>
+			<TD width="140"><INPUT type="text" id="ip" Value=""></TD>
+			<TD width="40"><INPUT type="checkbox" id="http"></TD>
+			<TD width="50"><INPUT type="checkbox" id="https" onchange="fade();"></TD>
+			<TD width="180"><INPUT type="text" id="cert" value="" style="display: none;"></TD>
+			<TD width="45"><INPUT type="checkbox" id="test"></TD>
+			<TD width="50"><INPUT type="checkbox" id="blog" onchange="fadeblog();"></TD>
+			<TD width="180"><INPUT type="text" id="blogname" value="" style="display: none;"></TD>
+			<TD width="50"><INPUT type="checkbox" id="m"></TD>
+			<TD width="60"><INPUT type="checkbox" id="mtest"></TD>
+			<TD width="140"><TEXTAREA id="comment" rows="5"></TEXTAREA></TD>
+			<TD width="50"></TD>
+			<TD width="50"></TD>
+		</TR>
+		<TR><TD></TD>
+			<TD>
+				<INPUT type="button" onclick="submit(); generate(<?php echo $max_id; ?>); " value="Submit">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			</TD>
+			<TD>
+				<INPUT type="button" onclick="generate(); " value="generate" ></DIV>
+			</TD>
+		</TR>		
+		<TR>
 			<TD width='20'><b>#</b></TD>
 			<TD width='140'><b>Name</b></TD>
 			<TD width='140'><b>IP</b></TD>
@@ -44,31 +68,6 @@
 				<TD width='50' style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>X</A></TD>
 			</TR>
 <?php	} ?>
-		<P>
-		<TR>
-			<TD width="20"><DIV id="id">NEW</DIV></TD>
-			<TD width="140"><INPUT type="text" id="name" value=""></TD>
-			<TD width="140"><INPUT type="text" id="ip" Value=""></TD>
-			<TD width="40"><INPUT type="checkbox" id="http"></TD>
-			<TD width="50"><INPUT type="checkbox" id="https" onchange="fade();"></TD>
-			<TD width="180"><INPUT type="text" id="cert" value="" style="display: none;"></TD>
-			<TD width="45"><INPUT type="checkbox" id="test"></TD>
-			<TD width="50"><INPUT type="checkbox" id="blog" onchange="fadeblog();"></TD>
-			<TD width="180"><INPUT type="text" id="blogname" value="" style="display: none;"></TD>
-			<TD width="50"><INPUT type="checkbox" id="m"></TD>
-			<TD width="60"><INPUT type="checkbox" id="mtest"></TD>
-			<TD width="140"><TEXTAREA id="comment" rows="5"></TEXTAREA></TD>
-			<TD width="50"></TD>
-			<TD width="50"></TD>
-		</TR>
-		<TR><TD></TD>
-			<TD>
-				<INPUT type="button" onclick="submit(); generate(<?php echo $max_id; ?>); " value="Submit">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			</TD>
-			<TD>
-				<INPUT type="button" onclick="generate(); " value="generate" ></DIV>
-			</TD>
-		</TR>		
 	</TABLE>
 </DIV>
 <P>
