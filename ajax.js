@@ -136,14 +136,14 @@ function fade(){
     if (document.getElementById('https').checked) 
         $('#cert').removeattr('readonly'); 
     else 
-        $('#cert').addattr('readonly');
+        $('#cert').attr('readonly','readonly');
 }
 
 function fadeblog(){
     if (document.getElementById('blog').checked) 
         $('#blogname').removeattr('readonly'); 
     else 
-        $('#blogname').addattr('readonly');
+        $('#blogname').attr('readonly','readonly');
 }
 
 $(function() {
