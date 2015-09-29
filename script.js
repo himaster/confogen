@@ -179,14 +179,13 @@ $(function() {
         var curr = $(this);
         e.preventDefault();
         if(e.keyCode == 40 ){
-            console.log(curr.index(), $("#maintable tr").get(curr.index()+1) );
             var next = $($("#maintable tr").get(curr.index()+1));
             $('tr.active').removeClass('active');
             next.addClass("active");
             next.focus();
         } else if (e.keyCode = 38) {
-            console.log(curr.index(), $("#maintable tr").get(curr.index()-1) );
             var prev = $($("#maintable tr").get(curr.index()-1));
+            if (prev < 0) { prev = 0; }
             $('tr.active').removeClass('active');
             prev.addClass("active");
             prev.focus();
