@@ -164,6 +164,7 @@ $(function() {
         $(this).addClass('active');
         console.log($(this).find("input:nth-child(1)").get(0).readOnly);
         if ($(this).find("input:nth-child(1)").get(0).readOnly) {
+            console.log('setting focus');
             $(this).focus();
         }
     })
