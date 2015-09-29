@@ -169,7 +169,7 @@ $(function() {
 
     $(document).on('keydown', '#maintable tr', function(e) {
         var curr = $(this).index();
-        console.log(curr;
+        console.log(curr);
 
     })
 })
