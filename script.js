@@ -167,9 +167,9 @@ $(function() {
         }
     })
 
-    $(document).on('keydown', '#maintable tr', function() {
+    $(document).on('keydown', '#maintable tr', function(e) {
         var curr = $(this);
-        console.log(curr.index());
+        console.log(curr.index(), e);
         $(this).closest('tr').next('tr').addClass('active');
     })
 })
