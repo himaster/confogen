@@ -181,16 +181,12 @@ $(function() {
         e.preventDefault();
         if(e.keyCode == 40 ){
             var next = $($("#maintable tr").get(curr.index()+1));
-            console.log(next.index()+1);
             if (next.index() <= 0) { next = $($("#maintable tr").get(0)); }
-            console.log(next.index()+1);
             $('tr.active').removeClass('active');
             next.addClass("active");
             next.focus();
         } else if (e.keyCode = 38) {
             var prev = $($("#maintable tr").get(curr.index()-1));
-            console.log(prev.index()+1);
-            console.log(prev.index()+1);
             $('tr.active').removeClass('active');
             prev.addClass("active");
             prev.focus();
