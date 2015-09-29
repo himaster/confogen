@@ -1,28 +1,30 @@
 <!--
 function submit() {
             if (document.getElementById('name').value != '' && document.getElementById('ip').value != '') {
-                    show_table( document.getElementById('name').value, 
-                                document.getElementById('ip').value, 
-                                document.getElementById('http').checked, 
-                                document.getElementById('https').checked,
-                                document.getElementById('cert').value,
-                                document.getElementById('test').checked,
-                                document.getElementById('blog').checked,
-                                document.getElementById('blogname').value,
-                                document.getElementById('m').checked, 
-                                document.getElementById('mtest').checked,
-                                document.getElementById('comment').value);
-                    document.getElementById('name').value = ''; 
-                    document.getElementById('ip').value = ''; 
-                    document.getElementById('http').checked = false; 
-                    document.getElementById('https').checked = false;
-                    document.getElementById('cert').value = '';
-                    document.getElementById('test').checked = false;
-                    document.getElementById('blog').checked = false;
-                    document.getElementById('blogname').value = '';
-                    document.getElementById('m').checked = false;
-                    document.getElementById('mtest').checked = false;
-                    document.getElementById('comment').value = '';
+                show_table( document.getElementById('name').value, 
+                            document.getElementById('ip').value, 
+                            document.getElementById('http').checked, 
+                            document.getElementById('https').checked,
+                            document.getElementById('cert').value,
+                            document.getElementById('test').checked,
+                            document.getElementById('blog').checked,
+                            document.getElementById('blogname').value,
+                            document.getElementById('m').checked, 
+                            document.getElementById('mtest').checked,
+                            document.getElementById('comment').value);
+                document.getElementById('name').value = ''; 
+                document.getElementById('ip').value = ''; 
+                document.getElementById('http').checked = false; 
+                document.getElementById('https').checked = false;
+                document.getElementById('cert').value = '';
+                document.getElementById('test').checked = false;
+                document.getElementById('blog').checked = false;
+                document.getElementById('blogname').value = '';
+                document.getElementById('m').checked = false;
+                document.getElementById('mtest').checked = false;
+                document.getElementById('comment').value = '';
+            } else {
+                $('#toptable').addClass('wobble-horizontal');
             }
         }
 
