@@ -160,20 +160,14 @@ $(function() {
     })
 
     $(document).on('click', '#maintable tr', function() {
-        var hc = $(this).hasClass('active');
         $('tr.active').removeClass('active');
-        if (!hc) {
-            $(this).addClass('active');   
-        }
+        $(this).addClass('active');   
+        $(this).focus();
     })
 
     $("#maintable tr").each(function(){
         $(this).attr("tabindex", 1);
     })
-
-    $("#maintable tr").click(function() {
-        $(this).focus();
-    });
 
     $(document).on('keydown', '#maintable tr', function(e) {
         var curr = $(this);
