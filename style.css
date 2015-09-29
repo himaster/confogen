@@ -24,13 +24,14 @@
 
 .newtable {
   border: 4px solid gray;
-    border-collapse: collapse;
+  border-collapse: collapse;
   background-color: lightgray;
   overflow: hidden;
   font-family: Tahoma;
   font-size: 14px;
-    width: 1087px;
-    top: 500px;
+  width: 1087px;
+  margin-top: -20px;
+  margin-bottom: 5px; 
 }
 
 .maintable {
