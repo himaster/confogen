@@ -168,9 +168,10 @@ $(function() {
     })
 
     $(document).on('keydown', '#maintable tr', function(e) {
-        var curr = $(this).index();
-        console.log(curr);
-
+        var curr = $(this);
+        if (e.keyCode == 40) {
+            console.log(curr.index());
+        }
     })
 })
 -->
