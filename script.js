@@ -182,6 +182,8 @@ $(function() {
         if(e.keyCode == 40 ){
             var next = $($("#maintable tr").get(curr.index()+1));
             console.log(next.index()+1);
+            if (prev.index() <= 0) { next = $($("#maintable tr").get(1)); }
+            console.log(next.index()+1);
             $('tr.active').removeClass('active');
             next.addClass("active");
             next.focus();
