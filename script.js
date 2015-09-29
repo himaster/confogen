@@ -162,10 +162,9 @@ $(function() {
     $(document).on('click', '#maintable tr', function() {
         $('tr.active').removeClass('active');
         $(this).addClass('active');
-        console.log($(this).find("td:nth-child(2)"));
-        /*if ($(this).input[1].readOnly) { 
+        if ($(this).find("input:nth-child(1)").get(0).readOnly) {
             $(this).focus();
-        }*/
+        }
     })
 
     $("#maintable tr").each(function(){
