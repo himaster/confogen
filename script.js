@@ -188,7 +188,8 @@ $(function() {
         } else if (e.keyCode = 38) {
             var prev = $($("#maintable tr").get(curr.index()-1));
             console.log(prev.index()+1);
-            if (prev < 1) { prev = 0; }
+            if (prev < 0) { prev = 0; }
+            console.log(prev.index()+1);
             $('tr.active').removeClass('active');
             prev.addClass("active");
             prev.focus();
