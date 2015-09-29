@@ -180,6 +180,7 @@ $(function() {
         if(e.keyCode == 40 ){
             console.log(curr.index(), $("#maintable tr").get(curr.index()+1) );
             var next = $($("#maintable tr").get(curr.index()+1));
+            $('tr.active').removeClass('active');
             next.addClass("active");
             next.focus();
         } else if (e.keyCode = 38) {
