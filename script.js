@@ -184,7 +184,11 @@ $(function() {
             next.addClass("active");
             next.focus();
         } else if (e.keyCode = 38) {
-            console.log(curr.index()-1);
+            console.log(curr.index(), $("#maintable tr").get(curr.index()-1) );
+            var prev = $($("#maintable tr").get(curr.index()-1));
+            $('tr.active').removeClass('active');
+            prev.addClass("active");
+            prev.focus();
         }
     })
 })
