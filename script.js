@@ -190,7 +190,7 @@ $(function() {
         } else if (e.keyCode = 38) {
             var prev = $($("#maintable tr").get(curr.index()-1));
             console.log(prev.index()+1);
-            if (prev.index() < 0) { prev = 0; }
+            if (prev.index() < 0) { prev = $($("#maintable tr").get(1)); }
             console.log(prev.index()+1);
             $('tr.active').removeClass('active');
             prev.addClass("active");
