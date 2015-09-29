@@ -169,8 +169,8 @@ $(function() {
 
     $(document).on('keydown', '#maintable tr', function(eventObject) {
             $(this).removeClass('active');
+            $(this).closest('tr').next('tr').addClass('active');
             $(this).closest('tr').next('tr').focus();
-            $(this).addClass('active');
     })
 })
 -->
