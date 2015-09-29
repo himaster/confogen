@@ -19,7 +19,7 @@
     font-size: 14px;
     width: 1087px;
     position: fixed;
-    top: 20px;
+    top: 2px;
 }
 
 .newtable {
@@ -30,6 +30,7 @@
   font-family: Tahoma;
   font-size: 14px;
     width: 1087px;
+    top: 50px;
 }
 
 .maintable {
