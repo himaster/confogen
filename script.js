@@ -162,6 +162,7 @@ $(function() {
     $(document).on('click', '#maintable tr', function() {
         $('tr.active').removeClass('active');
         $(this).addClass('active');
+        console.log($(this).input[1]);
         if ($(this).input[1].readOnly) { 
             $(this).focus();
         }
