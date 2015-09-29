@@ -142,8 +142,8 @@ tr.active {
 .wobble-horizontal:hover {
   -webkit-animation-name: wobble-horizontal;
   animation-name: wobble-horizontal;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
   -webkit-animation-iteration-count: 1;
