@@ -177,6 +177,7 @@ $(function() {
 
     $(document).on('keydown', '#maintable tr', function(e) {
         var curr = $(this);
+        console.log(prev.index());
         e.preventDefault();
         if(e.keyCode == 40 ){
             var next = $($("#maintable tr").get(curr.index()+1));
