@@ -1,5 +1,6 @@
 <DIV id="table_div">
-		<TABLE class="toptable" id="toptable">
+	<DIV class="toptable">
+		<TABLE id="toptable">
 			<TR>
 				<TD width='32'><B>#</B></TD>
 				<TD width='140'><b>Name</b></TD>
@@ -17,7 +18,7 @@
 				<TD width='50'><FONT size='2'>Remove</FONT></TD>
 			</TR>
 		</TABLE>
-		<TABLE class="newtable" id="newtable">
+		<TABLE id="newtable">
 			<TR>
 				<TD width="32"><DIV id="id">New</DIV></TD>
 				<TD width="140"><INPUT type="text" id="name" value=""></TD>
@@ -55,6 +56,7 @@
 				<TD></TD>
 			</TR>
 		</TABLE>
+	</DIV>
 		<TABLE class="maintable" id="maintable">
 	<?php 	$i = 1;
 			while ($row = mysql_fetch_assoc($result)) { ?>
