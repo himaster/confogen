@@ -171,6 +171,8 @@ $(function() {
         var curr = $(this);
         if (e.keyCode == 40) {
             console.log(curr.index());
+        } else {
+            console.log(e.keyCode);
         }
     })
 })
