@@ -167,10 +167,10 @@ $(function() {
         }
     })
 
-    $(document).on('keydown', '#maintable tr', function(e) {
-        var curr = $(this);
-        console.log(curr.index(), e);
-        $(this).closest('tr').next('tr').addClass('active');
-    })
+    // $(document).on('keydown', '#maintable tr', function(e) {
+    //     var curr = $(this);
+    //     console.log(curr.index(), e);
+        
+    // })
 })
 -->
