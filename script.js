@@ -167,7 +167,7 @@ $(function() {
         }
     })
 
-    $(document).on('keydown', '#maintable tr', function() {
+    $(document).on('keydown', '#maintable tr', function(e) {
         var curr = $(this);
         console.log(curr.index());
 
