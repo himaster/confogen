@@ -24,7 +24,7 @@ function submit() {
                 document.getElementById('mtest').checked = false;
                 document.getElementById('comment').value = '';
             } else {
-                $('#toptable').addClass('wobble');
+                $('#toptable').addClass('wobble-horizontal');
             }
         }
 
