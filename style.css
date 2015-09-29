@@ -18,6 +18,7 @@
 	font-family: Tahoma;
 	font-size: 14px;
   width: 1087px;
+  top: 200px;
 }
 
 .newtable {
@@ -40,7 +41,6 @@
   font-size: 14px;
   width: 1087px;
   position: fixed;
-  top: 302px;
 }
 
 #table_div{
