@@ -161,8 +161,10 @@ $(function() {
 
     $(document).on('click', '#maintable tr', function() {
         $('tr.active').removeClass('active');
-        $(this).addClass('active');   
-        $(this).focus();
+        $(this).addClass('active');
+        if ($(this).input[1].readOnly) { 
+            $(this).focus();
+        }
     })
 
     $("#maintable tr").each(function(){
@@ -171,7 +173,6 @@ $(function() {
 
     $(document).on('keydown', '#maintable tr', function(e) {
         var curr = $(this);
-
         e.preventDefault();
         if(e.keyCode == 40 ){
             var next = $($("#maintable tr").get(curr.index()+1));
