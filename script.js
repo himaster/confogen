@@ -167,7 +167,8 @@ $(function() {
         }
     })
 
-    $(document).on('keypress', '#maintable tr', function() {
+    $(document).on('keydown', '#maintable tr', function(eventObject) {
+        alert(eventObject.keyCode);
         $(this).removeClass('active');
         $(this).closest('tr').next('tr').addClass('active');
     })
