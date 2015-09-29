@@ -168,7 +168,8 @@ $(function() {
     })
 
     $(document).on('keydown', '#maintable tr', function() {
-        $(this).removeClass('active');
+        var curr = $(this);
+        console.log(curr.index());
         $(this).closest('tr').next('tr').addClass('active');
     })
 })
