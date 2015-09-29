@@ -166,5 +166,10 @@ $(function() {
             $(this).addClass('active');   
         }
     })
+
+    $(document).on('keypress', '#maintable tr', function() {
+        $(this).removeClass('active');
+        $(this).closest('tr').next('tr').addClass('active');
+    })
 })
 -->
