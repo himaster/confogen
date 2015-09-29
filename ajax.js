@@ -25,7 +25,7 @@ function submit() {
                 document.getElementById('comment').value = '';
             } else {
                 $('#toptable').addClass('wobble-horizontal');
-                $('#toptable').removeClass('wobble-horizontal');
+                window.setTimeout($('#toptable').removeClass('wobble-horizontal'), 1000);
 
             }
         }
