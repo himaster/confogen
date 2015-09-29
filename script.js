@@ -165,7 +165,7 @@ $(function() {
         if (!hc) {
             $(this).addClass('active');   
         }
-    })dgv
+    })
 
     $("#maintable tr").click(function() {
         $(this).focus();
