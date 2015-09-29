@@ -167,6 +167,10 @@ $(function() {
         }
     })
 
+    $("#maintable tr").each(function(){
+        $(this).attr("tabindex", 1);
+    })
+
     $("#maintable tr").click(function() {
         $(this).focus();
     });
