@@ -168,11 +168,9 @@ $(function() {
     })
 
     $(document).on('keydown', '#maintable tr', function(eventObject) {
-        if (eventObject.keyCode == 40) {
             $(this).removeClass('active');
             $(this).closest('tr').next('tr').focus();
             $(this).addClass('active');
-        }
     })
 })
 -->
