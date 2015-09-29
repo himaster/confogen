@@ -159,7 +159,7 @@ $(function() {
         });
     })
 
-    $(document).on('click', '#maintable.tr', function() {
+    $(document).on('click', 'tr', function() {
         var hc = $(this).hasClass('active');
         $('tr.active').removeClass('active');
         if (!hc) {
