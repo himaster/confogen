@@ -165,14 +165,21 @@ $(function() {
         if (!hc) {
             $(this).addClass('active');   
         }
-    })
+    })dgv
+
+    $("#maintable tr").click(function() {
+        $(this).focus();
+    });
 
     $(document).on('keydown', '#maintable tr', function(e) {
         var curr = $(this);
-        if (e.keyCode == 40) {
-            console.log(curr.index());
-        } else {
-            console.log(e.keyCode);
+        if(e.keyCode == 40 ){
+            console.log(curr.index(), $("#maintable tr").get(curr.index()+1) );
+            var next = $($("#maintable tr").get(curr.index()+1));
+            next.addClass("active");
+            next.focus();
+        } else if (e.keyCode = 38) {
+            console.log(curr.index()-1);
         }
     })
 })
