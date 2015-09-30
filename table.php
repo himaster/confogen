@@ -1,5 +1,4 @@
 <?php
-	die('Test');
 	include 'db.php';
 	$workdir = '/etc/nginx/fpm-conf.d/balancer/';
 
@@ -73,7 +72,7 @@
 		$sql = "INSERT INTO `domains` (name, ip, http, https, test, m, mtest, cert, blog, blogname, comment) VALUES (\"$name\", \"$ip\", $http, $https, $test, $m, $mtest, \"$cert\", $blog, \"$blogname\", '$comment');";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
-
+	die('Test');
 	$sql    = "SHOW TABLE STATUS LIKE 'domains'";
 	$result = mysql_query($sql, $link)  or die(mysql_error());
 	$array  = mysql_fetch_array($result);
