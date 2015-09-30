@@ -164,14 +164,7 @@ $(function() {
         $(this).addClass('comment');
     })
 
-    $(document).on('click', 'body', function(e) {
-        e = e || event;
-        target = e.target || e.srcElement;
-        if (target.tagName == "DIV" && target.id == "table_div") {
-        } else {
-            $('textarea.comment').removeClass('comment');
-        }
-    })
+
 
     $(document).on('click', '#maintable tr', function() {
         $('tr.active').removeClass('active');
