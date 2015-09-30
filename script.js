@@ -187,14 +187,15 @@ $(function() {
 
     $(document).on('keydown', '#maintable tr', function(e) {
         var curr = $(this);
-        e.preventDefault();
         if(e.keyCode == 40 ){
+            e.preventDefault();
             var next = $($("#maintable tr").get(curr.index()+1));
             if (next.index() <= 0) { next = $($("#maintable tr").get(0)); }
             $('tr.active').removeClass('active');
             next.addClass("active");
             next.focus();
         } else if (e.keyCode = 38) {
+            e.preventDefault();
             var prev = $($("#maintable tr").get(curr.index()-1));
             $('tr.active').removeClass('active');
             prev.addClass("active");
