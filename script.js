@@ -164,9 +164,16 @@ $(function() {
         $(this).addClass('comment');
     })
 
+    $(document).on('click', 'body', function() {
+        e = e || event;
+        target = e.target || e.srcElement;
+        if (target.tagName == "DIV" && target.id == "table_div") {
+        } else {
+            $('textarea.comment').removeClass('comment');
+        }
+    })
 
     $(document).on('click', '#maintable tr', function() {
-        $('textarea.comment').removeClass('comment');
         $('tr.active').removeClass('active');
         $(this).addClass('active');
         console.log($(this).find("input:nth-child(1)").get(0).readOnly);
