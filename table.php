@@ -79,5 +79,4 @@
 
 	$sql = "SELECT * FROM `domains`;";
     $result = mysql_query($sql, $link)  or die(mysql_error());
-	die('Test');
     include 'table_view.html';
