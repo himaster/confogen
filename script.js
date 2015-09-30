@@ -166,9 +166,10 @@ $(function() {
 
 
     $(document).on('click', '#maintable tr', function(e) {
-
-        var div = $("#table_div");
-        if (!div.is(e.target) && div.has(e.target).length === 0) {
+        e.preventDefault();
+        var div = $("#maintable tr");
+        console.log(div.is(e.target), div.has(e.target).length);
+        if (div.is(e.target) && div.has(e.target).length === 0) {
             $('textarea.comment').removeClass('comment');
         }
 
