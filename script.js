@@ -166,7 +166,6 @@ $(function() {
 
 
     $(document).on('click', '#maintable tr', function(e) {
-        e.preventDefault();
         var div = $("textarea");
         console.log(div.is(e.target));
         if (!div.is(e.target)) {
