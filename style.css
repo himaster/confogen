@@ -66,6 +66,11 @@ tr.active {
   background: #fff;
 }
 
+textarea.comment {
+  width: 300px;
+  height: 100px;
+}
+
 /* Wobble Horizontal */
 
 @-webkit-keyframes wobble-horizontal {

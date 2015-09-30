@@ -159,6 +159,12 @@ $(function() {
         });
     })
 
+    $(document).on('click', 'textarea', function() {
+        $('textarea.comment').removeClass('comment');
+        $(this).addClass('comment');
+    })
+
+
     $(document).on('click', '#maintable tr', function() {
         $('tr.active').removeClass('active');
         $(this).addClass('active');
