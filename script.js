@@ -165,8 +165,16 @@ $(function() {
     })
 
 
+    $(document).on('click', '#maintable tr', function(e) {
 
-    $(document).on('click', '#maintable tr', function() {
+        e = e || event;
+        target = e.target || e.srcElement;
+        if (target.tagName == "INPUT") {
+            console.log("Click inside <INPUT>");
+        } else {
+            console.log("Click outside <INPUT>");
+        }
+
         $('tr.active').removeClass('active');
         $(this).addClass('active');
         console.log($(this).find("input:nth-child(1)").get(0).readOnly);
