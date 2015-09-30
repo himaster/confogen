@@ -167,12 +167,9 @@ $(function() {
 
     $(document).on('click', '#maintable tr', function(e) {
 
-        e = e || event;
-        target = e.target || e.srcElement;
-        if (target.tagName == "INPUT") {
-            console.log("Click inside <INPUT>");
-        } else {
-            console.log("Click outside <INPUT>");
+        var div = $("#table_div");
+        if (!div.is(e.target) && div.has(e.target).length === 0) {
+            $('textarea.comment').removeClass('comment');
         }
 
         $('tr.active').removeClass('active');
