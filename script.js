@@ -166,6 +166,7 @@ $(function() {
 
 
     $(document).on('click', '#maintable tr', function() {
+        $('textarea.comment').removeClass('comment');
         $('tr.active').removeClass('active');
         $(this).addClass('active');
         console.log($(this).find("input:nth-child(1)").get(0).readOnly);
