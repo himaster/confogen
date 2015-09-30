@@ -164,7 +164,7 @@ $(function() {
         $(this).addClass('comment');
     })
 
-    $(document).on('click', 'body', function() {
+    $(document).on('click', 'body', function(e) {
         e = e || event;
         target = e.target || e.srcElement;
         if (target.tagName == "DIV" && target.id == "table_div") {
