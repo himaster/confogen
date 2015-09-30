@@ -104,7 +104,7 @@ function save(id){
                      '&test=' + document.getElementById('test_'+id).checked + 
                      '&m=' + document.getElementById('m_'+id).checked + 
                      '&mtest=' + document.getElementById('mtest_'+id).checked +
-                     '&comment=' + encodeURI(document.getElementById('comment_'+id).value);
+                     '&comment=' + encodeURIComponent(document.getElementById('comment_'+id).value);
     $.ajax({
         url: "table.php",
         data: dataString,
