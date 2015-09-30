@@ -194,7 +194,7 @@ $(function() {
             $('tr.active').removeClass('active');
             next.addClass("active");
             next.focus();
-        } else if (e.keyCode = 38) {
+        } else if (e.keyCode == 38) {
             e.preventDefault();
             var prev = $($("#maintable tr").get(curr.index()-1));
             $('tr.active').removeClass('active');
