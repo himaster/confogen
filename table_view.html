@@ -1,4 +1,4 @@
-<DIV id="table_div">
+2<DIV id="table_div">
 		<TABLE class="toptable" id="toptable">
 			<TR>
 				<TD width="18px"><B>#</B></TD>
@@ -73,9 +73,7 @@
 					<TD width='180'><TEXTAREA id="comment_<?php echo $row['id']; ?>" 
 											  readonly
 											  rows="1"
-											  maxlength="2000"
-											  onclick="this.rows = '5'; this.cols = '40';" 
-											  onblur="this.rows = '1'; this.cols = '20';"><?php echo $row['comment']; ?></TEXTAREA></TD>
+											  maxlength="2000"<?php echo $row['comment']; ?></TEXTAREA></TD>
 					<TD width='50' style='text-align: center;'>
 						<DIV id="edit_<?php echo $row['id']; ?>"><A id="edit_<?php echo $row['id']; ?>" class='delete' href="javascript:edit(<?php echo $row['id']; ?>); ">E</A>&nbsp;</DIV>
 						<DIV id="save_<?php echo $row['id']; ?>" style="display:none"><A class='delete' href="javascript:save(<?php echo $row['id']; ?>); setTimeout(generate(<?php echo $row['id']; ?>), 1000) ">S</A>&nbsp;</DIV>
