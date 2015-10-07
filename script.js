@@ -151,7 +151,7 @@ function fadeblog(){
 }
 
 function copySrc( s ){
-    alert("Double click");
+    alert( s.innerText );
     var tr = document.body.createTextRange();
     tr.findText( s.innerText );
     tr.select();
