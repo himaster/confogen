@@ -150,6 +150,13 @@ function fadeblog(){
         $('#blogname').prop('readonly', true);
 }
 
+function copySrc( s ){
+    var tr = document.body.createTextRange();
+    tr.findText( s.innerText );
+    tr.select();
+    tr.execCommand('Copy');
+}
+
 $(function() {
     $(document).on('mousemove', 'textarea', function(e) {
         var a = $(this).offset().top + $(this).outerHeight() - 16,  //  top border of bottom-right-corner-box area
