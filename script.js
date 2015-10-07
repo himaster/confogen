@@ -152,7 +152,7 @@ function fadeblog(){
 
 function copySrc( s ){
     console.log( s.innerText );
-    var tr = document.body.createTextRange();
+    var tr = document.body.createRange();
     tr.findText( s.innerText );
     tr.select();
     tr.execCommand('Copy');
