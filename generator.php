@@ -71,6 +71,21 @@
 	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
 	    	fwrite($handle, "		proxy_pass              http://backend;\n	}\n");
 	    	fwrite($handle, "}\n\n");
+	    	fwrite($handle, "## Master\n");
+	    	fwrite($handle, "server {\n");
+    		fwrite($handle, "	listen ".$ip.":80;\n");
+    		fwrite($handle, "	server_name master.".$name.";\n\n");
+	    	fwrite($handle, "	location / {\n");
+	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
+	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
+	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
+	    	fwrite($handle, "		proxy_pass					http://backend;\n	}\n\n");
+	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|cur)$ {\n");
+	    	fwrite($handle, "		access_log              off;\n");
+	    	fwrite($handle, "		expires                 360d;\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
+	    	fwrite($handle, "		proxy_pass              http://backend;\n	}\n");
+	    	fwrite($handle, "}\n\n");
 	    }
 	    if ($https) {
 	    	fwrite($handle, "## Add www to HTTPS\n");
