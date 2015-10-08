@@ -150,7 +150,7 @@ function fadeblog(){
         $('#blogname').prop('readonly', true);
 }
 
-function copySrc(s){
+function textSelector(s){
     var tr = eval(s);
     tr.focus();
     tr.select();
