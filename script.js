@@ -150,14 +150,10 @@ function fadeblog(){
         $('#blogname').prop('readonly', true);
 }
 
-function copySrc(s) {
+function copySrc(s){
     var tr = eval(s);
-    console.log( tr.value );
     tr.focus();
     tr.select();
-    copyed = tr.createRange();
-    console.log( copyed );
-    copyed.execCommand("Copy");
 }
 
 $(function() {
