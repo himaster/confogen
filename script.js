@@ -155,7 +155,8 @@ function copySrc(s) {
     console.log( tr.value );
     tr.focus();
     tr.select();
-    copyed = tr.createTextRange();
+    copyed = tr.createRange();
+    console.log( copyed );
     copyed.execCommand("Copy");
 }
 
