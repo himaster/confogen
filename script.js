@@ -212,10 +212,9 @@ $(function() {
         $('tr.active').removeClass('active');
         $(this).addClass('active');
         if ($(this).find("input:nth-child(1)").get(0).readOnly) {
-            console.log('setting focus');
             $(this).focus();
         }
-        console.log($(this).index()+1);
+        setCookie("index",$(this).index()+1);
     })
 
     $("#maintable tr").each(function(){
