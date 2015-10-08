@@ -151,12 +151,10 @@ function fadeblog(){
 }
 
 function copySrc(s) {
-    console.log( s.value );
     var tr = eval(s);
+    console.log( tr.value );
     tr.focus();
     tr.select();
-    r = tr.createRange();
-    r.execCommand('copy');
 }
 
 $(function() {
