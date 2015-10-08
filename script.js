@@ -187,6 +187,9 @@ function getCookie(name) {
 $(function() {
     $(document).ready(function() { 
         console.log(getCookie("index"));
+        var thisstr = $($("#maintable tr").get(getCookie("index")));
+        thisstr.addClass("active");
+        thisstr.focus();
     });
 
     $(document).on('mousemove', 'textarea', function(e) {
