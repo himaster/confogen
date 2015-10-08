@@ -221,7 +221,6 @@ $(function() {
 
     $(document).on('keydown', '#maintable tr', function(e) {
         var curr = $(this);
-        console.log(curr.index());
         if(e.keyCode == 40 ){
             e.preventDefault();
             var next = $($("#maintable tr").get(curr.index()+1));
@@ -229,12 +228,14 @@ $(function() {
             $('tr.active').removeClass('active');
             next.addClass("active");
             next.focus();
+            setCookie("index",curr.index()+1);
         } else if (e.keyCode == 38) {
             e.preventDefault();
             var prev = $($("#maintable tr").get(curr.index()-1));
             $('tr.active').removeClass('active');
             prev.addClass("active");
             prev.focus();
+            setCookie("index",curr.index()-1);
         }
     })
 })
