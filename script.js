@@ -205,18 +205,17 @@ $(function() {
 
     $(document).on('click', '#maintable tr', function(e) {
         var div = $("textarea");
-        console.log(div.is(e.target));
         if (!div.is(e.target)) {
             $('textarea.comment').removeClass('comment');
         }
 
         $('tr.active').removeClass('active');
         $(this).addClass('active');
-        console.log($(this).find("input:nth-child(1)").get(0).readOnly);
         if ($(this).find("input:nth-child(1)").get(0).readOnly) {
             console.log('setting focus');
             $(this).focus();
         }
+        console.log($(this).index()+1);
     })
 
     $("#maintable tr").each(function(){
