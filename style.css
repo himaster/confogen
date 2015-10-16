@@ -10,13 +10,7 @@
   text-align: center;
 }
 
-.toptable {
-  border: 4px solid gray;
-  border-collapse: collapse;
-  background-color: lightgray;
-  font-family: Tahoma;
-  font-size: 14px;
-  width: 1087px;
+#toptable {
   position: fixed;
   top: 0px;
 }
