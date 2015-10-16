@@ -21,12 +21,12 @@
   top: 0px;
 }
 
-.maintable #newtable {
+#newtable {
   margin-top: -50px;
   margin-bottom: 5px; 
 }
 
-.maintable #newtable input {
+#newtable input {
   background-color: white;
 }
 
