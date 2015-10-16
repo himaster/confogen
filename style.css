@@ -26,7 +26,7 @@
   margin-bottom: 5px; 
 }
 
-#newtable input {
+#newtable input[type=text] {
   background-color: white;
 }
 
@@ -94,7 +94,7 @@
   width: 20px;
 }
 
-.maintable input {
+#maintable input {
   border: none;
   background-color: inherit;
   width: 100%;
