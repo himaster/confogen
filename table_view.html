@@ -60,7 +60,7 @@
 			while ($row = mysql_fetch_assoc($result)) { ?>
 				<TR style="border: 0;">
 					<TD><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
-					<TD><INPUT id="name_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['name']; ?>"></TD>
+					<TD width="170"><INPUT id="name_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['name']; ?>"></TD>
 					<TD><INPUT id="ip_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['ip']; ?>"></TD>
 					<TD><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
 					<TD><INPUT id="https_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['https'] == 1) echo "checked";?> ></TD>
