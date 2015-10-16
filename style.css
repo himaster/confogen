@@ -40,6 +40,9 @@
   font-size: 14px;
   width: 1087px;
 }
+.maintable td:first {
+  width: 100px;
+}
 
 .maintable input {
   background-color: lightgray;
