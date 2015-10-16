@@ -85,7 +85,12 @@
 }
 
 .maintable input {
-  background-color: lightgray;
+  border: none;
+  background-color: inherit;
+  width: 100%;
+}
+
+.maintable textarea {
   border: none;
   background-color: inherit;
   width: 100%;
