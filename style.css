@@ -52,11 +52,11 @@
 }
 
 .maintable td:nth-child(4) {
-  width: 20px;
+  width: 40px;
 }
 
 .maintable td:nth-child(5) {
-  width: 20px;
+  width: 40px;
 }
 
 .maintable td:nth-child(6) {
@@ -64,11 +64,11 @@
 }
 
 .maintable td:nth-child(7) {
-  width: 20px;
+  width: 40px;
 }
 
 .maintable td:nth-child(8) {
-  width: 20px;
+  width: 40px;
 }
 
 .maintable td:nth-child(9) {
@@ -76,11 +76,11 @@
 }
 
 .maintable td:nth-child(10) {
-  width: 20px;
+  width: 40px;
 }
 
 .maintable td:nth-child(11) {
-  width: 20px;
+  width: 45px;
 }
 
 .maintable td:nth-child(12) {
@@ -107,7 +107,7 @@
 }
 
 #table_div{
-  width: 1087px;
+  width: 1150px;
   margin: 0px auto;
   text-align: left;
   padding-top: 75px;
