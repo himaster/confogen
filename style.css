@@ -45,6 +45,7 @@
   background-color: lightgray;
   border: none;
   background-color: inherit;
+  width: 100%;
 }
 
 #table_div{
