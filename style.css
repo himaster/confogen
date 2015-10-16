@@ -40,7 +40,7 @@
   font-size: 14px;
   width: 1087px;
 }
-.maintable td:first {
+.maintable td:first-child {
   width: 100px;
 }
 
