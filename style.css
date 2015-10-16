@@ -25,6 +25,11 @@
   margin-top: -50px;
   margin-bottom: 5px; 
 }
+
+.maintable #newtable input {
+  background-color: white;
+}
+
 .maintable {
   border: 4px solid gray;
   border-collapse: collapse;
