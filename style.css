@@ -84,6 +84,18 @@
   width: 20px;
 }
 
+.maintable td:nth-child(12) {
+  width: 170px;
+}
+
+.maintable td:nth-child(13) {
+  width: 20px;
+}
+
+.maintable td:nth-child(14) {
+  width: 20px;
+}
+
 .maintable input {
   border: none;
   background-color: inherit;
