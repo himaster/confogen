@@ -38,7 +38,9 @@
   font-family: Tahoma;
   font-size: 14px;
   width: 1087px;
+  text-align: center;
 }
+
 .maintable td:first-child {
   width: 30px;
 }
