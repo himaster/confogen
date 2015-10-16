@@ -41,6 +41,11 @@
   width: 1087px;
 }
 
+.maintable input {
+  background-color: lightgray;
+  border: none;
+}
+
 #table_div{
   width: 1087px;
   margin: 0px auto;
