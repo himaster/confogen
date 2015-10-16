@@ -41,7 +41,11 @@
   width: 1087px;
 }
 .maintable td:first-child {
-  width: 100px;
+  width: 30px;
+}
+
+.maintable td:second-child {
+  width: 1200px;
 }
 
 .maintable input {
