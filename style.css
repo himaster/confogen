@@ -44,7 +44,7 @@
   width: 30px;
 }
 
-.maintable td::nth-child(2) {
+.maintable td:nth-child(2) {
   width: 1200px;
 }
 
