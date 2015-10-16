@@ -22,7 +22,7 @@
 }
 
 #newtable {
-  margin-top: -50px;
+  margin-top: -45px;
   margin-bottom: 5px; 
 }
 
@@ -100,7 +100,7 @@
   width: 100%;
 }
 
-.maintable textarea {
+#maintable textarea {
   border: none;
   width: 100%;
 }
