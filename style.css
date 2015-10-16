@@ -20,8 +20,16 @@
   margin-bottom: 5px; 
 }
 
+
 #newtable input[type=text] {
+  border: none;
   background-color: white;
+  width: 100%;
+}
+
+#newtable textarea {
+  border: none;
+  width: 100%;
 }
 
 .maintable {
