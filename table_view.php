@@ -75,8 +75,12 @@
 											  rows="1"
 											  maxlength="2000"><?php echo $row['comment']; ?></TEXTAREA></TD>
 					<TD style='text-align: center;'>
-						<DIV id="edit_<?php echo $row['id']; ?>"><A id="edit_<?php echo $row['id']; ?>" class='delete' href="javascript:edit(<?php echo $row['id']; ?>); ">E</A>&nbsp;</DIV>
-						<DIV id="save_<?php echo $row['id']; ?>" style="display:none"><A class='delete' href="javascript:save(<?php echo $row['id']; ?>); setTimeout(generate(<?php echo $row['id']; ?>), 1000) ">S</A>&nbsp;</DIV>
+						<DIV id="edit_<?php echo $row['id']; ?>">
+							<A id="edit_<?php echo $row['id']; ?>" class='delete' href="javascript:edit(<?php echo $row['id']; ?>); ">E</A>&nbsp;
+						</DIV>
+						<DIV id="save_<?php echo $row['id']; ?>" style="display:none">
+							<A class='delete' href="javascript:save(<?php echo $row['id']; ?>); setTimeout(generate(<?php echo $row['id']; ?>), 1000) ">S</A>&nbsp;
+						</DIV>
 					</TD>
 					<TD style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>X</A></TD>
 				</TR>
