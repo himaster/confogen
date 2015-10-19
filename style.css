@@ -41,6 +41,10 @@
   text-align: center;
 }
 
+.maintable tr {
+  border: 0;
+}
+
 .maintable td:first-child {
   width: 30px;
 }
@@ -91,10 +95,12 @@
 
 .maintable td:nth-child(13) {
   width: 20px;
+  text-align: center;
 }
 
 .maintable td:nth-child(14) {
   width: 20px;
+  text-align: center;
 }
 
 #maintable input {

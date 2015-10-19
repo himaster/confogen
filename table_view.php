@@ -58,7 +58,7 @@
 		<TABLE class="maintable" id="maintable">
 	<?php 	$i = 1;
 			while ($row = mysql_fetch_assoc($result)) { ?>
-				<TR style="border: 0;">
+				<TR>
 					<TD><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
 					<TD><INPUT id="name_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['name']; ?>"></TD>
 					<TD><INPUT id="ip_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['ip']; ?>"></TD>
@@ -74,7 +74,7 @@
 											  readonly
 											  rows="1"
 											  maxlength="2000"><?php echo $row['comment']; ?></TEXTAREA></TD>
-					<TD style='text-align: center;'>
+					<TD>
 						<DIV id="edit_<?php echo $row['id']; ?>">
 							<A id="edit_<?php echo $row['id']; ?>" class='delete' href="javascript:edit(<?php echo $row['id']; ?>); ">E</A>&nbsp;
 						</DIV>
@@ -82,7 +82,7 @@
 							<A class='delete' href="javascript:save(<?php echo $row['id']; ?>); setTimeout(generate(<?php echo $row['id']; ?>), 1000) ">S</A>&nbsp;
 						</DIV>
 					</TD>
-					<TD style='text-align: center;'><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>X</A></TD>
+					<TD><A class='delete' href='javascript:rem_el(<?php echo $row['id'] ?>)'>X</A></TD>
 				</TR>
 	<?php	} ?>
 		</TABLE>
