@@ -1,4 +1,3 @@
-<DIV id="table_div">
 		<TABLE class="maintable" id="toptable">
 			<TR>
 				<TD><B>#</B></TD>
@@ -90,4 +89,3 @@
 				</TR>
 	<?php	} ?>
 		</TABLE>
-</DIV>
