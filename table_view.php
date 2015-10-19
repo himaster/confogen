@@ -13,8 +13,8 @@
 				<TD><b><FONT size="1">Mobile</FONT></b></TD>
 				<TD><b><FONT size="1">M.test</FONT></b></TD>
 				<TD><b>Comment</b></TD>
-				<TD><b><FONT size='1'>Edit</FONT></b></TD>
-				<TD><b><FONT size='1'>Remove</FONT></b></TD>
+				<TD><b><FONT size='1'>Ed.</FONT></b></TD>
+				<TD><b><FONT size='1'>Rem</FONT></b></TD>
 			</TR>
 		</TABLE>
 		<TABLE class="maintable" id="newtable">
