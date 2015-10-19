@@ -1,7 +1,7 @@
 <?php
 	include 'db.php';
 	$workdir	= '/etc/nginx/fpm-conf.d/balancer/';
-	if ($_GET['act'] == "remove") { #element deleting
+	if ($_GET['act'] == "remove") { #Deleting
 		$id 	= $_GET['id'];		
 		$sql    = "SELECT `name` FROM `domains` WHERE `id`=$id";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
@@ -22,6 +22,10 @@
 		$cert 	= $_GET['cert'];
 		$blogname = $_GET['blogname'];
 		$comment = $_GET['comment'];
+		if ($_GET['www'] == "true")
+			$www	= 1;
+		else
+			$www	= 0;
 		if ($_GET['http'] == "true")
 			$http	= 1;
 		else

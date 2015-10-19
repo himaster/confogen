@@ -2,7 +2,8 @@
 function submit() {
             if (document.getElementById('name').value != '' && document.getElementById('ip').value != '') {
                 show_table( document.getElementById('name').value, 
-                            document.getElementById('ip').value, 
+                            document.getElementById('ip').value,
+                            document.getElementById('www').checked,
                             document.getElementById('http').checked, 
                             document.getElementById('https').checked,
                             document.getElementById('cert').value,
@@ -13,7 +14,8 @@ function submit() {
                             document.getElementById('mtest').checked,
                             document.getElementById('comment').value);
                 document.getElementById('name').value = ''; 
-                document.getElementById('ip').value = ''; 
+                document.getElementById('ip').value = '';
+                document.getElementById('www').checked = false;
                 document.getElementById('http').checked = false; 
                 document.getElementById('https').checked = false;
                 document.getElementById('cert').value = '';
@@ -30,10 +32,11 @@ function submit() {
             }
         }
 
-function show_table(name, ip, http, https, cert, test, blog, blogname, m, mtest, comment){
+function show_table(name, ip, www, http, https, cert, test, blog, blogname, m, mtest, comment){
 	var dataString = '&act=add' + 
                      '&name=' + name + 
                      '&ip=' + ip + 
+                     '&www=' + www + 
                      '&http=' + http + 
                      '&https=' + https + 
                      '&cert=' + cert + 
@@ -78,6 +81,7 @@ function rem_el(id){
 function edit(id){
     document.getElementById('name_'+id).readOnly=false;
     document.getElementById('ip_'+id).readOnly=false;
+    document.getElementById('www_'+id).disabled=false;
     document.getElementById('http_'+id).disabled=false;
     document.getElementById('https_'+id).disabled=false;
     document.getElementById('cert_'+id).readOnly=false;
@@ -96,6 +100,7 @@ function save(id){
                      '&id=' + id + 
                      '&name=' + document.getElementById('name_'+id).value + 
                      '&ip=' + document.getElementById('ip_'+id).value + 
+                     '&www=' + document.getElementById('www_'+id).checked + 
                      '&http=' + document.getElementById('http_'+id).checked + 
                      '&https=' + document.getElementById('https_'+id).checked + 
                      '&cert=' + document.getElementById('cert_'+id).value + 
@@ -193,8 +198,8 @@ $(function() {
     });
 
     $(document).on('mousemove', 'textarea', function(e) {
-        var a = $(this).offset().top + $(this).outerHeight() - 16,  //  top border of bottom-right-corner-box area
-            b = $(this).offset().left + $(this).outerWidth() - 16;  //  left border of bottom-right-corner-box area
+        var a = $(this).offset().top + $(this).outerHeight() - 16,
+            b = $(this).offset().left + $(this).outerWidth() - 16;
         $(this).css({
             cursor: e.pageY > a && e.pageX > b ? 'se-resize' : ''
         });
