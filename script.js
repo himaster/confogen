@@ -123,6 +123,9 @@ function save(id){
             $('#status_div').html("ERROR!!!");
         }
     });
+    $("#maintable tr").each(function(){
+        $(this).attr("tabindex", 1);
+    })
 }
 
 function generate(id){
