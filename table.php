@@ -52,6 +52,7 @@
 			$mtest	= 0;
 		$sql 	= "UPDATE `domains` SET name 	= '$name', 
 									 	ip		= '$ip', 
+									 	www		= '$www',
 									 	http	= '$http', 
 									 	https	= '$https', 
 									 	cert	= '$cert', 
@@ -65,6 +66,7 @@
 	} elseif (!empty($_GET['name']) && !empty($_GET['ip'])) { #Adding
 		$name	= $_GET['name'];
 		$ip		= $_GET['ip'];
+		$www	= $_GET['www'];
 		$http	= $_GET['http'];
 		$https	= $_GET['https'];
 		$cert	= $_GET['cert'];
@@ -74,8 +76,8 @@
 		$m		= $_GET['m'];
 		$mtest	= $_GET['mtest'];
 		$comment = $_GET['comment'];
-		$sql	= "INSERT INTO `domains` (name, ip, http, https, test, m, mtest, cert, blog, blogname, comment) 
-					   			  VALUES (\"$name\", \"$ip\", $http, $https, $test, $m, $mtest, \"$cert\", $blog, \"$blogname\", '$comment');";
+		$sql	= "INSERT INTO `domains` (name, ip, www, http, https, test, m, mtest, cert, blog, blogname, comment) 
+					   			  VALUES (\"$name\", \"$ip\", $www, $http, $https, $test, $m, $mtest, \"$cert\", $blog, \"$blogname\", '$comment');";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 	$sql    = "SHOW TABLE STATUS LIKE 'domains'";

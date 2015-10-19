@@ -4,6 +4,7 @@
 				<TD><B>#</B></TD>
 				<TD><b>Name</b></TD>
 				<TD><b>IP</b></TD>
+				<TD><b><FONT size="1">WWW</FONT></b></TD>
 				<TD><b><FONT size="1">HTTP</FONT></b></TD>
 				<TD><b><FONT size="1">HTTPS</FONT></b></TD>
 				<TD><b>Cert</b></TD>
@@ -22,6 +23,7 @@
 				<TD><DIV id="id">New</DIV></TD>
 				<TD><INPUT type="text" id="name" value=""></TD>
 				<TD><INPUT type="text" id="ip" Value=""></TD>
+				<TD><INPUT type="checkbox" id="www"></TD>
 				<TD><INPUT type="checkbox" id="http"></TD>
 				<TD><INPUT type="checkbox" id="https" onchange="fade();"></TD>
 				<TD><INPUT type="text" id="cert" value="" readonly="true"></TD>
@@ -53,6 +55,7 @@
 				<TD></TD>
 				<TD></TD>
 				<TD></TD>
+				<TD></TD>
 			</TR>
 		</TABLE>
 		<TABLE class="maintable" id="maintable">
@@ -62,6 +65,7 @@
 					<TD><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
 					<TD><INPUT id="name_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['name']; ?>"></TD>
 					<TD><INPUT id="ip_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['ip']; ?>"></TD>
+					<TD><INPUT id="www_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['www'] == 1) echo "checked";?> ></TD>
 					<TD><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
 					<TD><INPUT id="https_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['https'] == 1) echo "checked";?> ></TD>
 					<TD><INPUT id="cert_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['cert']; ?>"></TD>
