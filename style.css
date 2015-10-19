@@ -124,12 +124,13 @@
 
 .copyright {
   font-size: 14px;
+  width: 350px;
   margin-left: auto ;
   margin-right: auto ;
 }
 
 .status { 
-  width: 200px; 
+  width: 350px; 
   background: #ffffff;
   height: 20px;
   left: 40%;
