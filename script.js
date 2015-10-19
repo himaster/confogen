@@ -118,14 +118,14 @@ function save(id){
             $('#table_div').html(html);
             $('#status_div').html("Saved (id=" + id + ").");
             setTimeout("document.getElementById('status_div').innerHTML = ''", 3000);
+            $("#maintable tr").each(function(){
+                $(this).attr("tabindex", 1);
+            })
         },
         error: function(){
             $('#status_div').html("ERROR!!!");
         }
     });
-    $("#maintable tr").each(function(){
-        $(this).attr("tabindex", 1);
-    })
 }
 
 function generate(id){
