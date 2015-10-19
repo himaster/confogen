@@ -121,6 +121,9 @@ function save(id){
             $("#maintable tr").each(function(){
                 $(this).attr("tabindex", 1);
             })
+            var thisstr = $($("#maintable tr").get(getCookie("index")-1));
+            thisstr.addClass("active");
+            thisstr.focus();
         },
         error: function(){
             $('#status_div').html("ERROR!!!");
