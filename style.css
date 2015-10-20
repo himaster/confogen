@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+}
+
 .status {
   color: gray; 
   font-size: 12px;
@@ -36,10 +40,21 @@
   margin-top: 22px;
 }
 
+#maintable input {
+  border: none;
+  background-color: inherit;
+  width: 100%;
+}
+
+#maintable textarea {
+  border: none;
+  width: 100%;
+}
+
 .maintable {
-  border: 4px solid gray;
+  border: 4px double gray;
   border-collapse: collapse;
-  background-color: lightgray;
+  background-color: rgb(230, 230, 230);
   font-family: Tahoma;
   font-size: 14px;
   width: 1087px;
@@ -112,17 +127,6 @@
   text-align: center;
 }
 
-#maintable input {
-  border: none;
-  background-color: inherit;
-  width: 100%;
-}
-
-#maintable textarea {
-  border: none;
-  width: 100%;
-}
-
 #table_div{
   width: 1150px;
   margin: 0px auto;
@@ -140,7 +144,7 @@
 
 .status { 
   width: 350px; 
-  background: #ffffff;
+  background: black;
   height: 20px;
   left: 40%;
   margin-left: auto ;
@@ -148,7 +152,7 @@
 }
 
 tr.active {
-  background-color: #fff;
+  background-color: rgb(200, 200, 200);
 }
 
 textarea.comment {
@@ -165,28 +169,28 @@ textarea.comment {
   }
 
   33.3% {
-    -webkit-transform: translateX(-6px);
-    transform: translateX(-6px);
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
   }
 
   49.95% {
-    -webkit-transform: translateX(4px);
-    transform: translateX(4px);
+    -webkit-transform: translateX(6px);
+    transform: translateX(6px);
   }
 
   66.6% {
-    -webkit-transform: translateX(-2px);
-    transform: translateX(-2px);
+    -webkit-transform: translateX(-4px);
+    transform: translateX(-4px);
   }
 
   83.25% {
-    -webkit-transform: translateX(1px);
-    transform: translateX(1px);
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
   }
 
   100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -webkit-transform: translateX(1);
+    transform: translateX(1);
   }
 }
 
