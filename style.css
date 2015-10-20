@@ -21,7 +21,7 @@ body {
 }
 
 #newtable {
-  margin-top: -45px;
+  margin-top: -48px;
   margin-bottom: 5px; 
   position: fixed;
 }
@@ -38,7 +38,7 @@ body {
 }
 
 #maintable {
-  margin-top: 22px;
+  margin-top: 12px;
 }
 
 #maintable td {
@@ -70,7 +70,7 @@ body {
   border: 0;
 }
 
-.maintable tr:first-child {
+.maintable tr:first-child td{
   border: solid 1px rgb(128, 128, 128);
 }
 
@@ -137,7 +137,7 @@ body {
 }
 
 #table_div{
-  width: 1087px;
+  width: 1187px;
   margin: 0px auto;
   text-align: left;
   padding-top: 78px;
