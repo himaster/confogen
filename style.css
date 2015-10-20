@@ -38,6 +38,11 @@ body {
 
 #maintable {
   margin-top: 22px;
+  border-spacing: 2px;
+}
+
+#maintable td {
+  border: solid 1px rgb(128, 128, 128);
 }
 
 #maintable input {
