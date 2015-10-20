@@ -132,7 +132,7 @@ function save(id){
 }
 
 function generate(id){
-    cobsole.log('test');
+    console.log(isempty(id));
     if (isempty(id)) {
         console.log('id is empty');
         if (!confirm('Do you wanna to regenerate all?')) {
