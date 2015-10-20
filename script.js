@@ -132,7 +132,7 @@ function save(id){
 }
 
 function generate(id){
-    if (!confirm('Do you wanna to regenerate all?')) {
+    if (isempty(id) && !confirm('Do you wanna to regenerate all?')) {
            return false;
     }
     var dataString = '&id=' + id;
@@ -266,4 +266,14 @@ function toggle_visibility(id) {
     else
         e.style.display = 'block';
 }
+
+function isempty(mixed_var) {
+    return ( mixed_var === ""    ||
+             mixed_var === 0     ||
+             mixed_var === "0"   ||
+             mixed_var === null  ||
+             mixed_var === false || 
+             ( is_array(mixed_var) && mixed_var.length === 0 ) ) ;
+}
+
 -->
