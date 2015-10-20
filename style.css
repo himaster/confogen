@@ -62,7 +62,6 @@ body {
   background-color: rgb(230, 230, 230);
   font-family: Tahoma;
   font-size: 14px;
-  width: 1087px;
   text-align: center;
   border-spacing: 2px;
 }
@@ -138,7 +137,7 @@ body {
 }
 
 #table_div{
-  width: 1150px;
+  width: 1087px;
   margin: 0px auto;
   text-align: left;
   padding-top: 78px;
