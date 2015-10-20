@@ -163,6 +163,10 @@ tr.active {
   text-shadow: -1px 0 rgb(230, 230, 230), 0 1px rgb(230, 230, 230), 1px 0 rgb(230, 230, 230), 0 -1px rgb(230, 230, 230);
 }
 
+tr.active input {
+  text-shadow: -1px 0 rgb(230, 230, 230), 0 1px rgb(230, 230, 230), 1px 0 rgb(230, 230, 230), 0 -1px rgb(230, 230, 230);
+}
+
 textarea.comment {
   width: 300px;
   height: 100px;
