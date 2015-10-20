@@ -132,8 +132,11 @@ function save(id){
 }
 
 function generate(id){
-    if (isempty(id) && !confirm('Do you wanna to regenerate all?')) {
+    if (isempty(id)) {
+        console.log('id is empty');
+        if (!confirm('Do you wanna to regenerate all?')) {
            return false;
+        }
     }
     var dataString = '&id=' + id;
     $.ajax({
@@ -272,8 +275,7 @@ function isempty(mixed_var) {
              mixed_var === 0     ||
              mixed_var === "0"   ||
              mixed_var === null  ||
-             mixed_var === false || 
-             ( $.isArray(mixed_var) && mixed_var.length === 0 ) ) ;
+             mixed_var === false ) ;
 }
 
 -->
