@@ -132,7 +132,6 @@ function save(id){
 }
 
 function generate(id){
-    console.log(id);
     if (isempty(id)) {
         console.log('id is empty');
         if (!confirm('Do you wanna to regenerate all?')) {
