@@ -200,7 +200,6 @@ function getCookie(name) {
 
 $(function() {
     $(document).ready(function() { 
-        console.log(getCookie("index"));
         var thisstr = $($("#maintable tr").get(getCookie("index")-1));
         thisstr.addClass("active");
         thisstr.focus();
