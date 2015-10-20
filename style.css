@@ -39,7 +39,6 @@ body {
 
 #maintable {
   margin-top: 22px;
-  border-spacing: 2px;
 }
 
 #maintable td {
@@ -65,10 +64,15 @@ body {
   font-size: 14px;
   width: 1087px;
   text-align: center;
+  border-spacing: 2px;
 }
 
 .maintable tr {
   border: 0;
+}
+
+.maintable tr:first-child {
+  border: solid 1px rgb(128, 128, 128);
 }
 
 .maintable td:first-child {
