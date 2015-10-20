@@ -132,6 +132,9 @@ function save(id){
 }
 
 function generate(id){
+    if (!confirm('Do you wanna to regenerate all?')) {
+           return false;
+    }
     var dataString = '&id=' + id;
     $.ajax({
         url: "generator.php",
