@@ -40,18 +40,15 @@
     	$handle = fopen($file, "w+");
 
     	if ($http) {
-    		if ($www) {
-	    		fwrite($handle, "## Add www\n");
-	    		fwrite($handle, "server {\n");
-	    		fwrite($handle, "	listen ".$ip.":80;\n");
+	    	fwrite($handle, "## Add/remove www\n");
+	    	fwrite($handle, "server {\n");
+	    	fwrite($handle, "	listen ".$ip.":80;\n");
+	    	if ($www) {
 	    		fwrite($handle, "	server_name ".$name.";\n\n");
-		    	fwrite($handle, "	rewrite  ^/(.*)$  http://www.".$name."/$1  permanent;\n}\n\n");
+		    	fwrite($handle, "	rewrite  ^/(.*)$  http://www.".$name."/$1  permanent;\n\n");
 		    } else {
-		    	fwrite($handle, "## Remove www\n");
-	    		fwrite($handle, "server {\n");
-	    		fwrite($handle, "	listen ".$ip.":80;\n");
 	    		fwrite($handle, "	server_name www.".$name.";\n\n");
-		    	fwrite($handle, "	rewrite  ^/(.*)$  http://".$name."/$1  permanent;\n}\n\n");
+		    	fwrite($handle, "	rewrite  ^/(.*)$  http://".$name."/$1  permanent;\n\n");
 		    }
 	    	fwrite($handle, "## HTTP\n");
 	    	fwrite($handle, "server {\n");
@@ -106,25 +103,19 @@
 	    	fwrite($handle, "}\n\n");
 	    }
 	    if ($https) {
+		    fwrite($handle, "## Add/remove www to HTTPS\n");
+	    	fwrite($handle, "server {\n");
+	    	fwrite($handle, "	listen ".$ip.":443 ssl;\n");
 	    	if ($www) {
-		    	fwrite($handle, "## Add www to HTTPS\n");
-	    		fwrite($handle, "server {\n");
-	    		fwrite($handle, "	listen ".$ip.":443 ssl;\n");
 	    		fwrite($handle, "	server_name ".$name.";\n\n");
-	    		fwrite($handle, "	ssl				on;\n");
-				fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
-				fwrite($handle, "	ssl_certificate_key		".$certfile.".key;\n\n");
-		    	fwrite($handle, "	rewrite	^/(.*)$  https://www.".$name."/$1  permanent;\n}\n\n");
-		    } else {
-		    	fwrite($handle, "## Remove www from HTTPS\n");
-	    		fwrite($handle, "server {\n");
-	    		fwrite($handle, "	listen ".$ip.":443 ssl;\n");
+	    		fwrite($handle, "	rewrite	^/(.*)$  https://www.".$name."/$1  permanent;\n\n");
+	    	} else {
 	    		fwrite($handle, "	server_name www.".$name.";\n\n");
-	    		fwrite($handle, "	ssl				on;\n");
-				fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
-				fwrite($handle, "	ssl_certificate_key		".$certfile.".key;\n\n");
-		    	fwrite($handle, "	rewrite	^/(.*)$  https://".$name."/$1  permanent;\n}\n\n");
+	    		fwrite($handle, "	rewrite	^/(.*)$  https://".$name."/$1  permanent;\n\n");
 		    }
+	    	fwrite($handle, "	ssl				on;\n");
+			fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
+			fwrite($handle, "	ssl_certificate_key		".$certfile.".key;\n}\n\n");
 	    	fwrite($handle, "## HTTPS\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":443 ssl;\n");
