@@ -50,7 +50,7 @@
 	    		fwrite($handle, "	server_name www.".$name.";\n\n");
 		    	fwrite($handle, "	rewrite  ^/(.*)$  http://".$name."/$1  permanent;\n\n");
 		    }
-	    	fwrite($handle, "## HTTP\n");
+	    	fwrite($handle, "}\n\n## HTTP\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		if ($www) {
