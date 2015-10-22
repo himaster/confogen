@@ -1,4 +1,3 @@
-	<DIV class="container-fluid">
 		<TABLE class="maintable" id="toptable">
 			<TR>
 				<TD><B>#</B></TD>
@@ -58,7 +57,7 @@
 				<TD></TD>
 			</TR>
 		</TABLE>
-		<TABLE class="maintable" class="table" id="maintable">
+		<TABLE class="table" id="maintable">
 	<?php 	$i = 1;
 			while ($row = mysql_fetch_assoc($result)) { ?>
 				<TR>
@@ -90,4 +89,3 @@
 				</TR>
 	<?php	} ?>
 		</TABLE>
-	</DIV>
