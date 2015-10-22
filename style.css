@@ -17,6 +17,7 @@
 }
 
 #newtable {
+  top: 96px;
   margin-top: -48px;
   margin-bottom: 5px; 
   position: fixed;
@@ -28,4 +29,8 @@
 
 #newtable textarea {
   width: 100%;
+}
+
+#maintable {
+  margin-top: 12px;
 }
