@@ -1,20 +1,20 @@
 		<TABLE class="table" id="toptable">
 			<TR>
 				<TD><B>#</B></TD>
-				<TD><b>Name</b></TD>
-				<TD><b>IP</b></TD>
-				<TD><b><FONT size="1">WWW</FONT></b></TD>
-				<TD><b><FONT size="1">HTTP</FONT></b></TD>
-				<TD><b><FONT size="1">HTTPS</FONT></b></TD>
-				<TD><b>Cert</b></TD>
-				<TD><b><FONT size="1">Test</FONT></b></TD>
-				<TD><b><FONT size="1">Blog</FONT></b></TD>
-				<TD><b>Blog Name</b></TD>
-				<TD><b><FONT size="1">Mobile</FONT></b></TD>
-				<TD><b><FONT size="1">M.test</FONT></b></TD>
-				<TD><b>Comment</b></TD>
-				<TD><b><FONT size='1'>Ed.</FONT></b></TD>
-				<TD><b><FONT size='1'>Re.</FONT></b></TD>
+				<TD><B>Name</B></TD>
+				<TD><B>IP</B></TD>
+				<TD><B><FONT size="1">WWW</FONT></B></TD>
+				<TD><B><FONT size="1">HTTP</FONT></B></TD>
+				<TD><B><FONT size="1">HTTPS</FONT></B></TD>
+				<TD><B>Cert</B></TD>
+				<TD><B><FONT size="1">Test</FONT></B></TD>
+				<TD><B><FONT size="1">Blog</FONT></B></TD>
+				<TD><B>Blog Name</B></TD>
+				<TD><B><FONT size="1">Mobile</FONT></B></TD>
+				<TD><B><FONT size="1">M.test</FONT></B></TD>
+				<TD><B>Comment</B></TD>
+				<TD><B><FONT size='1'>Ed.</FONT></B></TD>
+				<TD><B><FONT size='1'>Re.</FONT></B></TD>
 			</TR>
 		</TABLE>
 		<TABLE class="table" id="newtable">
@@ -57,7 +57,7 @@
 				<TD></TD>
 			</TR>
 		</TABLE>
-		<TABLE class="table" id="maintable">
+		<TABLE class="table-striped"  id="maintable">
 	<?php 	$i = 1;
 			while ($row = mysql_fetch_assoc($result)) { ?>
 				<TR>
