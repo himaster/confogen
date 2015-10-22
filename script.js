@@ -122,7 +122,7 @@ function save(id){
                 $(this).attr("tabindex", 1);
             })
             var thisstr = $($("#maintable tr").get(getCookie("index")-1));
-            thisstr.addClass("active");
+            thisstr.addClass("warning");
             thisstr.focus();
         },
         error: function(){
@@ -201,7 +201,7 @@ function getCookie(name) {
 $(function() {
     $(document).ready(function() { 
         var thisstr = $($("#maintable tr").get(getCookie("index")-1));
-        thisstr.addClass("active");
+        thisstr.addClass("warning");
         thisstr.focus();
     });
 
@@ -244,14 +244,14 @@ $(function() {
             var next = $($("#maintable tr").get(curr.index()+1));
             if (next.index() <= 0) { next = $($("#maintable tr").get(0)); }
             $('tr.active').removeClass('active');
-            next.addClass("active");
+            next.addClass("warning");
             next.focus();
             setCookie("index",curr.index()+2);
         } else if (e.keyCode == 38) {
             e.preventDefault();
             var prev = $($("#maintable tr").get(curr.index()-1));
             $('tr.active').removeClass('active');
-            prev.addClass("active");
+            prev.addClass("warning");
             prev.focus();
             setCookie("index",curr.index());
         }
