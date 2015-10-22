@@ -57,7 +57,7 @@
 				<TD></TD>
 			</TR>
 		</TABLE>
-		<TABLE class="table table-striped"  id="maintable">
+		<TABLE class="table table-striped table-condensed"  id="maintable">
 	<?php 	$i = 1;
 			while ($row = mysql_fetch_assoc($result)) { ?>
 				<TR>
