@@ -218,7 +218,6 @@ $(function() {
         $(this).addClass('comment');
     })
 
-
     $(document).on('click', '#maintable tr', function(e) {
         var div = $("textarea");
         if (!div.is(e.target)) {

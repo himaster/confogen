@@ -32,8 +32,8 @@
 				<TD><INPUT type="checkbox" id="m"></TD>
 				<TD><INPUT type="checkbox" id="mtest"></TD>
 				<TD><TEXTAREA id="comment" rows="1"></TEXTAREA></TD>
-				<TD></TD>
-				<TD></TD>
+				<TD>E</TD>
+				<TD>X</TD>
 			</TR>
 			<TR>
 				<TD></TD>
