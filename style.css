@@ -32,5 +32,9 @@
 }
 
 #maintable {
-  top: 112px;
+  margin-top: 140px;
+}
+
+tr.active {
+  outline: none;
 }
