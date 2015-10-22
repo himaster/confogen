@@ -58,7 +58,7 @@
 				<TD></TD>
 			</TR>
 		</TABLE>
-		<TABLE class="maintable" id="maintable">
+		<TABLE class="maintable" class="table" id="maintable">
 	<?php 	$i = 1;
 			while ($row = mysql_fetch_assoc($result)) { ?>
 				<TR>
