@@ -31,62 +31,62 @@ tr.warning {
   outline: none;
 }
 
-.maintable td:first-child {
+.table td:first-child {
   width: 30px;
 }
 
-.maintable td:nth-child(2) {
+.table td:nth-child(2) {
   width: 170px;
 }
 
-.maintable td:nth-child(3) {
+.table td:nth-child(3) {
   width: 130px;
 }
 
-.maintable td:nth-child(4) {
+.table td:nth-child(4) {
   width: 40px;
 }
 
-.maintable td:nth-child(5) {
+.table td:nth-child(5) {
   width: 40px;
 }
 
-.maintable td:nth-child(6) {
+.table td:nth-child(6) {
   width: 40px;
 }
 
-.maintable td:nth-child(7) {
+.table td:nth-child(7) {
   width: 150px;
 }
 
-.maintable td:nth-child(8) {
+.table td:nth-child(8) {
   width: 40px;
 }
 
-.maintable td:nth-child(9) {
+.table td:nth-child(9) {
   width: 40px;
 }
 
-.maintable td:nth-child(10) {
+.table td:nth-child(10) {
   width: 170px;
 }
 
-.maintable td:nth-child(11) {
+.table td:nth-child(11) {
   width: 40px;
 }
 
-.maintable td:nth-child(12) {
+.table td:nth-child(12) {
   width: 45px;
 }
 
-.maintable td:nth-child(13) {
+.table td:nth-child(13) {
   width: 170px;
 }
 
-.maintable td:nth-child(14) {
+.table td:nth-child(14) {
   width: 20px;
 }
 
-.maintable td:nth-child(15) {
+.table td:nth-child(15) {
   width: 20px;
 }
