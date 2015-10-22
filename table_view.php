@@ -19,7 +19,7 @@
 		</TABLE>
 		<TABLE class="table" id="newtable">
 			<TR>
-				<TD><DIV id="id">New</DIV></TD>
+				<TD><DIV id="id"><FONT size="1">New</FONT></DIV></TD>
 				<TD><INPUT type="text" id="name" value=""></TD>
 				<TD><INPUT type="text" id="ip" Value=""></TD>
 				<TD><INPUT type="checkbox" id="www"></TD>
