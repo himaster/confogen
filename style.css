@@ -23,14 +23,6 @@
   position: fixed;
 }
 
-#newtable input[type=text] {
-  width: 100%;
-}
-
-#newtable textarea {
-  width: 100%;
-}
-
 #maintable {
   margin-top: 140px;
 }
