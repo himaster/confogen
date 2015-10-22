@@ -1,5 +1,5 @@
 		<TABLE class="table" id="toptable">
-			<TR>
+			<TR class="active" class="maintable">
 				<TD><B>#</B></TD>
 				<TD><B>Name</B></TD>
 				<TD><B>IP</B></TD>
@@ -17,8 +17,8 @@
 				<TD><B><FONT size='1'>Re.</FONT></B></TD>
 			</TR>
 		</TABLE>
-		<TABLE class="table" id="newtable">
-			<TR>
+		<TABLE class="table" class="maintable" id="newtable">
+			<TR class="active">
 				<TD><DIV id="id"><FONT size="1">New</FONT></DIV></TD>
 				<TD><INPUT type="text" id="name" value=""></TD>
 				<TD><INPUT type="text" id="ip" Value=""></TD>
@@ -35,7 +35,7 @@
 				<TD>E</TD>
 				<TD>X</TD>
 			</TR>
-			<TR>
+			<TR class="active">
 				<TD></TD>
 				<TD>
 					<INPUT type="button" onclick="submit(); generate(<?php echo $max_id; ?>); " value="Submit">
@@ -57,7 +57,7 @@
 				<TD></TD>
 			</TR>
 		</TABLE>
-		<TABLE class="table table-striped table-condensed"  id="maintable">
+		<TABLE class="table table-striped table-condensed" class="maintable" id="maintable">
 	<?php 	$i = 1;
 			while ($row = mysql_fetch_assoc($result)) { ?>
 				<TR>
