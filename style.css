@@ -10,3 +10,22 @@
   margin-right: auto;
   text-align: center;
 }
+
+#toptable {
+  position: fixed;
+  top: 0px;
+}
+
+#newtable {
+  margin-top: -48px;
+  margin-bottom: 5px; 
+  position: fixed;
+}
+
+#newtable input[type=text] {
+  width: 100%;
+}
+
+#newtable textarea {
+  width: 100%;
+}
