@@ -1,4 +1,4 @@
-		<TABLE class="maintable" id="toptable">
+		<TABLE class="table" id="toptable">
 			<TR>
 				<TD><B>#</B></TD>
 				<TD><b>Name</b></TD>
@@ -17,7 +17,7 @@
 				<TD><b><FONT size='1'>Re.</FONT></b></TD>
 			</TR>
 		</TABLE>
-		<TABLE class="maintable" id="newtable">
+		<TABLE class="table" id="newtable">
 			<TR>
 				<TD><DIV id="id">New</DIV></TD>
 				<TD><INPUT type="text" id="name" value=""></TD>
