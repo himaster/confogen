@@ -225,8 +225,8 @@ $(function() {
             $('textarea.comment').removeClass('comment');
         }
 
-        $('tr.active').removeClass('active');
-        $(this).addClass('active');
+        $("tr.warning").removeClass("warning");
+        $(this).addClass("warning");
         if ($(this).find("input:nth-child(1)").get(0).readOnly) {
             $(this).focus();
         }
@@ -243,14 +243,14 @@ $(function() {
             e.preventDefault();
             var next = $($("#maintable tr").get(curr.index()+1));
             if (next.index() <= 0) { next = $($("#maintable tr").get(0)); }
-            $('tr.active').removeClass('active');
+            $("tr.warning").removeClass("warning");
             next.addClass("warning");
             next.focus();
             setCookie("index",curr.index()+2);
         } else if (e.keyCode == 38) {
             e.preventDefault();
             var prev = $($("#maintable tr").get(curr.index()-1));
-            $('tr.active').removeClass('active');
+            $("tr.warning").removeClass("warning");
             prev.addClass("warning");
             prev.focus();
             setCookie("index",curr.index());
