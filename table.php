@@ -22,34 +22,20 @@
 		$cert 	= $_GET['cert'];
 		$blogname = $_GET['blogname'];
 		$comment = $_GET['comment'];
-		if ($_GET['www'] == "true")
-			$www	= 1;
-		else
-			$www	= 0;
-		if ($_GET['http'] == "true")
-			$http	= 1;
-		else
-			$http	= 0;
-		if ($_GET['https'] == "true")
-			$https	= 1;
-		else
-			$https	= 0;
-		if ($_GET['test'] == "true")
-			$test	= 1;
-		else
-			$test	= 0;
-		if ($_GET['blog'] == "true")
-			$blog	= 1;
-		else
-			$blog	= 0;
-		if ($_GET['m'] == "true")
-			$m		= 1;
-		else
-			$m		= 0;
-		if ($_GET['mtest'] == "true")
-			$mtest	= 1;
-		else
-			$mtest	= 0;
+		if ($_GET['www'] == "true") $www	= 1;
+		else $www	= 0;
+		if ($_GET['http'] == "true") $http	= 1;
+		else $http	= 0;
+		if ($_GET['https'] == "true") $https	= 1;
+		else $https	= 0;
+		if ($_GET['test'] == "true") $test	= 1;
+		else $test	= 0;
+		if ($_GET['blog'] == "true") $blog	= 1;
+		else $blog	= 0;
+		if ($_GET['m'] == "true") $m		= 1;
+		else $m		= 0;
+		if ($_GET['mtest'] == "true") $mtest	= 1;
+		else $mtest	= 0;
 		$sql 	= "UPDATE `domains` SET name 	= '$name', 
 									 	ip		= '$ip', 
 									 	www		= '$www',
