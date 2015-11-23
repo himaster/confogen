@@ -70,6 +70,6 @@
 	$result = mysql_query($sql, $link)  or die(mysql_error());
 	$array  = mysql_fetch_array($result);
 	$max_id = $array['Auto_increment'];
-	$sql 	= "SELECT * FROM `domains`;";
+	$sql 	= "SELECT * FROM `domains` ORDER BY `ip`;";
     $result = mysql_query($sql, $link)  or die(mysql_error());
     include 'table_view.php';
