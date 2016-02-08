@@ -63,8 +63,8 @@
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		
     		fwrite($handle, "	server_name ".$server_name.";\n");
-    		fwrite($handle, "	index 				index.php index.html;\n");
-    		fwrite($handle, "	root 				/home/developer/www/fuel.prod/www;\n\n");
+    		fwrite($handle, "	index				index.php index.html;\n");
+    		fwrite($handle, "	root				/home/developer/www/fuel.prod/www;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
 	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
@@ -109,17 +109,17 @@
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		fwrite($handle, "	server_name ".$server_name.";\n");
-    		fwrite($handle, "	index 				index.php index.html;\n");
-    		fwrite($handle, "	root 				/home/developer/www/fuel.dev/www;\n\n");
+    		fwrite($handle, "	index				index.php index.html;\n");
+    		fwrite($handle, "	root				/home/developer/www/fuel.dev/www;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		satisfy					any;\n");
-			fwrite($handle, "		allow					188.138.234.131;\n");
-			fwrite($handle, "		allow					217.89.150.114;\n");
-			fwrite($handle, "		allow					178.93.126.106;\n");
-	    	fwrite($handle, "		auth_basic				\"Restricted Area\";\n");
+	    	fwrite($handle, "		satisfy			any;\n");
+			fwrite($handle, "		allow			188.138.234.131;\n");
+			fwrite($handle, "		allow			217.89.150.114;\n");
+			fwrite($handle, "		allow			178.93.126.106;\n");
+	    	fwrite($handle, "		auth_basic		\"Restricted Area\";\n");
         	fwrite($handle, "		auth_basic_user_file	/etc/nginx/passwd;\n");
-	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
+	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
             fwrite($handle, "	location ~* \.php$ {\n");
@@ -150,9 +150,9 @@
 
 	    		fwrite($handle, "	rewrite	^/(.*)$  https://".$name."/$1  permanent;\n\n");
 		    }
-	    	fwrite($handle, "	ssl							on;\n");
-			fwrite($handle, "	ssl_certificate				".$certfile.".crt;\n");
-			fwrite($handle, "	ssl_certificate_key			".$certfile.".key;\n");
+	    	fwrite($handle, "	ssl				on;\n");
+			fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
+			fwrite($handle, "	ssl_certificate_key		".$certfile.".key;\n");
 			fwrite($handle, "}\n\n");
 
 	    	fwrite($handle, "## HTTPS\n");
@@ -166,13 +166,13 @@
     		fwrite($handle, "	index 				index.php index.html;\n");
     		fwrite($handle, "	root 				/home/developer/www/fuel.prod/www;\n\n");
 
-    		fwrite($handle, "	ssl					on;\n");
-			fwrite($handle, "	ssl_certificate				".$certfile.".crt;\n");
-			fwrite($handle, "	ssl_certificate_key			".$certfile.".key;\n\n");
-			fwrite($handle, "	ssl_session_timeout			5m;\n");
-    		fwrite($handle, "	ssl_protocols				TLSv1 TLSv1.1 TLSv1.2;\n");
-    		fwrite($handle, "	ssl_ciphers					ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:-SSLv2:+SSLv3::+EXP;\n");
-    		fwrite($handle, "	ssl_session_cache			shared:SSL:1m;\n");
+    		fwrite($handle, "	ssl				on;\n");
+			fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
+			fwrite($handle, "	ssl_certificate_key		".$certfile.".key;\n\n");
+			fwrite($handle, "	ssl_session_timeout		5m;\n");
+    		fwrite($handle, "	ssl_protocols			TLSv1 TLSv1.1 TLSv1.2;\n");
+    		fwrite($handle, "	ssl_ciphers			ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:-SSLv2:+SSLv3::+EXP;\n");
+    		fwrite($handle, "	ssl_session_cache		shared:SSL:1m;\n");
     		fwrite($handle, "	ssl_prefer_server_ciphers	on;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
