@@ -66,7 +66,7 @@
     		fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
+	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
 	    	if ($blog) {
@@ -85,7 +85,7 @@
             }
 
             fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		try_files               \$uri = 404;\n");
         	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
         	fwrite($handle, "		include                 fastcgi_params;\n");
         	fwrite($handle, "	}\n\n");
@@ -106,11 +106,11 @@
     		fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
+	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
             fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		try_files               \$uri = 404;\n");
         	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
         	fwrite($handle, "		include                 fastcgi_params;\n");
         	fwrite($handle, "	}\n\n");
@@ -163,11 +163,11 @@
     		fwrite($handle, "	ssl_prefer_server_ciphers	on;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
+	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
             fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		try_files               \$uri = 404;\n");
         	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
         	fwrite($handle, "		include                 fastcgi_params;\n");
         	fwrite($handle, "	}\n\n");
@@ -196,11 +196,11 @@
 			fwrite($handle, "		allow					178.93.126.106;\n");
 	    	fwrite($handle, "		auth_basic				\"Restricted Area\";\n");
         	fwrite($handle, "		auth_basic_user_file	/etc/nginx/passwd;\n");
-	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
+	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
             fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		try_files               \$uri = 404;\n");
         	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
         	fwrite($handle, "		include                 fastcgi_params;\n");
         	fwrite($handle, "	}\n\n");
@@ -222,11 +222,11 @@
 			fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
+	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
             fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		try_files               \$uri = 404;\n");
         	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
         	fwrite($handle, "		include                 fastcgi_params;\n");
         	fwrite($handle, "	}\n\n");
@@ -253,11 +253,11 @@
 			fwrite($handle, "		allow					178.93.126.106;\n");
 	    	fwrite($handle, "		auth_basic				\"Restricted Area\";\n");
         	fwrite($handle, "		auth_basic_user_file	/etc/nginx/passwd;\n");
-	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
+	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
             fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		try_files               \$uri = 404;\n");
         	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
         	fwrite($handle, "		include                 fastcgi_params;\n");
         	fwrite($handle, "	}\n\n");
