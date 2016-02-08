@@ -97,6 +97,10 @@
 	    	fwrite($handle, "		add_header              Cache-Control public;\n");
 	    	fwrite($handle, "	}\n\n");
 
+			fwrite($handle, "	location = /img/ec.png {\n");
+        	fwrite($handle, "		proxy_pass				http://www.pkwteile.de/etracking;\n");
+    		fwrite($handle, "	}\n\n");
+
 	    	fwrite($handle, "}\n\n");
 	    }
 
@@ -133,6 +137,10 @@
 	    	fwrite($handle, "		expires                 360d;\n");
 	    	fwrite($handle, "		add_header              Cache-Control public;\n");
 	    	fwrite($handle, "	}\n\n");
+
+			fwrite($handle, "	location = /img/ec.png {\n");
+        	fwrite($handle, "		proxy_pass				http://test.pkwteile.de/etracking;\n");
+    		fwrite($handle, "	}\n\n");
 
 	    	fwrite($handle, "}\n\n");
 	    }
@@ -190,6 +198,10 @@
 	    	fwrite($handle, "		expires                 360d;\n");
 	    	fwrite($handle, "		add_header              Cache-Control public;\n");
 	    	fwrite($handle, "	}\n\n");
+
+			fwrite($handle, "	location = /img/ec.png {\n");
+        	fwrite($handle, "		proxy_pass				https://www.pkwteile.de/etracking;\n");
+    		fwrite($handle, "	}\n\n");
 
 	    	fwrite($handle, "}\n\n");
     	}
