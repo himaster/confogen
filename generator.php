@@ -45,26 +45,30 @@
 	    	fwrite($handle, "	listen ".$ip.":80;\n");
 	    	if ($www) {
 	    		fwrite($handle, "	server_name ".$name.";\n\n");
-		    	fwrite($handle, "	rewrite  ^/(.*)$  http://www.".$name."/$1  permanent;\n\n");
+
+		    	fwrite($handle, "	rewrite  ^/(.*)$  http://www.".$name."/$1  permanent;\n");
 		    } else {
 	    		fwrite($handle, "	server_name www.".$name.";\n\n");
-		    	fwrite($handle, "	rewrite  ^/(.*)$  http://".$name."/$1  permanent;\n\n");
+
+		    	fwrite($handle, "	rewrite  ^/(.*)$  http://".$name."/$1  permanent;\n");
 		    }
 	    	fwrite($handle, "}\n\n");
+
 	    	fwrite($handle, "## HTTP\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		if ($www) {
-    			fwrite($handle, "	server_name www.".$name.";\n\n");
+    			fwrite($handle, "	server_name www.".$name.";\n");
     		} else {
-    			fwrite($handle, "	server_name ".$name.";\n\n");
+    			fwrite($handle, "	server_name ".$name.";\n");
     		}
+    		fwrite($handle, "	index 						index.php index.html;\n");
+    		fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
+
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass			http://backend;\n");
+	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
+
 	    	if ($blog) {
 	    		fwrite($handle, "	location /".$blogname."/ {\n");
             	fwrite($handle, "		rewrite ^/?".$blogname."$ /".$blogname."/ redirect;\n");
@@ -79,59 +83,76 @@
             	fwrite($handle, "		}\n");
             	fwrite($handle, "	}\n\n");
             }
-            fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|cur)$ {\n");
+
+            fwrite($handle, "	location ~* \.php$ {\n");
+        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
+        	fwrite($handle, "		include                 fastcgi_params;\n");
+        	fwrite($handle, "	}\n\n");
+
+            fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
 	    	fwrite($handle, "		expires                 360d;\n");
-	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
-	    	fwrite($handle, "		proxy_pass              http://backend;\n");
-	    	fwrite($handle, "	}\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n");
+	    	fwrite($handle, "	}\n\n");
+
 	    	fwrite($handle, "}\n\n");
+
 	    	fwrite($handle, "## Master\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
-    		fwrite($handle, "	server_name master.".$name.";\n\n");
+    		fwrite($handle, "	server_name master.".$name.";\n");
+    		fwrite($handle, "	index 						index.php index.html;\n");
+    		fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
+
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		satisfy					any;\n");
-			fwrite($handle, "		allow					188.138.234.131;\n");
-			fwrite($handle, "		allow					217.89.150.114;\n");
-	    	fwrite($handle, "		auth_basic				\"Restricted Area\";\n");
-        	fwrite($handle, "		auth_basic_user_file	/etc/nginx/passwd;\n");
-	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					http://backend;\n");
+	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
-	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|cur)$ {\n");
+
+            fwrite($handle, "	location ~* \.php$ {\n");
+        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
+        	fwrite($handle, "		include                 fastcgi_params;\n");
+        	fwrite($handle, "	}\n\n");
+
+            fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
 	    	fwrite($handle, "		expires                 360d;\n");
-	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
-	    	fwrite($handle, "		proxy_pass              http://backend;\n");
-	    	fwrite($handle, "	}\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n");
+	    	fwrite($handle, "	}\n\n");
+
 	    	fwrite($handle, "}\n\n");
 	    }
+
 	    if ($https) {
 		    fwrite($handle, "## Add/remove www to HTTPS\n");
 	    	fwrite($handle, "server {\n");
 	    	fwrite($handle, "	listen ".$ip.":443 ssl;\n");
 	    	if ($www) {
 	    		fwrite($handle, "	server_name ".$name.";\n\n");
+
 	    		fwrite($handle, "	rewrite	^/(.*)$  https://www.".$name."/$1  permanent;\n\n");
 	    	} else {
 	    		fwrite($handle, "	server_name www.".$name.";\n\n");
+
 	    		fwrite($handle, "	rewrite	^/(.*)$  https://".$name."/$1  permanent;\n\n");
 		    }
-	    	fwrite($handle, "	ssl				on;\n");
-			fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
-			fwrite($handle, "	ssl_certificate_key		".$certfile.".key;\n");
+	    	fwrite($handle, "	ssl							on;\n");
+			fwrite($handle, "	ssl_certificate				".$certfile.".crt;\n");
+			fwrite($handle, "	ssl_certificate_key			".$certfile.".key;\n");
 			fwrite($handle, "}\n\n");
+
 	    	fwrite($handle, "## HTTPS\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":443 ssl;\n");
     		if ($www) {
-    			fwrite($handle, "	server_name www.".$name.";\n\n");
+    			fwrite($handle, "	server_name www.".$name.";\n");
     		} else {
-    			fwrite($handle, "	server_name ".$name.";\n\n");
+    			fwrite($handle, "	server_name ".$name.";\n");
     		}
+    		fwrite($handle, "	index 						index.php index.html;\n");
+    		fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
+
     		fwrite($handle, "	ssl							on;\n");
 			fwrite($handle, "	ssl_certificate				".$certfile.".crt;\n");
 			fwrite($handle, "	ssl_certificate_key			".$certfile.".key;\n\n");
@@ -139,26 +160,35 @@
     		fwrite($handle, "	ssl_protocols				TLSv1 TLSv1.1 TLSv1.2;\n");
     		fwrite($handle, "	ssl_ciphers					ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:-SSLv2:+SSLv3::+EXP;\n");
     		fwrite($handle, "	ssl_session_cache			shared:SSL:1m;\n");
-    		fwrite($handle, "	ssl_prefer_server_ciphers	on;\n");
+    		fwrite($handle, "	ssl_prefer_server_ciphers	on;\n\n");
+
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		proxy_set_header		Host			\$http_host;\n");
-	    	fwrite($handle, "		proxy_set_header		X-Real-IP		\$remote_addr;\n");
-	    	fwrite($handle, "		proxy_set_header		X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass				http://backend_ssl;\n");
-	    	fwrite($handle, "	}\n");
-	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|cur)$ {\n");
+	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
+	    	fwrite($handle, "	}\n\n");
+
+            fwrite($handle, "	location ~* \.php$ {\n");
+        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
+        	fwrite($handle, "		include                 fastcgi_params;\n");
+        	fwrite($handle, "	}\n\n");
+
+            fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
 	    	fwrite($handle, "		expires                 360d;\n");
-	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
-	    	fwrite($handle, "		proxy_pass              http://backend_ssl;\n");
-	    	fwrite($handle, "	}\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n");
+	    	fwrite($handle, "	}\n\n");
+
 	    	fwrite($handle, "}\n\n");
     	}
+
     	if ($test) {
 	    	fwrite($handle, "## Test\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
-    		fwrite($handle, "	server_name test.".$name.";\n\n");
+    		fwrite($handle, "	server_name test.".$name.";\n");
+    		fwrite($handle, "	index index.php index.html;\n");
+    		fwrite($handle, "	root /home/developer/www/fuel.dev/www;\n\n");
+
 	    	fwrite($handle, "	location / {\n");
 	    	fwrite($handle, "		satisfy					any;\n");
 			fwrite($handle, "		allow					188.138.234.131;\n");
@@ -166,43 +196,56 @@
 			fwrite($handle, "		allow					178.93.126.106;\n");
 	    	fwrite($handle, "		auth_basic				\"Restricted Area\";\n");
         	fwrite($handle, "		auth_basic_user_file	/etc/nginx/passwd;\n");
-	    	fwrite($handle, "		proxy_set_header		Host			\$http_host;\n");
-	    	fwrite($handle, "		proxy_set_header		X-Real-IP		\$remote_addr;\n");
-	    	fwrite($handle, "		proxy_set_header		X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass				http://backend;\n");
+	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
-	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|cur)$ {\n");
+
+            fwrite($handle, "	location ~* \.php$ {\n");
+        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
+        	fwrite($handle, "		include                 fastcgi_params;\n");
+        	fwrite($handle, "	}\n\n");
+
+            fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
 	    	fwrite($handle, "		expires                 360d;\n");
-	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
-	    	fwrite($handle, "		proxy_pass              http://backend;\n");
-	    	fwrite($handle, "	}\n");	
+	    	fwrite($handle, "		add_header              Cache-Control public;\n");
+	    	fwrite($handle, "	}\n\n");
+
 	    	fwrite($handle, "}\n\n");
 	    }
 	    if ($m) {
 	    	fwrite($handle, "## M\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
-    		fwrite($handle, "	server_name m.".$name.";\n\n");
+    		fwrite($handle, "	server_name m.".$name.";\n");
+			fwrite($handle, "	index 						index.php index.html;\n");
+			fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
+
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		proxy_set_header	Host			\$http_host;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Real-IP		\$remote_addr;\n");
-	    	fwrite($handle, "		proxy_set_header	X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass					http://backend;\n");
-	    	fwrite($handle, "	}\n");
-	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|cur)$ {\n");
+	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
+	    	fwrite($handle, "	}\n\n");
+
+            fwrite($handle, "	location ~* \.php$ {\n");
+        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
+        	fwrite($handle, "		include                 fastcgi_params;\n");
+        	fwrite($handle, "	}\n\n");
+
+            fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
 	    	fwrite($handle, "		expires                 360d;\n");
-	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
-	    	fwrite($handle, "		proxy_pass              http://backend;\n");
-	    	fwrite($handle, "	}\n");
+	    	fwrite($handle, "		add_header              Cache-Control public;\n");
+	    	fwrite($handle, "	}\n\n");
 	    	fwrite($handle, "}\n\n");
 	    }
 	    if ($mtest) {
 	    	fwrite($handle, "## Mtest\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
-    		fwrite($handle, "	server_name mtest.".$name.";\n\n");
+    		fwrite($handle, "	server_name mtest.".$name.";\n");
+			fwrite($handle, "	index 						index.php index.html;\n");
+			fwrite($handle, "	root 						/home/developer/www/fuel.dev/www;\n\n");
+
 	    	fwrite($handle, "	location / {\n");
 	    	fwrite($handle, "		satisfy					any;\n");
 			fwrite($handle, "		allow					188.138.234.131;\n");
@@ -210,20 +253,24 @@
 			fwrite($handle, "		allow					178.93.126.106;\n");
 	    	fwrite($handle, "		auth_basic				\"Restricted Area\";\n");
         	fwrite($handle, "		auth_basic_user_file	/etc/nginx/passwd;\n");
-	    	fwrite($handle, "		proxy_set_header		Host			\$http_host;\n");
-	    	fwrite($handle, "		proxy_set_header		X-Real-IP		\$remote_addr;\n");
-	    	fwrite($handle, "		proxy_set_header		X-Forwarded-For	\$proxy_add_x_forwarded_for;\n\n");
-	    	fwrite($handle, "		proxy_pass				http://backend;\n");
-	    	fwrite($handle, "	}\n");
-	    	fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|cur)$ {\n");
+	    	fwrite($handle, "		try_files				$uri $uri/ /index.php?$query_string;\n");
+	    	fwrite($handle, "	}\n\n");
+
+            fwrite($handle, "	location ~* \.php$ {\n");
+        	fwrite($handle, "		try_files               $uri = 404;\n");
+        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
+        	fwrite($handle, "		include                 fastcgi_params;\n");
+        	fwrite($handle, "	}\n\n");
+
+            fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
 	    	fwrite($handle, "		expires                 360d;\n");
-	    	fwrite($handle, "		add_header              Cache-Control public;\n\n");
-	    	fwrite($handle, "		proxy_pass              http://backend;\n");
-	    	fwrite($handle, "	}\n");
-	    	fwrite($handle, "}\n\n");
-	    }
+	    	fwrite($handle, "		add_header              Cache-Control public;\n");
+	    	fwrite($handle, "	}\n\n");
 
+	    	fwrite($handle, "}\n\n");
+
+	    }
     	fclose($handle);
     }
 ?>
