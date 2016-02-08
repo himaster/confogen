@@ -62,11 +62,11 @@
     		} else {
     			fwrite($handle, "	server_name ".$name.";\n");
     		}
-    		fwrite($handle, "	index 						index.php index.html;\n");
-    		fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
+    		fwrite($handle, "	index 				index.php index.html;\n");
+    		fwrite($handle, "	root 				/home/developer/www/fuel.prod/www;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
+	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
 	    	if ($blog) {
@@ -102,11 +102,11 @@
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		fwrite($handle, "	server_name master.".$name.";\n");
-    		fwrite($handle, "	index 						index.php index.html;\n");
-    		fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
+    		fwrite($handle, "	index 				index.php index.html;\n");
+    		fwrite($handle, "	root 				/home/developer/www/fuel.prod/www;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
+	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
             fwrite($handle, "	location ~* \.php$ {\n");
@@ -150,10 +150,10 @@
     		} else {
     			fwrite($handle, "	server_name ".$name.";\n");
     		}
-    		fwrite($handle, "	index 						index.php index.html;\n");
-    		fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
+    		fwrite($handle, "	index 				index.php index.html;\n");
+    		fwrite($handle, "	root 				/home/developer/www/fuel.prod/www;\n\n");
 
-    		fwrite($handle, "	ssl							on;\n");
+    		fwrite($handle, "	ssl					on;\n");
 			fwrite($handle, "	ssl_certificate				".$certfile.".crt;\n");
 			fwrite($handle, "	ssl_certificate_key			".$certfile.".key;\n\n");
 			fwrite($handle, "	ssl_session_timeout			5m;\n");
@@ -186,8 +186,8 @@
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		fwrite($handle, "	server_name test.".$name.";\n");
-    		fwrite($handle, "	index index.php index.html;\n");
-    		fwrite($handle, "	root /home/developer/www/fuel.dev/www;\n\n");
+    		fwrite($handle, "	index 				index.php index.html;\n");
+    		fwrite($handle, "	root 				/home/developer/www/fuel.dev/www;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
 	    	fwrite($handle, "		satisfy					any;\n");
@@ -218,11 +218,11 @@
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		fwrite($handle, "	server_name m.".$name.";\n");
-			fwrite($handle, "	index 						index.php index.html;\n");
-			fwrite($handle, "	root 						/home/developer/www/fuel.prod/www;\n\n");
+			fwrite($handle, "	index 				index.php index.html;\n");
+			fwrite($handle, "	root 				/home/developer/www/fuel.prod/www;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
+	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
             fwrite($handle, "	location ~* \.php$ {\n");
