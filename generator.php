@@ -42,8 +42,8 @@
     	if ($http) {
     		$prefix = "";
     		if ($www) $server_name = "www.";
-    		$server_name += $name;
-    		if ($m) $server_name += " m.".$name;
+    		$server_name .= $name;
+    		if ($m) $server_name .= " m.".$name;
 	    	fwrite($handle, "## Add/remove www\n");
 	    	fwrite($handle, "server {\n");
 	    	fwrite($handle, "	listen ".$ip.":80;\n");
@@ -103,8 +103,8 @@
     	if ($test) {
     		$server_name = "";
     		if ($www) $server_name = "test.";
-    		$server_name += $name;
-    		if ($mtest) $server_name += " mtest.".$name;
+    		$server_name .= $name;
+    		if ($mtest) $server_name .= " mtest.".$name;
 	    	fwrite($handle, "## Test\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
