@@ -184,7 +184,7 @@
     		fwrite($handle, "	ssl_prefer_server_ciphers	on;\n\n");
 
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		try_files				\$uri \$uri/ /index.php?\$query_string;\n");
+	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
             fwrite($handle, "	location ~* \.php$ {\n");
