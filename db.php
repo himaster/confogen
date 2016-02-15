@@ -1,8 +1,14 @@
 <?php
+	if (($_SERVER['HTTP_HOST'] == "confogen1.pkwteile.de") or ($_SERVER['HTTP_HOST'] == "confogen2.pkwteile.de")) $env="master";
+	elseif ($_SERVER['HTTP_HOST'] == "confogen.loc") $env="dev";
+	else header("Location: https://confogen1.pkwteile.de/");
+
 	$dbuser = 'confogen';
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
-	$dbhost = '127.0.0.1';
+
+	if ($env == "master") $dbhost = '127.0.0.1';
+	else $dbhost = '88.198.182.148';
 
 	#DB
 	$link = mysql_connect($dbhost, $dbuser, $dbpassword);
