@@ -17,7 +17,7 @@
 				<TD><B><FONT size='1'>Re.</FONT></B></TD>
 			</TR>
 		</TABLE>
-		<TABLE class="table" class="maintable" id="newtable">
+		<TABLE class="table table-striped table-condensed" id="newtable">
 			<TR class="active">
 				<TD><DIV id="id"><FONT size="1">New</FONT></DIV></TD>
 				<TD><INPUT type="text" id="name" value=""></TD>
