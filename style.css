@@ -17,7 +17,7 @@
 }
 
 #newtable {
-  top: 85px;
+  top: 79px;
   margin-top: -48px;
   margin-bottom: 5px; 
   position: fixed;
@@ -32,15 +32,17 @@ tr.warning {
 }
 
 .table td:first-child {
-  width: 30px;
+  width: 35px;
 }
 
 .table td:nth-child(2) {
   width: 170px;
+  padding-left: 15px;
 }
 
 .table td:nth-child(3) {
-  width: 130px;
+  width: 165px;
+  padding-left: 20px;
 }
 
 .table td:nth-child(4) {
@@ -56,19 +58,22 @@ tr.warning {
 }
 
 .table td:nth-child(7) {
-  width: 150px;
+  width: 160px;
 }
 
 .table td:nth-child(8) {
   width: 40px;
+  padding-left: 10px;
 }
 
 .table td:nth-child(9) {
   width: 40px;
+  padding-left: 10px;
 }
 
 .table td:nth-child(10) {
   width: 170px;
+  padding-left: 20px;
 }
 
 .table td:nth-child(11) {
@@ -85,6 +90,7 @@ tr.warning {
 
 .table td:nth-child(14) {
   width: 20px;
+  padding-right: 0px;
 }
 
 .table td:nth-child(15) {
