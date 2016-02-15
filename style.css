@@ -62,7 +62,7 @@ tr.warning {
 
 .table td:nth-child(7) {
   width: 14%;
-  min-width: 125px;
+  min-width: 150px;
 }
 
 .table td:nth-child(8) {
@@ -77,7 +77,7 @@ tr.warning {
 .table td:nth-child(10) {
   width: 13%;
   padding-left: 20px;
-  min-width: 145px;
+  min-width: 160px;
 }
 
 .table td:nth-child(11) {
