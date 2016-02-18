@@ -39,7 +39,7 @@
 
 tr.warning {
   outline: none;
-  background-color: rgb(211, 211, 211)
+  background-color: rgb(211, 211, 211) !important;
 }
 
 .table td:first-child {
