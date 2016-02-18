@@ -28,7 +28,7 @@
 }
 
 #maintable tbody tr:hover {
-    background-color: darkgray;
+    background-color: lightgray;
 }
 
 #maintable tr:first-child {
