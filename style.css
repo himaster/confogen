@@ -27,6 +27,16 @@
   margin-top: 120px;
 }
 
+#maintable tbody tr:hover {
+    background-color: darkgray;
+}
+
+#maintable tr:first-child {
+    font-weight: bold;
+    background-color: rgb(211, 211, 211) !important;
+
+}
+
 tr.warning {
   outline: none;
 }
