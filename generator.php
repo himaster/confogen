@@ -120,6 +120,10 @@
     		fwrite($handle, "	index				index.php index.html;\n");
     		fwrite($handle, "	root				/home/developer/www/fuel.dev/www;\n\n");
 
+            fwrite($handle, "   if (\$request_uri ~* \"^(.*/)index\.(php|html)$\") {\n");
+            fwrite($handle, "       return 301 $1;\n");
+            fwrite($handle, "   }\n\n");
+
 	    	fwrite($handle, "	location / {\n");
 	    	fwrite($handle, "		satisfy			any;\n");
 			fwrite($handle, "		allow			188.138.234.131;\n");
@@ -186,6 +190,10 @@
     		fwrite($handle, "	ssl_ciphers			ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:-SSLv2:+SSLv3::+EXP;\n");
     		fwrite($handle, "	ssl_session_cache		shared:SSL:1m;\n");
     		fwrite($handle, "	ssl_prefer_server_ciphers	on;\n\n");
+
+            fwrite($handle, "   if (\$request_uri ~* \"^(.*/)index\.(php|html)$\") {\n");
+            fwrite($handle, "       return 301 $1;\n");
+            fwrite($handle, "   }\n\n");
 
 	    	fwrite($handle, "	location / {\n");
 	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
