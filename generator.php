@@ -65,7 +65,7 @@
     		fwrite($handle, "	index				index.php index.html;\n");
     		fwrite($handle, "	root				/home/developer/www/fuel.prod/www;\n\n");
 
-            fwrite($handle, "   if ($request_uri ~* \"^(.*/)index\.(php|html)$\") {\n");
+            fwrite($handle, "   if (\$request_uri ~* \"^(.*/)index\.(php|html)$\") {\n");
             fwrite($handle, "       return 301 $1;\n");
             fwrite($handle, "   }\n\n");
 
