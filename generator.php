@@ -61,10 +61,13 @@
 	    	fwrite($handle, "## HTTP\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
-    		
     		fwrite($handle, "	server_name ".$server_name.";\n");
     		fwrite($handle, "	index				index.php index.html;\n");
     		fwrite($handle, "	root				/home/developer/www/fuel.prod/www;\n\n");
+
+            fwrite($handle, "   if ($request_uri ~* \"^(.*/)index\.(php|html)$\") {\n");
+            fwrite($handle, "       return 301 $1;\n");
+            fwrite($handle, "   }\n\n");
 
 	    	fwrite($handle, "	location / {\n");
 	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
@@ -102,6 +105,7 @@
 	    	fwrite($handle, "	}\n\n");
 
 	    	fwrite($handle, "}\n\n");
+
 	    }
 
     	if ($test) {
