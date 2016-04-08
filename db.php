@@ -7,7 +7,7 @@
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
 
-	if ($env == "master") $dbhost = '127.0.0.1';
+	if ($env == "master") $dbhost = 'balancer1';
 	else $dbhost = '88.198.182.148';
 
 	#DB
