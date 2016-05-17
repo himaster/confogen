@@ -34,20 +34,20 @@
 		else $blog	= 0;
 		if ($_GET['m'] == "true") $m		= 1;
 		else $m		= 0;
-		if ($_GET['mtest'] == "true") $mtest	= 1;
+		if ($_GET['mtest'] == "true") $mtest = 1;
 		else $mtest	= 0;
-		$sql 	= "UPDATE `domains` SET name 	= '$name', 
-									 	ip		= '$ip', 
-									 	www		= '$www',
-									 	http	= '$http', 
-									 	https	= '$https', 
-									 	cert	= '$cert', 
-									 	test	= '$test', 
-									 	blog	= '$blog', 
+		$sql 	= "UPDATE `domains` SET name 	 = '$name', 
+									 	ip		 = '$ip', 
+									 	www		 = '$www',
+									 	http	 = '$http', 
+									 	https	 = '$https', 
+									 	cert	 = '$cert', 
+									 	test	 = '$test', 
+									 	blog	 = '$blog', 
 									 	blogname = '$blogname', 
-									 	m		= '$m', 
-									 	mtest	= '$mtest', 
-									 	comment = '$comment' WHERE id = '$id'";
+									 	m		 = '$m', 
+									 	mtest	 = '$mtest', 
+									 	comment  = '$comment' WHERE id = '$id'";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	} elseif (!empty($_GET['name']) && !empty($_GET['ip'])) { #Adding
 		$name	= $_GET['name'];
@@ -66,10 +66,11 @@
 					   			  VALUES (\"$name\", \"$ip\", $www, $http, $https, $test, $m, $mtest, \"$cert\", $blog, \"$blogname\", '$comment');";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
-	$sql    = "SHOW TABLE STATUS LIKE 'domains'";
-	$result = mysql_query($sql, $link)  or die(mysql_error());
-	$array  = mysql_fetch_array($result);
-	$max_id = $array['Auto_increment'];
-	$sql 	= "SELECT * FROM `domains` ORDER BY `ip`;";
-    $result = mysql_query($sql, $link)  or die(mysql_error());
+	$sql      = "SHOW TABLE STATUS LIKE 'domains'";
+	$result   = mysql_query($sql, $link)  or die(mysql_error());
+	$array    = mysql_fetch_array($result);
+	$max_id   = $array['Auto_increment'];
+    $sql      = "SELECT DISTINCT(project) FROM `confogen`.`domains`;";
+    $projects = mysql_query($sql, $link) or die(mysql_error());
+
     include 'table_view.php';
