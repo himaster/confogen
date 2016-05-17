@@ -60,7 +60,7 @@
 		<TABLE class="table table-striped table-condensed" class="maintable" id="maintable">
 	<?php 	$i = 1;
 			while ($project = mysql_fetch_array($projects)) {
-				echo "<TR><TD>$project</TD></TR>";
+				echo "<TR><TD>$project[0]</TD></TR>";
 				$sql 	  = "SELECT * FROM `confogen`.`domains` ORDER BY `ip` WHERE `project` = $project;";
     			$result   = mysql_query($sql, $link)  or die(mysql_error());
 				while ($row = mysql_fetch_assoc($result)) { ?>
