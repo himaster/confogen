@@ -10,8 +10,7 @@
 #	if ($env == "master") $dbhost = 'balancer1';
 #	else $dbhost = '88.198.182.148';
 
-	if ($env == "master") $dbhost = 'localhost';
-	else $dbhost = 'netbox.co';
+	$dbhost = 'netbox.co';
 
 	#DB
 	$link = mysql_connect($dbhost, $dbuser, $dbpassword);
