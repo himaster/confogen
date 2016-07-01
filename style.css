@@ -4,8 +4,8 @@
   margin-right: auto;
 }
 
-.status { 
-  width: 350px; 
+.status {
+  width: 350px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -19,7 +19,7 @@
 #newtable {
   top: 79px;
   margin-top: -48px;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
   position: fixed;
 }
 
@@ -119,4 +119,12 @@ tr.warning td {
 
 .table td:nth-child(17) {
   width: 2%;
+}
+
+.project {
+  width: 40px
+}
+
+.lang {
+  width: 30px
 }
