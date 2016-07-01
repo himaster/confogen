@@ -74,8 +74,8 @@
 						<TD><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
 						<TD><INPUT id="name_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['name']; ?>"></TD>
 						<TD><INPUT id="ip_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['ip']; ?>"></TD>
-						<TD><INPUT id="project_<?php echo $row['project']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['project']; ?>" class="project"></TD>
-						<TD><INPUT id="lang_<?php echo $row['lang']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['lang']; ?>" class="lang"></TD>
+						<TD><INPUT id="project_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['project']; ?>" class="project"></TD>
+						<TD><INPUT id="lang_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['lang']; ?>" class="lang"></TD>
 						<TD><INPUT id="www_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['www'] == 1) echo "checked";?> ></TD>
 						<TD><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
 						<TD><INPUT id="https_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['https'] == 1) echo "checked";?> ></TD>
