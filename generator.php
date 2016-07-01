@@ -23,6 +23,8 @@
     	$id = $row['id'];
     	$name = $row['name'];
     	$ip = $row['ip'];
+        $project = $row['project'];
+        $lang = $row['lang'];
     	$www = $row['www'];
     	$http = $row['http'];
     	$https = $row['https'];

@@ -19,6 +19,8 @@
 		unlink($workdir.$name.".conf");
 		$name 	= $_GET['name'];
 		$ip 	= $_GET['ip'];
+		$project = $_GET['project'];
+		$lang   = $_GET['lang'];
 		$cert 	= $_GET['cert'];
 		$blogname = $_GET['blogname'];
 		$comment = $_GET['comment'];
@@ -38,6 +40,8 @@
 		else $mtest	= 0;
 		$sql 	= "UPDATE `domains` SET name 	 = '$name',
 									 	ip		 = '$ip',
+									 	project  = '$project',
+									 	lang     = '$lang',
 									 	www		 = '$www',
 									 	http	 = '$http',
 									 	https	 = '$https',
@@ -52,6 +56,8 @@
 	} elseif (!empty($_GET['name']) && !empty($_GET['ip'])) { #Adding
 		$name	= $_GET['name'];
 		$ip		= $_GET['ip'];
+		$project = $_GET['project'];
+		$lang   = $_GET['lang'];
 		$www	= $_GET['www'];
 		$http	= $_GET['http'];
 		$https	= $_GET['https'];
@@ -62,8 +68,8 @@
 		$m		= $_GET['m'];
 		$mtest	= $_GET['mtest'];
 		$comment = $_GET['comment'];
-		$sql	= "INSERT INTO `domains` (name, ip, www, http, https, test, m, mtest, cert, blog, blogname, comment)
-					   			  VALUES (\"$name\", \"$ip\", $www, $http, $https, $test, $m, $mtest, \"$cert\", $blog, \"$blogname\", '$comment');";
+		$sql	= "INSERT INTO `domains` (name, ip, project, lang, www, http, https, test, m, mtest, cert, blog, blogname, comment)
+					   			  VALUES (\"$name\", \"$ip\", \"$project\", \"$lang\", $www, $http, $https, $test, $m, $mtest, \"$cert\", $blog, \"$blogname\", '$comment');";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 	$sql      = "SHOW TABLE STATUS LIKE 'domains'";
