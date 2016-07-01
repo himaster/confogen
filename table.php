@@ -2,7 +2,7 @@
 	include 'db.php';
 	$workdir	= '/etc/nginx/fpm-conf.d/balancer/';
 	if ($_GET['act'] == "remove") { #Deleting
-		$id 	= $_GET['id'];		
+		$id 	= $_GET['id'];
 		$sql    = "SELECT `name` FROM `domains` WHERE `id`=$id";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 		$array  = mysql_fetch_array($result);
@@ -36,17 +36,17 @@
 		else $m		= 0;
 		if ($_GET['mtest'] == "true") $mtest = 1;
 		else $mtest	= 0;
-		$sql 	= "UPDATE `domains` SET name 	 = '$name', 
-									 	ip		 = '$ip', 
+		$sql 	= "UPDATE `domains` SET name 	 = '$name',
+									 	ip		 = '$ip',
 									 	www		 = '$www',
-									 	http	 = '$http', 
-									 	https	 = '$https', 
-									 	cert	 = '$cert', 
-									 	test	 = '$test', 
-									 	blog	 = '$blog', 
-									 	blogname = '$blogname', 
-									 	m		 = '$m', 
-									 	mtest	 = '$mtest', 
+									 	http	 = '$http',
+									 	https	 = '$https',
+									 	cert	 = '$cert',
+									 	test	 = '$test',
+									 	blog	 = '$blog',
+									 	blogname = '$blogname',
+									 	m		 = '$m',
+									 	mtest	 = '$mtest',
 									 	comment  = '$comment' WHERE id = '$id'";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	} elseif (!empty($_GET['name']) && !empty($_GET['ip'])) { #Adding
@@ -62,7 +62,7 @@
 		$m		= $_GET['m'];
 		$mtest	= $_GET['mtest'];
 		$comment = $_GET['comment'];
-		$sql	= "INSERT INTO `domains` (name, ip, www, http, https, test, m, mtest, cert, blog, blogname, comment) 
+		$sql	= "INSERT INTO `domains` (name, ip, www, http, https, test, m, mtest, cert, blog, blogname, comment)
 					   			  VALUES (\"$name\", \"$ip\", $www, $http, $https, $test, $m, $mtest, \"$cert\", $blog, \"$blogname\", '$comment');";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}

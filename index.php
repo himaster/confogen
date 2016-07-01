@@ -1,7 +1,6 @@
 <?php
-	include "header.html";
-	
-	include "table.php";
+    include "header.html";
 
-	include "footer.html";
-?>
+    include "table.php";
+
+    include "footer.html";

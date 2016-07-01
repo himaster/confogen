@@ -3,6 +3,8 @@
 				<TD><B>#</B></TD>
 				<TD><B>Name</B></TD>
 				<TD><B>IP</B></TD>
+				<TD><B>Skin</B></TD>
+				<TD><B>Lang</B></TD>
 				<TD><B><FONT size="1">WWW</FONT></B></TD>
 				<TD><B><FONT size="1">HTTP</FONT></B></TD>
 				<TD><B><FONT size="1">HTTPS</FONT></B></TD>
@@ -22,6 +24,8 @@
 				<TD><DIV id="id"><FONT size="1">New</FONT></DIV></TD>
 				<TD><INPUT type="text" id="name" value=""></TD>
 				<TD><INPUT type="text" id="ip" Value=""></TD>
+				<TD><INPUT type="text" id="skin" Value=""></TD>
+				<TD><INPUT type="text" id="lang" Value=""></TD>
 				<TD><INPUT type="checkbox" id="www"></TD>
 				<TD><INPUT type="checkbox" id="http"></TD>
 				<TD><INPUT type="checkbox" id="https" onchange="fade();"></TD>
@@ -55,6 +59,8 @@
 				<TD></TD>
 				<TD></TD>
 				<TD></TD>
+				<TD></TD>
+				<TD></TD>
 			</TR>
 		</TABLE>
 		<TABLE class="table table-striped table-condensed" class="maintable" id="maintable">
@@ -68,6 +74,8 @@
 						<TD><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
 						<TD><INPUT id="name_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['name']; ?>"></TD>
 						<TD><INPUT id="ip_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['ip']; ?>"></TD>
+						<TD><INPUT id="skin_<?php echo $row['skin']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['skin']; ?>"></TD>
+						<TD><INPUT id="lang_<?php echo $row['lang']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['lang']; ?>"></TD>
 						<TD><INPUT id="www_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['www'] == 1) echo "checked";?> ></TD>
 						<TD><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
 						<TD><INPUT id="https_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['https'] == 1) echo "checked";?> ></TD>
@@ -77,7 +85,7 @@
 						<TD><INPUT id="blogname_<?php echo $row['id']; ?>" type='text' readonly value="<?php echo $row['blogname']; ?>"></TD>
 						<TD><INPUT id="m_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['m'] == 1) echo "checked"; ?> ></TD>
 						<TD><INPUT id="mtest_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['mtest'] == 1) echo "checked"; ?> ></TD>
-						<TD><TEXTAREA id="comment_<?php echo $row['id']; ?>" 
+						<TD><TEXTAREA id="comment_<?php echo $row['id']; ?>"
 												  readonly
 												  rows="1"
 												  maxlength="2000"><?php echo $row['comment']; ?></TEXTAREA></TD>
