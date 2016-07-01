@@ -3,7 +3,7 @@
 				<TD><B>#</B></TD>
 				<TD><B>Name</B></TD>
 				<TD><B>IP</B></TD>
-				<TD><B>Skin</B></TD>
+				<TD><B>Project</B></TD>
 				<TD><B>Lang</B></TD>
 				<TD><B><FONT size="1">WWW</FONT></B></TD>
 				<TD><B><FONT size="1">HTTP</FONT></B></TD>
@@ -24,7 +24,7 @@
 				<TD><DIV id="id"><FONT size="1">New</FONT></DIV></TD>
 				<TD><INPUT type="text" id="name" value=""></TD>
 				<TD><INPUT type="text" id="ip" Value=""></TD>
-				<TD><INPUT type="text" id="skin" Value=""></TD>
+				<TD><INPUT type="text" id="project" Value=""></TD>
 				<TD><INPUT type="text" id="lang" Value=""></TD>
 				<TD><INPUT type="checkbox" id="www"></TD>
 				<TD><INPUT type="checkbox" id="http"></TD>
@@ -74,7 +74,7 @@
 						<TD><A class='delete' href="http://www.<?php echo $row['name']; ?>" target="_blank"><?php echo $i++ ?></A></TD>
 						<TD><INPUT id="name_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['name']; ?>"></TD>
 						<TD><INPUT id="ip_<?php echo $row['id']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['ip']; ?>"></TD>
-						<TD><INPUT id="skin_<?php echo $row['skin']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['skin']; ?>"></TD>
+						<TD><INPUT id="project_<?php echo $row['project']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['project']; ?>"></TD>
 						<TD><INPUT id="lang_<?php echo $row['lang']; ?>" type='text' ondblclick="textSelector( this ); return false;" readonly value="<?php echo $row['lang']; ?>"></TD>
 						<TD><INPUT id="www_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['www'] == 1) echo "checked";?> ></TD>
 						<TD><INPUT id="http_<?php echo $row['id']; ?>" type='checkbox' disabled <?php if ($row['http'] == 1) echo "checked";?> ></TD>
