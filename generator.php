@@ -10,10 +10,10 @@
   			if(is_file($file)) unlink($file); // delete file
 		}
 		$sql = "SELECT * FROM `domains`;";
-	} 
+	}
 	elseif ($id == "") {
 		exit("You can't call this script directly.");
-	} 
+	}
 	else {
 		$sql = "SELECT * FROM `domains` WHERE id=".$id.";";
 		echo("id= ".$id);
@@ -93,11 +93,23 @@
         	fwrite($handle, "		proxy_pass		http://www.pkwteile.de/etracking;\n");
     		fwrite($handle, "	}\n\n");
 
-            fwrite($handle, "	location ~* \.php$ {\n");
+/*            fwrite($handle, "	location ~* \.php$ {\n");
         	fwrite($handle, "		try_files               \$uri = 404;\n");
         	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
         	fwrite($handle, "		include                 fastcgi_params;\n");
-        	fwrite($handle, "	}\n\n");
+        	fwrite($handle, "	}\n\n");*/
+
+            fwrite($handle, "   location ~* \.php$ {\n");
+            fwrite($handle, "       try_files               \$uri = 404;\n");
+            fwrite($handle, "       set \$bot    0;\n");
+            fwrite($handle, "       if (\$http_user_agent ~* \"googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com\") {\n");
+            fwrite($handle, "       set \$bot    1;\n}\n");
+            fwrite($handle, "       if (\$bot = 1) {\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n}\n");
+            fwrite($handle, "       if (\$bot = 0) {\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm;\n}\n");
+            fwrite($handle, "       include                 fastcgi_params;\n");
+            fwrite($handle, "   }\n\n");
 
             fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
@@ -213,11 +225,23 @@
 	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
-            fwrite($handle, "	location ~* \.php$ {\n");
+/*            fwrite($handle, "	location ~* \.php$ {\n");
         	fwrite($handle, "		try_files               \$uri = 404;\n");
         	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
         	fwrite($handle, "		include                 fastcgi_params;\n");
-        	fwrite($handle, "	}\n\n");
+        	fwrite($handle, "	}\n\n");*/
+
+            fwrite($handle, "   location ~* \.php$ {\n");
+            fwrite($handle, "       try_files               \$uri = 404;\n");
+            fwrite($handle, "       set \$bot    0;\n");
+            fwrite($handle, "       if (\$http_user_agent ~* \"googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com\") {\n");
+            fwrite($handle, "       set \$bot    1;\n}\n");
+            fwrite($handle, "       if (\$bot = 1) {\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n}\n");
+            fwrite($handle, "       if (\$bot = 0) {\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm;\n}\n");
+            fwrite($handle, "       include                 fastcgi_params;\n");
+            fwrite($handle, "   }\n\n");
 
             fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
