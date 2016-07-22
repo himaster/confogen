@@ -103,11 +103,11 @@
             fwrite($handle, "       try_files               \$uri = 404;\n");
             fwrite($handle, "       set \$bot    0;\n");
             fwrite($handle, "       if (\$http_user_agent ~* \"googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com\") {\n");
-            fwrite($handle, "       set \$bot    1;\n}\n");
+            fwrite($handle, "           set \$bot    1;\n       }\n");
             fwrite($handle, "       if (\$bot = 1) {\n");
-            fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n}\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n      }\n");
             fwrite($handle, "       if (\$bot = 0) {\n");
-            fwrite($handle, "           fastcgi_pass            backend_fpm;\n}\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm;\n      }\n");
             fwrite($handle, "       include                 fastcgi_params;\n");
             fwrite($handle, "   }\n\n");
 
