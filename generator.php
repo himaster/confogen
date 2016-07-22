@@ -139,14 +139,14 @@
         	fwrite($handle, "		proxy_pass		http://test.pkwteile.de/etracking;\n");
     		fwrite($handle, "	}\n\n");
 
-            fwrite($handle, "	location ~* \.php$ {\n");
+/*            fwrite($handle, "	location ~* \.php$ {\n");
         	fwrite($handle, "		try_files               \$uri = 404;\n");
         	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
         	fwrite($handle, "		include                 fastcgi_params;\n");
-        	fwrite($handle, "	}\n\n");
+        	fwrite($handle, "	}\n\n"); */
 
 
-/*            fwrite($handle, "   location ~* \.php$ {\n");
+            fwrite($handle, "   location ~* \.php$ {\n");
             fwrite($handle, "       try_files               \$uri = 404;\n");
             fwrite($handle, "       set $bot    0;\n");
             fwrite($handle, "       if ($http_user_agent ~* \"googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com\") {\n");
@@ -156,7 +156,7 @@
             fwrite($handle, "       if ($bot = 0) {\n");
             fwrite($handle, "           fastcgi_pass            backend_fpm;\n}\n");
             fwrite($handle, "       include                 fastcgi_params;\n");
-            fwrite($handle, "   }\n\n"); */
+            fwrite($handle, "   }\n\n");
 
             fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
