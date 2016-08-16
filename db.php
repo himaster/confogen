@@ -4,8 +4,8 @@
 	elseif ($_SERVER['HTTP_HOST'] == "confogen.loc") $env="dev";
 	else header("Location: https://confogen1.pkwteile.de/");
 
-	echo $env;
-	
+	die($env);
+
 	$dbuser = 'confogen';
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
