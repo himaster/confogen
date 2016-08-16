@@ -1,5 +1,5 @@
 <?php
-	if (($_SERVER['HTTP_HOST'] == "confogen1.pkwteile.de") or ($_SERVER['HTTP_HOST'] == "confogen2.pkwteile.de")) $env="master";
+	if (($_SERVER['HTTP_HOST'] == "confogen1.pkwteile.de") or ($_SERVER['HTTP_HOST'] == "confogen2.pkwteile.de") or ($_SERVER['HTTP_HOST'] == "confogen.cdn.pkwteile.de")) $env="master";
 	elseif ($_SERVER['HTTP_HOST'] == "confogen.loc") $env="dev";
 	else header("Location: https://confogen1.pkwteile.de/");
 
