@@ -1,3 +1,3 @@
 # confogen
 Configuration management system
-CDN test1
+CDN test2
