@@ -24,16 +24,10 @@
     	$name = $row['name'];
     	$ip = $row['ip'];
         $project = $row['project'];
-        $lang = $row['lang'];
-    	$www = $row['www'];
     	$http = $row['http'];
     	$https = $row['https'];
-    	$blog = $row['blog'];
     	$test = $row['test'];
-    	$m = $row['m'];
-    	$mtest = $row['mtest'];
     	$cert = $row['cert'];
-    	$blogname = $row['blogname'];
     	$comment = $row['comment'];
     	$file = $workdir.$name.'.conf';
     	$certfile = $certdir.$cert;
@@ -42,71 +36,61 @@
 
     	if ($http) {
     		$prefix = "";
-    		if ($www) $server_name = "www.";
-    		$server_name .= $name;
-    		if ($m) $server_name .= " m.".$name;
-	    	fwrite($handle, "## Add/remove www\n");
-	    	fwrite($handle, "server {\n");
-	    	fwrite($handle, "	listen ".$ip.":80;\n");
-	    	if ($www) {
-	    		fwrite($handle, "	server_name ".$name.";\n\n");
-
-		    	fwrite($handle, "	rewrite  ^/(.*)$  http://www.".$name."/$1  permanent;\n");
-		    } else {
-	    		fwrite($handle, "	server_name www.".$name.";\n\n");
-
-		    	fwrite($handle, "	rewrite  ^/(.*)$  http://".$name."/$1  permanent;\n");
-		    }
-	    	fwrite($handle, "}\n\n");
+    		$server_name = $name;
 
 	    	fwrite($handle, "## HTTP\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		fwrite($handle, "	server_name ".$server_name.";\n");
     		fwrite($handle, "	index				index.php index.html;\n");
-    		fwrite($handle, "	root				/home/developer/www/fuel.prod/www;\n\n");
+    		fwrite($handle, "	root				/home/developer/www/cdn/www;\n\n");
 
-            fwrite($handle, "   if (\$request_uri ~* \"^(.*/)index\.(php|html)$\") {\n");
-            fwrite($handle, "       return 301 $1;\n");
+            fwrite($handle, "   set \$cdn \"\";\n\n");
+            fwrite($handle, "   if (\$request_uri !~ /makers/.*) {\n");
+            fwrite($handle, "       set \$cdn 1\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ .*.thumb?.*) {\n");
+            fwrite($handle, "       set \$cdn 2\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /groups/.*) {\n");
+            fwrite($handle, "       set \$cdn 3\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /uploads/.*) {\n");
+            fwrite($handle, "       set \$cdn 4\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /brands/.*) {\n");
+            fwrite($handle, "       set \$cdn 5\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /favicon.ico) {\n");
+            fwrite($handle, "       set \$cdn 6\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /robots.txt) {\n");
+            fwrite($handle, "       set \$cdn 7\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /timer/.*) {\n");
+            fwrite($handle, "       set \$cdn 8\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$cdn = \"87654321\") {\n");
+            fwrite($handle, "       return 444;\n");
             fwrite($handle, "   }\n\n");
 
 	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
+	    	fwrite($handle, "		try_files               \$uri \$uri/ /thumb/index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
-	    	if ($blog) {
-	    		fwrite($handle, "	location /".$blogname."/ {\n");
-            	fwrite($handle, "		rewrite ^/?".$blogname."$ /".$blogname."/ redirect;\n");
-            	fwrite($handle, "		proxy_pass http://78.47.178.8;\n");
-            	fwrite($handle, "		proxy_set_header Host \$host;\n");
-            	fwrite($handle, "		proxy_set_header X-Real-IP \$remote_addr;\n");
-            	fwrite($handle, "		proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;\n");
-            	fwrite($handle, "		location ~* \.(jpg|jpeg|gif|png|bmp|swf|cur|gz|pdf|txt|js|css|php)$ {\n");
-            	fwrite($handle, "			expires 7d;\n");
-            	fwrite($handle, "			proxy_pass http://78.47.178.8;\n");
-            	fwrite($handle, "			add_header Cache-Control public;\n");
-            	fwrite($handle, "		}\n");
-            	fwrite($handle, "	}\n\n");
-            }
+            fwrite($handle, "   location /timer/ {\n");
+            fwrite($handle, "       location ~* \.gif$ {\n");
+            fwrite($handle, "           try_files               \$uri \$uri/ /timer/index.php?uri=\$uri;\n");
+            fwrite($handle, "       }\n");
+            fwrite($handle, "   }\n\n");
 
-            fwrite($handle, "	location = /img/ec.png {\n");
-        	fwrite($handle, "		proxy_pass		http://www.pkwteile.de/etracking;\n");
-    		fwrite($handle, "	}\n\n");
-
-/*            fwrite($handle, "	location ~* \.php$ {\n");
+            fwrite($handle, "	location ~* \.php$ {\n");
         	fwrite($handle, "		try_files               \$uri = 404;\n");
         	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
         	fwrite($handle, "		include                 fastcgi_params;\n");
-        	fwrite($handle, "	}\n\n");*/
-
-            fwrite($handle, "   location ~* \.php$ {\n");
-            fwrite($handle, "       try_files               \$uri = 404;\n");
-            fwrite($handle, "       if (\$bot = 1) {\n");
-            fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n      }\n");
-            fwrite($handle, "       if (\$bot = 0) {\n");
-            fwrite($handle, "           fastcgi_pass            backend_fpm;\n      }\n");
-            fwrite($handle, "       include                 fastcgi_params;\n");
-            fwrite($handle, "   }\n\n");
+            fwrite($handle, "       expires                 360d;\n");
+            fwrite($handle, "       add_header              Cache-Control public;\n");
+        	fwrite($handle, "	}\n\n");
 
             fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
@@ -119,19 +103,42 @@
 	    }
 
     	if ($test) {
-    		$server_name = "";
-    		if ($www) $server_name = "test.";
-    		$server_name .= $name;
-    		if ($mtest) $server_name .= " mtest.".$name;
+    		$server_name = "test.".$name;
+
 	    	fwrite($handle, "## Test\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
     		fwrite($handle, "	server_name ".$server_name.";\n");
     		fwrite($handle, "	index				index.php index.html;\n");
-    		fwrite($handle, "	root				/home/developer/www/fuel.dev/www;\n\n");
+    		fwrite($handle, "	root				/home/developer/www/tcdn/www;\n\n");
 
-            fwrite($handle, "   if (\$request_uri ~* \"^(.*/)index\.(php|html)$\") {\n");
-            fwrite($handle, "       return 301 $1;\n");
+            fwrite($handle, "   set \$cdn \"\";\n\n");
+            fwrite($handle, "   if (\$request_uri !~ /makers/.*) {\n");
+            fwrite($handle, "       set \$cdn 1\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ .*.thumb?.*) {\n");
+            fwrite($handle, "       set \$cdn 2\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /groups/.*) {\n");
+            fwrite($handle, "       set \$cdn 3\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /uploads/.*) {\n");
+            fwrite($handle, "       set \$cdn 4\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /brands/.*) {\n");
+            fwrite($handle, "       set \$cdn 5\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /favicon.ico) {\n");
+            fwrite($handle, "       set \$cdn 6\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /robots.txt) {\n");
+            fwrite($handle, "       set \$cdn 7\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /timer/.*) {\n");
+            fwrite($handle, "       set \$cdn 8\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$cdn = \"87654321\") {\n");
+            fwrite($handle, "       return 444;\n");
             fwrite($handle, "   }\n\n");
 
 	    	fwrite($handle, "	location / {\n");
@@ -141,66 +148,40 @@
 			fwrite($handle, "		allow			178.93.126.106;\n");
 	    	fwrite($handle, "		auth_basic		\"Restricted Area\";\n");
         	fwrite($handle, "		auth_basic_user_file	/etc/nginx/passwd;\n");
-	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
+	    	fwrite($handle, "		try_files               \$uri \$uri/ /thumb/index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
-			fwrite($handle, "	location = /img/ec.png {\n");
-        	fwrite($handle, "		proxy_pass		http://test.pkwteile.de/etracking;\n");
-    		fwrite($handle, "	}\n\n");
-
-/*            fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               \$uri = 404;\n");
-        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
-        	fwrite($handle, "		include                 fastcgi_params;\n");
-        	fwrite($handle, "	}\n\n"); */
-
+            fwrite($handle, "   location /timer/ {\n");
+            fwrite($handle, "       location ~* \.gif$ {\n");
+            fwrite($handle, "           try_files               \$uri \$uri/ /timer/index.php?uri=\$uri;\n");
+            fwrite($handle, "       }\n");
+            fwrite($handle, "   }\n\n");
 
             fwrite($handle, "   location ~* \.php$ {\n");
             fwrite($handle, "       try_files               \$uri = 404;\n");
-            fwrite($handle, "       if (\$bot = 1) {\n");
-            fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n      }\n");
-            fwrite($handle, "       if (\$bot = 0) {\n");
-            fwrite($handle, "           fastcgi_pass            backend_fpm;\n      }\n");
+            fwrite($handle, "       fastcgi_pass            backend_fpm;\n");
             fwrite($handle, "       include                 fastcgi_params;\n");
+            fwrite($handle, "       expires                 360d;\n");
+            fwrite($handle, "       add_header              Cache-Control public;\n");
             fwrite($handle, "   }\n\n");
 
-            fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
-	    	fwrite($handle, "		access_log              off;\n");
-	    	fwrite($handle, "		expires                 360d;\n");
-	    	fwrite($handle, "		add_header              Cache-Control public;\n");
-	    	fwrite($handle, "	}\n\n");
+            fwrite($handle, "   location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
+            fwrite($handle, "       access_log              off;\n");
+            fwrite($handle, "       expires                 360d;\n");
+            fwrite($handle, "       add_header              Cache-Control public;\n");
+            fwrite($handle, "   }\n\n");
 
-	    	fwrite($handle, "}\n\n");
+            fwrite($handle, "}\n\n");
 	    }
 
 	    if ($https) {
-		    fwrite($handle, "## Add/remove www to HTTPS\n");
-	    	fwrite($handle, "server {\n");
-	    	fwrite($handle, "	listen ".$ip.":443 ssl;\n");
-	    	if ($www) {
-	    		fwrite($handle, "	server_name ".$name.";\n\n");
-
-	    		fwrite($handle, "	rewrite	^/(.*)$  https://www.".$name."/$1  permanent;\n\n");
-	    	} else {
-	    		fwrite($handle, "	server_name www.".$name.";\n\n");
-
-	    		fwrite($handle, "	rewrite	^/(.*)$  https://".$name."/$1  permanent;\n\n");
-		    }
-	    	fwrite($handle, "	ssl				on;\n");
-			fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
-			fwrite($handle, "	ssl_certificate_key		".$certfile.".key;\n");
-			fwrite($handle, "}\n\n");
-
 	    	fwrite($handle, "## HTTPS\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":443 ssl;\n");
-    		if ($www) {
-    			fwrite($handle, "	server_name www.".$name.";\n");
-    		} else {
-    			fwrite($handle, "	server_name ".$name.";\n");
-    		}
+    		fwrite($handle, "	server_name ".$name.";\n");
+
     		fwrite($handle, "	index 				index.php index.html;\n");
-    		fwrite($handle, "	root 				/home/developer/www/fuel.prod/www;\n\n");
+    		fwrite($handle, "	root 				/home/developer/www/cdn/www;\n\n");
 
     		fwrite($handle, "	ssl				on;\n");
 			fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
@@ -211,36 +192,61 @@
     		fwrite($handle, "	ssl_session_cache		shared:SSL:1m;\n");
     		fwrite($handle, "	ssl_prefer_server_ciphers	on;\n\n");
 
-            fwrite($handle, "   if (\$request_uri ~* \"^(.*/)index\.(php|html)$\") {\n");
-            fwrite($handle, "       return 301 $1;\n");
+
+            fwrite($handle, "   set \$cdn \"\";\n\n");
+            fwrite($handle, "   if (\$request_uri !~ /makers/.*) {\n");
+            fwrite($handle, "       set \$cdn 1\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ .*.thumb?.*) {\n");
+            fwrite($handle, "       set \$cdn 2\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /groups/.*) {\n");
+            fwrite($handle, "       set \$cdn 3\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /uploads/.*) {\n");
+            fwrite($handle, "       set \$cdn 4\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /brands/.*) {\n");
+            fwrite($handle, "       set \$cdn 5\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /favicon.ico) {\n");
+            fwrite($handle, "       set \$cdn 6\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /robots.txt) {\n");
+            fwrite($handle, "       set \$cdn 7\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$request_uri !~ /timer/.*) {\n");
+            fwrite($handle, "       set \$cdn 8\$cdn;\n");
+            fwrite($handle, "   }\n");
+            fwrite($handle, "   if (\$cdn = \"87654321\") {\n");
+            fwrite($handle, "       return 444;\n");
             fwrite($handle, "   }\n\n");
 
-	    	fwrite($handle, "	location / {\n");
-	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
-	    	fwrite($handle, "	}\n\n");
+            fwrite($handle, "   location / {\n");
+            fwrite($handle, "       try_files               \$uri \$uri/ /thumb/index.php?\$query_string;\n");
+            fwrite($handle, "   }\n\n");
 
-/*            fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               \$uri = 404;\n");
-        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
-        	fwrite($handle, "		include                 fastcgi_params;\n");
-        	fwrite($handle, "	}\n\n");*/
+            fwrite($handle, "   location /timer/ {\n");
+            fwrite($handle, "       location ~* \.gif$ {\n");
+            fwrite($handle, "           try_files               \$uri \$uri/ /timer/index.php?uri=\$uri;\n");
+            fwrite($handle, "       }\n");
+            fwrite($handle, "   }\n\n");
 
             fwrite($handle, "   location ~* \.php$ {\n");
             fwrite($handle, "       try_files               \$uri = 404;\n");
-            fwrite($handle, "       if (\$bot = 1) {\n");
-            fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n      }\n");
-            fwrite($handle, "       if (\$bot = 0) {\n");
-            fwrite($handle, "           fastcgi_pass            backend_fpm;\n      }\n");
+            fwrite($handle, "       fastcgi_pass            backend_fpm;\n");
             fwrite($handle, "       include                 fastcgi_params;\n");
+            fwrite($handle, "       expires                 360d;\n");
+            fwrite($handle, "       add_header              Cache-Control public;\n");
             fwrite($handle, "   }\n\n");
 
-            fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
-	    	fwrite($handle, "		access_log              off;\n");
-	    	fwrite($handle, "		expires                 360d;\n");
-	    	fwrite($handle, "		add_header              Cache-Control public;\n");
-	    	fwrite($handle, "	}\n\n");
+            fwrite($handle, "   location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
+            fwrite($handle, "       access_log              off;\n");
+            fwrite($handle, "       expires                 360d;\n");
+            fwrite($handle, "       add_header              Cache-Control public;\n");
+            fwrite($handle, "   }\n\n");
 
-	    	fwrite($handle, "}\n\n");
+            fwrite($handle, "}\n\n");
     	}
 
     	fclose($handle);

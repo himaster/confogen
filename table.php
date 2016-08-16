@@ -20,56 +20,34 @@
 		$name 	= $_GET['name'];
 		$ip 	= $_GET['ip'];
 		$project = $_GET['project'];
-		$lang   = $_GET['lang'];
 		$cert 	= $_GET['cert'];
-		$blogname = $_GET['blogname'];
 		$comment = $_GET['comment'];
-		if ($_GET['www'] == "true") $www	= 1;
-		else $www	= 0;
 		if ($_GET['http'] == "true") $http	= 1;
 		else $http	= 0;
 		if ($_GET['https'] == "true") $https	= 1;
 		else $https	= 0;
 		if ($_GET['test'] == "true") $test	= 1;
 		else $test	= 0;
-		if ($_GET['blog'] == "true") $blog	= 1;
-		else $blog	= 0;
-		if ($_GET['m'] == "true") $m		= 1;
-		else $m		= 0;
-		if ($_GET['mtest'] == "true") $mtest = 1;
-		else $mtest	= 0;
 		$sql 	= "UPDATE `domains` SET name 	 = '$name',
 									 	ip		 = '$ip',
 									 	project  = '$project',
-									 	lang     = '$lang',
-									 	www		 = '$www',
 									 	http	 = '$http',
 									 	https	 = '$https',
 									 	cert	 = '$cert',
 									 	test	 = '$test',
-									 	blog	 = '$blog',
-									 	blogname = '$blogname',
-									 	m		 = '$m',
-									 	mtest	 = '$mtest',
 									 	comment  = '$comment' WHERE id = '$id'";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	} elseif (!empty($_GET['name']) && !empty($_GET['ip'])) { #Adding
 		$name	= $_GET['name'];
 		$ip		= $_GET['ip'];
 		$project = $_GET['project'];
-		$lang   = $_GET['lang'];
-		$www	= $_GET['www'];
 		$http	= $_GET['http'];
 		$https	= $_GET['https'];
 		$cert	= $_GET['cert'];
 		$test	= $_GET['test'];
-		$blog	= $_GET['blog'];
-		$blogname = $_GET['blogname'];
-		$m		= $_GET['m'];
-		$mtest	= $_GET['mtest'];
 		$comment = $_GET['comment'];
-		$sql	= "INSERT INTO `domains` (name, ip, project, lang, www, http, https, test, m, mtest, cert, blog, blogname, comment)
-					   			  VALUES (\"$name\", \"$ip\", \"$project\", \"$lang\", $www, $http, $https, $test, $m, $mtest, \"$cert\", $blog, \"$blogname\", '$comment');";
+		$sql	= "INSERT INTO `domains` (name, ip, project, http, https, test, cert, comment)
+					   			  VALUES (\"$name\", \"$ip\", \"$project\", $http, $https, $test, \"$cert\", '$comment');";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 	$sql      = "SHOW TABLE STATUS LIKE 'domains'";

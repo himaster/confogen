@@ -4,30 +4,18 @@ function submit() {
                 show_table( document.getElementById('name').value,
                             document.getElementById('ip').value,
                             document.getElementById('project').value,
-                            document.getElementById('lang').value,
-                            document.getElementById('www').checked,
                             document.getElementById('http').checked,
                             document.getElementById('https').checked,
                             document.getElementById('cert').value,
                             document.getElementById('test').checked,
-                            document.getElementById('blog').checked,
-                            document.getElementById('blogname').value,
-                            document.getElementById('m').checked,
-                            document.getElementById('mtest').checked,
                             document.getElementById('comment').value);
                 document.getElementById('name').value = '';
                 document.getElementById('ip').value = '';
-                document.getElementById('project').value = '';
-                document.getElementById('lang').value = '';
-                document.getElementById('www').checked = false;
+                document.getElementById('project').value = 'cdn';
                 document.getElementById('http').checked = false;
                 document.getElementById('https').checked = false;
                 document.getElementById('cert').value = '';
                 document.getElementById('test').checked = false;
-                document.getElementById('blog').checked = false;
-                document.getElementById('blogname').value = '';
-                document.getElementById('m').checked = false;
-                document.getElementById('mtest').checked = false;
                 document.getElementById('comment').value = '';
             } else {
                 $('#newtable').addClass('wobble-horizontal');
@@ -41,16 +29,10 @@ function show_table(name, ip, project, lang, www, http, https, cert, test, blog,
                      '&name=' + name +
                      '&ip=' + ip +
                      '&project=' + project +
-                     '&lang=' + lang +
-                     '&www=' + www +
                      '&http=' + http +
                      '&https=' + https +
                      '&cert=' + cert +
                      '&test=' + test +
-                     '&blog=' + blog +
-                     '&blogname=' + blogname +
-                     '&m=' + m +
-                     '&mtest=' + mtest +
                      '&comment=' + comment;
 	$.ajax({
 	    url: "table.php",
@@ -88,16 +70,10 @@ function edit(id){
     document.getElementById('name_'+id).readOnly=false;
     document.getElementById('ip_'+id).readOnly=false;
     document.getElementById('project_'+id).readOnly=false;
-    document.getElementById('lang_'+id).readOnly=false;
-    document.getElementById('www_'+id).disabled=false;
     document.getElementById('http_'+id).disabled=false;
     document.getElementById('https_'+id).disabled=false;
     document.getElementById('cert_'+id).readOnly=false;
     document.getElementById('test_'+id).disabled=false;
-    document.getElementById('blog_'+id).disabled=false;
-    document.getElementById('blogname_'+id).readOnly=false;
-    document.getElementById('m_'+id).disabled=false;
-    document.getElementById('mtest_'+id).disabled=false;
     document.getElementById('comment_'+id).readOnly=false;
     document.getElementById('edit_'+id).style.display="none";
     document.getElementById('save_'+id).style.display="block";
@@ -109,16 +85,10 @@ function save(id){
                      '&name=' + document.getElementById('name_'+id).value +
                      '&ip=' + document.getElementById('ip_'+id).value +
                      '&project=' + document.getElementById('project_'+id).value +
-                     '&lang=' + document.getElementById('lang_'+id).value +
-                     '&www=' + document.getElementById('www_'+id).checked +
                      '&http=' + document.getElementById('http_'+id).checked +
                      '&https=' + document.getElementById('https_'+id).checked +
                      '&cert=' + document.getElementById('cert_'+id).value +
-                     '&blog=' + document.getElementById('blog_'+id).checked +
-                     '&blogname=' + document.getElementById('blogname_'+id).value +
                      '&test=' + document.getElementById('test_'+id).checked +
-                     '&m=' + document.getElementById('m_'+id).checked +
-                     '&mtest=' + document.getElementById('mtest_'+id).checked +
                      '&comment=' + encodeURIComponent(document.getElementById('comment_'+id).value);
     $.ajax({
         url: "table.php",
