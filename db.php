@@ -8,9 +8,9 @@
 	$dbpassword = 'Bie0gaen';
 	$dbname = 'confogen';
 
-	if ($env == "master") $dbhost = 'balancer1';
+	if ($env == "master") $dbhost = 'netbox.co';
 	elseif ($env == "cdn") $dbhost = 'cdn';
-	else $dbhost = 'netbox.co';
+	else $dbhost = '127.0.0.1';
 
 	#DB
 	$link = mysql_connect($dbhost, $dbuser, $dbpassword);
