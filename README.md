@@ -2,6 +2,7 @@
 Configuration management system
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 CDN
 =======
 Confogen
@@ -9,3 +10,6 @@ Confogen
 =======
 CDN test
 >>>>>>> test
+=======
+CDN test1
+>>>>>>> test1
