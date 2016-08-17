@@ -1,4 +1,4 @@
-		<TABLE class="table table-striped table-condensed" id="toptable">
+		<TABLE class="table table-striped table-condensed" id="newtable">
 			<TR class="active" class="maintable">
 				<TD><B>#</B></TD>
 				<TD><B>Name</B></TD>
