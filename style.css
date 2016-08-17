@@ -11,15 +11,8 @@
   text-align: center;
 }
 
-#toptable {
-  top: 0px;
-  margin-top: -48px;
-  margin-bottom: 5px;
-  position: fixed;
-}
-
 #newtable {
-  top: 79px;
+  top: 0px;
   margin-top: -48px;
   margin-bottom: 5px;
   position: fixed;

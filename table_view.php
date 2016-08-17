@@ -1,6 +1,3 @@
-		<TABLE class="table table-striped table-condensed" id="toptable">
-			
-		</TABLE>
 		<TABLE class="table table-striped table-condensed" id="newtable">
 		    <TR class="active">
 				<TD><B>#</B></TD>
