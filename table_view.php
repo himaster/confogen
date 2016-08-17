@@ -1,5 +1,5 @@
-		<TABLE class="table table-striped table-condensed" id="newtable">
-			<TR class="active" class="maintable">
+		<TABLE class="table table-striped table-condensed" id="toptable">
+			<TR class="active">
 				<TD><B>#</B></TD>
 				<TD><B>Name</B></TD>
 				<TD><B>IP</B></TD>
