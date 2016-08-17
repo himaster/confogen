@@ -24,7 +24,7 @@ function submit() {
             }
         }
 
-function show_table(name, ip, project, lang, www, http, https, cert, test, blog, blogname, m, mtest, comment){
+function show_table(name, ip, project, http, https, cert, test, comment){
 	var dataString = '&act=add' +
                      '&name=' + name +
                      '&ip=' + ip +
