@@ -47,7 +47,7 @@
 		$test	= $_GET['test'];
 		$comment = $_GET['comment'];
 		$sql	= "INSERT INTO `domains` (name, ip, project, http, https, test, cert, comment)
-					   			  VALUES (\"$name\", \"$ip\", \"$project\", $http, $https, $test, \"$cert\", '$comment');";
+					   			  VALUES ('$name', '$ip', '$project', '$http', '$https', '$test', '$cert', '$comment');";
 		$result = mysql_query($sql, $link)  or die(mysql_error());
 	}
 	$sql      = "SHOW TABLE STATUS LIKE 'domains'";
