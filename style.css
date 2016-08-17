@@ -12,8 +12,10 @@
 }
 
 #toptable {
-  position: fixed;
   top: 0px;
+  margin-top: -48px;
+  margin-bottom: 5px;
+  position: fixed;
 }
 
 #newtable {
