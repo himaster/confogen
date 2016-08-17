@@ -1,5 +1,8 @@
 		<TABLE class="table table-striped table-condensed" id="toptable">
-			<TR class="active">
+			
+		</TABLE>
+		<TABLE class="table table-striped table-condensed" id="newtable">
+		    <TR class="active">
 				<TD><B>#</B></TD>
 				<TD><B>Name</B></TD>
 				<TD><B>IP</B></TD>
@@ -13,8 +16,6 @@
 				<TD><B><FONT size='1'>Ed.</FONT></B></TD>
 				<TD><B><FONT size='1'>Re.</FONT></B></TD>
 			</TR>
-		</TABLE>
-		<TABLE class="table table-striped table-condensed" id="newtable">
 			<TR class="active">
 				<TD><DIV id="id"><FONT size="1">New</FONT></DIV></TD>
 				<TD><INPUT type="text" id="name" value=""></TD>
