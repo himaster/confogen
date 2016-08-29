@@ -103,7 +103,7 @@
 	    }
 
     	if ($test) {
-    		$server_name = "test.".$name;
+    		$server_name = "t".$name;
 
 	    	fwrite($handle, "## Test\n");
 	    	fwrite($handle, "server {\n");
