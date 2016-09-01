@@ -43,7 +43,7 @@
     		fwrite($handle, "   listen ".$ip.":80;\n");
     		fwrite($handle, "   server_name ".$server_name.";\n");
     		fwrite($handle, "   index               index.php index.html;\n");
-    		fwrite($handle, "   root                /home/developer/www/cdn.old/www;\n\n");
+    		fwrite($handle, "   root                /home/developer/www/cdn/www;\n\n");
 
             fwrite($handle, "   set \$cdn \"\";\n\n");
             fwrite($handle, "   if (\$request_uri !~ /makers/.*) {\n");
@@ -110,7 +110,7 @@
     		fwrite($handle, "   listen ".$ip.":80;\n");
     		fwrite($handle, "   server_name ".$server_name.";\n");
     		fwrite($handle, "   index				index.php index.html;\n");
-    		fwrite($handle, "   root				/home/developer/www/tcdn.old/www;\n\n");
+    		fwrite($handle, "   root				/home/developer/www/tcdn/www;\n\n");
             fwrite($handle, "   set \$cdn \"\";\n\n");
             fwrite($handle, "   if (\$request_uri !~ /makers/.*) {\n");
             fwrite($handle, "      set \$cdn 1\$cdn;\n");
@@ -180,7 +180,7 @@
     		fwrite($handle, "	server_name ".$name.";\n");
 
     		fwrite($handle, "	index 				index.php index.html;\n");
-    		fwrite($handle, "	root 				/home/developer/www/cdn.old/www;\n\n");
+    		fwrite($handle, "	root 				/home/developer/www/cdn/www;\n\n");
 
     		fwrite($handle, "	ssl				on;\n");
 			fwrite($handle, "	ssl_certificate			".$certfile.".crt;\n");
