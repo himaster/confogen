@@ -81,6 +81,11 @@
             fwrite($handle, "   location /timer/ {\n");
             fwrite($handle, "      location ~* \.gif$ {\n");
             fwrite($handle, "         try_files               \$uri \$uri/ /timer/index.php?uri=\$uri;\n");
+            fwrite($handle, "      }\n\n");
+            fwrite($handle, "      location ~* \.php$ {\n");
+            fwrite($handle, "          try_files               \$uri = 404;\n");
+            fwrite($handle, "          fastcgi_pass            backend_fpm;\n");
+            fwrite($handle, "          include                 fastcgi_params;\n");
             fwrite($handle, "      }\n");
             fwrite($handle, "   }\n\n");
 
@@ -153,6 +158,11 @@
             fwrite($handle, "   location /timer/ {\n");
             fwrite($handle, "      location ~* \.gif$ {\n");
             fwrite($handle, "         try_files               \$uri \$uri/ /timer/index.php?uri=\$uri;\n");
+            fwrite($handle, "      }\n\n");
+            fwrite($handle, "      location ~* \.php$ {\n");
+            fwrite($handle, "          try_files               \$uri = 404;\n");
+            fwrite($handle, "          fastcgi_pass            backend_fpm;\n");
+            fwrite($handle, "          include                 fastcgi_params;\n");
             fwrite($handle, "      }\n");
             fwrite($handle, "   }\n\n");
 
