@@ -44,7 +44,6 @@
     		$prefix = "";
     		if ($www) $server_name = "www.";
     		$server_name .= $name;
-    		if ($m) $server_name .= " m.".$name;
 	    	fwrite($handle, "## Add/remove www\n");
 	    	fwrite($handle, "server {\n");
 	    	fwrite($handle, "	listen ".$ip.":80;\n");
@@ -93,12 +92,6 @@
         	fwrite($handle, "		proxy_pass		http://www.pkwteile.de/etracking;\n");
     		fwrite($handle, "	}\n\n");
 
-/*            fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               \$uri = 404;\n");
-        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
-        	fwrite($handle, "		include                 fastcgi_params;\n");
-        	fwrite($handle, "	}\n\n");*/
-
             fwrite($handle, "   location ~* \.php$ {\n");
             fwrite($handle, "       try_files               \$uri = 404;\n");
             fwrite($handle, "       if (\$bot = 1) {\n");
@@ -111,9 +104,6 @@
             fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
             fwrite($handle, "       expires                 360d;\n");
-            fwrite($handle, "       if (\$host ~* ^m\.([a-z0-9-\.]+)$) {");
-            fwrite($handle, "           expires                 2d;\n");
-            fwrite($handle, "       }");
 	    	fwrite($handle, "		add_header              Cache-Control public;\n");
 	    	fwrite($handle, "	}\n\n");
 
@@ -150,13 +140,6 @@
 			fwrite($handle, "	location = /img/ec.png {\n");
         	fwrite($handle, "		proxy_pass		http://test.pkwteile.de/etracking;\n");
     		fwrite($handle, "	}\n\n");
-
-/*            fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               \$uri = 404;\n");
-        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
-        	fwrite($handle, "		include                 fastcgi_params;\n");
-        	fwrite($handle, "	}\n\n"); */
-
 
             fwrite($handle, "   location ~* \.php$ {\n");
             fwrite($handle, "       try_files               \$uri = 404;\n");
@@ -222,12 +205,6 @@
 	    	fwrite($handle, "		try_files		\$uri \$uri/ /index.php?\$query_string;\n");
 	    	fwrite($handle, "	}\n\n");
 
-/*            fwrite($handle, "	location ~* \.php$ {\n");
-        	fwrite($handle, "		try_files               \$uri = 404;\n");
-        	fwrite($handle, "		fastcgi_pass            backend_fpm;\n");
-        	fwrite($handle, "		include                 fastcgi_params;\n");
-        	fwrite($handle, "	}\n\n");*/
-
             fwrite($handle, "   location ~* \.php$ {\n");
             fwrite($handle, "       try_files               \$uri = 404;\n");
             fwrite($handle, "       if (\$bot = 1) {\n");
@@ -245,6 +222,89 @@
 
 	    	fwrite($handle, "}\n\n");
     	}
+
+        if ($m) {
+            fwrite($handle, "## HTTP mobile\n");
+            fwrite($handle, "server {\n");
+            fwrite($handle, "   listen ".$ip.":80;\n");
+            fwrite($handle, "   server_name m.".$name.";\n");
+            fwrite($handle, "   index               index.php index.html;\n");
+            fwrite($handle, "   root                /home/developer/www/fuel.prod/www;\n\n");
+
+            fwrite($handle, "   if (\$request_uri ~* \"^(.*/)index\.(php|html)$\") {\n");
+            fwrite($handle, "       return 301 $1;\n");
+            fwrite($handle, "   }\n\n");
+
+            fwrite($handle, "   location / {\n");
+            fwrite($handle, "       try_files       \$uri \$uri/ /index.php?\$query_string;\n");
+            fwrite($handle, "   }\n\n");
+
+            fwrite($handle, "   location = /img/ec.png {\n");
+            fwrite($handle, "       proxy_pass      http://www.pkwteile.de/etracking;\n");
+            fwrite($handle, "   }\n\n");
+
+            fwrite($handle, "   location ~* \.php$ {\n");
+            fwrite($handle, "       try_files               \$uri = 404;\n");
+            fwrite($handle, "       if (\$bot = 1) {\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n      }\n");
+            fwrite($handle, "       if (\$bot = 0) {\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm;\n      }\n");
+            fwrite($handle, "       include                 fastcgi_params;\n");
+            fwrite($handle, "   }\n\n");
+
+            fwrite($handle, "   location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
+            fwrite($handle, "       access_log              off;\n");
+            fwrite($handle, "       expires                 2d;\n");
+            fwrite($handle, "       add_header              Cache-Control public;\n");
+            fwrite($handle, "   }\n\n");
+
+            fwrite($handle, "}\n\n");
+
+        }
+
+        if ($mtest) {
+            fwrite($handle, "## Mobile test\n");
+            fwrite($handle, "server {\n");
+            fwrite($handle, "   listen ".$ip.":80;\n");
+            fwrite($handle, "   server_name mtest.".$name.";\n");
+            fwrite($handle, "   index               index.php index.html;\n");
+            fwrite($handle, "   root                /home/developer/www/fuel.dev/www;\n\n");
+
+            fwrite($handle, "   if (\$request_uri ~* \"^(.*/)index\.(php|html)$\") {\n");
+            fwrite($handle, "       return 301 $1;\n");
+            fwrite($handle, "   }\n\n");
+
+            fwrite($handle, "   location / {\n");
+            fwrite($handle, "       satisfy         any;\n");
+            fwrite($handle, "       allow           188.138.234.131;\n");
+            fwrite($handle, "       allow           217.89.150.114;\n");
+            fwrite($handle, "       allow           178.93.126.106;\n");
+            fwrite($handle, "       auth_basic      \"Restricted Area\";\n");
+            fwrite($handle, "       auth_basic_user_file    /etc/nginx/passwd;\n");
+            fwrite($handle, "       try_files       \$uri \$uri/ /index.php?\$query_string;\n");
+            fwrite($handle, "   }\n\n");
+
+            fwrite($handle, "   location = /img/ec.png {\n");
+            fwrite($handle, "       proxy_pass      http://test.pkwteile.de/etracking;\n");
+            fwrite($handle, "   }\n\n");
+
+            fwrite($handle, "   location ~* \.php$ {\n");
+            fwrite($handle, "       try_files               \$uri = 404;\n");
+            fwrite($handle, "       if (\$bot = 1) {\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n      }\n");
+            fwrite($handle, "       if (\$bot = 0) {\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm;\n      }\n");
+            fwrite($handle, "       include                 fastcgi_params;\n");
+            fwrite($handle, "   }\n\n");
+
+            fwrite($handle, "   location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
+            fwrite($handle, "       access_log              off;\n");
+            fwrite($handle, "       expires                 2d;\n");
+            fwrite($handle, "       add_header              Cache-Control public;\n");
+            fwrite($handle, "   }\n\n");
+
+            fwrite($handle, "}\n\n");
+        }
 
     	fclose($handle);
     }
