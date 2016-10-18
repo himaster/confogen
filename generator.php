@@ -110,7 +110,10 @@
 
             fwrite($handle, "	location ~* \.(jpg|jpeg|gif|png|bmp|swf|css|js|cur|gz|pdf|img)$ {\n");
 	    	fwrite($handle, "		access_log              off;\n");
-	    	fwrite($handle, "		expires                 360d;\n");
+            fwrite($handle, "       expires                 360d;\n");
+            fwrite($handle, "       if (\$host ~* ^m\.([a-z0-9-\.]+)$) {");
+            fwrite($handle, "           expires                 2d;\n");
+            fwrite($handle, "       }");
 	    	fwrite($handle, "		add_header              Cache-Control public;\n");
 	    	fwrite($handle, "	}\n\n");
 
