@@ -115,7 +115,6 @@
     		$server_name = "";
     		if ($www) $server_name = "test.";
     		$server_name .= $name;
-    		if ($mtest) $server_name .= " mtest.".$name;
 	    	fwrite($handle, "## Test\n");
 	    	fwrite($handle, "server {\n");
     		fwrite($handle, "	listen ".$ip.":80;\n");
