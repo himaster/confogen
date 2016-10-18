@@ -1,3 +1,3 @@
 # confogen
 Configuration management system
-master1
+master
