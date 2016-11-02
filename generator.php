@@ -5,9 +5,9 @@
 	$certdir = '/etc/nginx/certs/';
 	$id = $_GET['id'];
 	if ($id == "undefined") {
-		$files = glob($workdir.'*'); // get all file names
-		foreach($files as $file){ // iterate files
-  			if(is_file($file)) unlink($file); // delete file
+		$files = glob($workdir.'*');
+		foreach($files as $file){
+  			if(is_file($file)) unlink($file);
 		}
 		$sql = "SELECT * FROM `domains`;";
 	}
@@ -145,7 +145,7 @@
             fwrite($handle, "       if (\$bot = 1) {\n");
             fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n      }\n");
             fwrite($handle, "       if (\$bot = 0) {\n");
-            fwrite($handle, "           fastcgi_pass            backend_fpm;\n      }\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm_test;\n      }\n");
             fwrite($handle, "       include                 fastcgi_params;\n");
             fwrite($handle, "   }\n\n");
 
@@ -292,7 +292,7 @@
             fwrite($handle, "       if (\$bot = 1) {\n");
             fwrite($handle, "           fastcgi_pass            backend_fpm_bot;\n      }\n");
             fwrite($handle, "       if (\$bot = 0) {\n");
-            fwrite($handle, "           fastcgi_pass            backend_fpm;\n      }\n");
+            fwrite($handle, "           fastcgi_pass            backend_fpm_test;\n      }\n");
             fwrite($handle, "       include                 fastcgi_params;\n");
             fwrite($handle, "   }\n\n");
 
